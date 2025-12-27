@@ -142,3 +142,16 @@ To help engineers and students move from:
 to  
 > *“This system works reliably in the real world.”*
 
+
+
+## Architecture
+
+- [Production-Grade LLM System Design](architecture/production-grade-llm-system/mind-map.md)
+
+
+
+#### Disclaimer:
+
+- This Information present in the repository reflects the author’s personal views, Knowledge and experiences.
+
+- No proprietary, confidential, or sensitive information has been used or disclosed. All examples, architectures, and discussions are illustrative and based on publicly available knowledge or generalized industry practices.
