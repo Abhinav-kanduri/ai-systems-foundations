@@ -143,15 +143,58 @@ to
 > *“This system works reliably in the real world.”*
 
 
+This repository documents the **conceptual layers of modern AI systems**, from language models to autonomous agents.
 
-## Architecture
+No frameworks.
+No APIs.
+No vendor lock-in.
 
-- [Production-Grade LLM System Design](architecture/production-grade-llm-system/mind-map.md)
+Only systems thinking.
 
+---
 
+## Concept Layers
+
+- Large Language Models (LLMs)
+- Retrieval-Augmented Generation (RAG)
+- AI Agents
+- Agentic AI
+- Multimodal Intelligence
+
+---
+
+## Design Philosophy
+
+- Architecture over tools
+- Failure-aware thinking
+- Production realism
+- Vendor neutrality
+
+---
+
+## Intended Audience
+
+- Senior engineers
+- Architects
+- Researchers
+- System designers
+
+---
+
+**Author:** Abhinav Sai Kanduri
 
 #### Disclaimer:
 
 - This Information present in the repository reflects the author’s personal views, Knowledge and experiences.
 
 - No proprietary, confidential, or sensitive information has been used or disclosed. All examples, architectures, and discussions are illustrative and based on publicly available knowledge or generalized industry practices.
+
+
+
+
+----
+
+## Architecture
+
+- Concept 1 -> [Production-Grade LLM System Design](architecture/production-grade-llm-system/mind-map.md)
+
