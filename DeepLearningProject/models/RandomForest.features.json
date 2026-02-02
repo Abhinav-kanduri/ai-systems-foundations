@@ -1,0 +1,23 @@
+[
+  "Frequency",
+  "Monetary",
+  "avg_basket_value",
+  "avg_items_per_invoice",
+  "Recency",
+  "Tenure",
+  "gap_mean",
+  "gap_median",
+  "gap_std",
+  "unique_products",
+  "avg_unit_price",
+  "return_rate",
+  "Country_Belgium",
+  "Country_France",
+  "Country_Germany",
+  "Country_Netherlands",
+  "Country_Other",
+  "Country_Portugal",
+  "Country_Spain",
+  "Country_Switzerland",
+  "Country_United Kingdom"
+]
