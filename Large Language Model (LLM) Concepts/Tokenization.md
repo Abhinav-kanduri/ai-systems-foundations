@@ -4,7 +4,7 @@ Here is a clean, structured **Tokenization.md** file ready to place in your repo
 
 # Tokenization
 
-## 1. Why Tokenization Exists
+## 1. Why Tokenization Exists:
 
 Large Language Models (LLMs) do not process text.
 They process sequences of integers.
