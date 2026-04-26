@@ -1,4 +1,3 @@
-````markdown
 # LangGraph for Production-Grade Agentic AI
 
 Build stateful, reliable, multi-step LLM agents using **LangGraph** for production-ready Agentic RAG workflows.
@@ -72,7 +71,7 @@ Human Approval, if required
 Final Response
    ↓
 Tracing + Evaluation
-````
+```
 
 ---
 
