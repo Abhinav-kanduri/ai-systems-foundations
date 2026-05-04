@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # API Service
+  api:
+    build: .
+    container_name: underwriting-api
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=docker
+      - DATABASE_URL=postgresql://underwriting:underwriting@postgres:5432/underwriting
+      - REDIS_URL=redis://redis:6379/0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    depends_on:
+      - postgres
+      - redis
+      - otel-collector
+    volumes:
+      - .:/app
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - underwriting-network
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: underwriting-db
+    environment:
+      POSTGRES_USER: underwriting
+      POSTGRES_PASSWORD: underwriting
+      POSTGRES_DB: underwriting
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - underwriting-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U underwriting"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: underwriting-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - underwriting-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: underwriting-otel
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+      - "9411:9411"   # Zipkin
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    networks:
+      - underwriting-network
+
+  # Jaeger for trace visualization
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: underwriting-jaeger
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+    networks:
+      - underwriting-network
+
+  # UI Dashboard (Streamlit)
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    container_name: underwriting-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    volumes:
+      - ./ui:/app/ui
+    networks:
+      - underwriting-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  underwriting-network:
+    driver: bridge
