@@ -18,6 +18,7 @@ This enables fact-grounded, up-to-date, and auditable responses.
 
 ## Core Concepts
 
+- Why LLM failures are structural
 - Embedding models
 - Vector databases
 - Similarity scoring
@@ -63,3 +64,14 @@ This enables fact-grounded, up-to-date, and auditable responses.
 ## Why This Layer Matters
 
 RAG turns LLMs from **language engines** into **knowledge-aware systems**.
+
+---
+
+## Learning Path
+
+- [How LLMs Actually Work and Why Failures Are Inevitable](How%20LLMs%20Actually%20Work%20and%20Why%20Failures%20Are%20Inevitable.md)
+- [Big Picture: What a Transformer Is Really Doing](Big%20Picture%20-%20What%20a%20Transformer%20Is%20Really%20Doing.md)
+- [Core Limitations of LLM Intelligence](Core%20Limitations%20of%20LLM%20Intelligence.md)
+- [Context Window & Attention Constraints](Context%20Window%20%26%20Attention%20Constraints.md)
+- [Why RAG Exists: The Promise](Why%20RAG%20Exists%20-%20The%20Promise.md)
+- [RAG Architecture: End-to-End](RAG%20Architecture%20-%20End-to-End.md)
