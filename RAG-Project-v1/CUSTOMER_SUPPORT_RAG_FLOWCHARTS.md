@@ -3,6 +3,11 @@
 This document shows an end-to-end Retrieval-Augmented Generation (RAG) flow for a
 customer support application used by both customers and customer service agents.
 
+# Author - Abhinav Kanduri
+
+- Linkedin : https://www.linkedin.com/in/abhinav-kanduri-a943b9353/
+This project is only for learning purpose and understand the latest concepts such as LLM, RAG AI Agentic frameworks, PROMPT ENGINEERING WORKS, CONTEXT MANAGEMENT.
+
 ## Problem Statement
 
 A company wants to build a customer support assistant that can answer questions

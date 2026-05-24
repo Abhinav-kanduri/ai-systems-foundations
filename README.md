@@ -4,7 +4,7 @@ AI Systems Foundations documents core concepts, design principles, and real-worl
 
 
 
-Most AI systems work well in demos — and fail quietly in production.
+Most AI systems work well in demos - and fail quietly in production.
 
 They return inconsistent answers, hallucinate under pressure, become expensive
 at scale, or break when data, prompts, or user behavior changes.
@@ -16,14 +16,14 @@ This repository is a curated, open-source knowledge base documenting the
 building **production-grade AI systems**.
 
 Rather than focusing on isolated model training or toy examples, this repository
-focuses on **system-level thinking** — how AI systems behave *as systems* when
+focuses on **system-level thinking** - how AI systems behave *as systems* when
 they are deployed, evaluated, scaled, and operated in real environments.
 
 ---
 
 ## Why This Repository Exists
 
-If you’ve ever asked questions like:
+If you've ever asked questions like:
 
 - Why does the same LLM give different answers for the same input?
 - Why does RAG work in a prototype but fail in production?
@@ -31,15 +31,15 @@ If you’ve ever asked questions like:
 - Why do latency and cost increase non-linearly at scale?
 
 This repository is designed to help you build a **clear mental model** of how
-AI systems actually behave in practice — and where they break.
+AI systems actually behave in practice - and where they break.
 
 ---
 
-## What You’ll Learn Here
+## What You'll Learn Here
 
 This repository focuses on **reusable foundations**, not one-off solutions.
 
-You’ll find explanations and design reasoning around:
+You'll find explanations and design reasoning around:
 
 - How **LLMs behave during inference**
 - Why **retrieval-augmented systems fail**
@@ -98,13 +98,13 @@ Concepts can be read independently or followed as a connected system narrative.
 
 This repository is especially useful for:
 
-- Students transitioning from models → systems
+- Students transitioning from models to systems
 - Engineers building real AI applications
 - AI/ML practitioners working with LLMs and RAG
 - Architects designing scalable AI platforms
 - Researchers interested in applied, production-facing AI
 
-If you’re curious *why AI systems behave the way they do*, you’re in the right
+If you're curious *why AI systems behave the way they do*, you're in the right
 place.
 
 ---
@@ -138,9 +138,9 @@ project- or client-specific details.
 
 To help engineers and students move from:
 
-> *“It works in a demo”*  
+> *"It works in a demo"*  
 to  
-> *“This system works reliably in the real world.”*
+> *"This system works reliably in the real world."*
 
 
 This repository documents the **conceptual layers of modern AI systems**, from language models to autonomous agents.
@@ -181,11 +181,17 @@ Only systems thinking.
 
 ---
 
-**Author:** Abhinav Sai Kanduri
+## Author
+
+**Abhinav Kanduri**
+
+- LinkedIn: <https://www.linkedin.com/in/abhinav-kanduri-a943b9353/>
+
+This project is for learning purposes only. It is intended to document and understand modern AI concepts such as LLMs, retrieval-augmented generation (RAG), agentic AI frameworks, prompt engineering workflows, and context management.
 
 #### Disclaimer:
 
-- This Information present in the repository reflects the author’s personal views, Knowledge and experiences.
+- The information in this repository reflects the author's personal views, knowledge, and experiences.
 
 - No proprietary, confidential, or sensitive information has been used or disclosed. All examples, architectures, and discussions are illustrative and based on publicly available knowledge or generalized industry practices.
 
