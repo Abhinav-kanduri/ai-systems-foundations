@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "FordwardDeployementEngineer.md"
+      - "content/guides/end-to-end-fde-learning-map/**"
       - "docs/**"
       - ".github/workflows/deploy-fde-field-guide.yml"
   workflow_dispatch:
@@ -32,7 +32,7 @@ jobs:
       - name: Prepare source content
         run: |
           mkdir -p docs/content
-          cp FordwardDeployementEngineer.md docs/content/fde-learning-map.md
+          cp content/guides/end-to-end-fde-learning-map/README.md docs/content/fde-learning-map.md
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

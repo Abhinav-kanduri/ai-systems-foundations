@@ -1,206 +1,101 @@
 # AI Systems Foundations
 
-AI Systems Foundations documents core concepts, design principles, and real-world failure modes for building production-grade AI systems, with a focus on LLMs, RAG, evaluation, LLMOps, and enterprise AI architecture.
-
-
-
-Most AI systems work well in demos - and fail quietly in production.
-
-They return inconsistent answers, hallucinate under pressure, become expensive
-at scale, or break when data, prompts, or user behavior changes.
-
-**AI Systems Foundations** exists to explain *why that happens*.
-
-This repository is a curated, open-source knowledge base documenting the
-**core concepts, design principles, and real-world failure modes** involved in
-building **production-grade AI systems**.
-
-Rather than focusing on isolated model training or toy examples, this repository
-focuses on **system-level thinking** - how AI systems behave *as systems* when
-they are deployed, evaluated, scaled, and operated in real environments.
-
----
-
-## Why This Repository Exists
-
-If you've ever asked questions like:
-
-- Why does the same LLM give different answers for the same input?
-- Why does RAG work in a prototype but fail in production?
-- Why do evaluation metrics look good but users are unhappy?
-- Why do latency and cost increase non-linearly at scale?
-
-This repository is designed to help you build a **clear mental model** of how
-AI systems actually behave in practice - and where they break.
-
----
-
-## What You'll Learn Here
-
-This repository focuses on **reusable foundations**, not one-off solutions.
-
-You'll find explanations and design reasoning around:
-
-- How **LLMs behave during inference**
-- Why **retrieval-augmented systems fail**
-- How **prompt drift** emerges over time
-- Why **evaluation is often misleading**
-- How **cost, latency, and reliability trade off**
-- What changes when AI systems move into **enterprise environments**
-
-Each topic is written to help you think like a **system designer**, not just a
-model user.
-
----
-
-## What This Repository Is
-
-- A conceptual foundation for **AI system design**
-- A collection of **failure modes, trade-offs, and architectural patterns**
-- Technology-agnostic and reusable across domains
-- Grounded in real-world production experience
-- A long-term reference for engineers, students, and researchers
-
----
-
-## What This Repository Is Not
-
-- This repository does **not** contain proprietary, confidential, or
-  client-specific information.
-- It does **not** reproduce or redistribute copyrighted material from
-  paid courses, books, or private documentation.
-- All content is written from first principles or derived from
-  publicly available knowledge and professional experience.
-- Examples, diagrams, and explanations are **original** and intended
-  for educational and research purposes only.
-- This repository is not affiliated with, endorsed by, or representing
-  any employer, client, or organization.
-- All opinions expressed are solely those of the author.
-
----
-
-## Repository Structure
-
-- **`foundations/`**  
-  Core conceptual knowledge organized by domain (LLMs, RAG, prompting,
-  evaluation, LLMOps, enterprise systems).  
-  Each concept is documented as a standalone Markdown file.
-
-- **`diagrams/`**  
-  Architecture and workflow diagrams that make system behavior and
-  trade-offs explicit.
-
-Concepts can be read independently or followed as a connected system narrative.
-
----
-
-## Who This Is For
-
-This repository is especially useful for:
-
-- Students transitioning from models to systems
-- Engineers building real AI applications
-- AI/ML practitioners working with LLMs and RAG
-- Architects designing scalable AI platforms
-- Researchers interested in applied, production-facing AI
-
-If you're curious *why AI systems behave the way they do*, you're in the right
-place.
-
----
-
-## How This Repository Is Intended to Be Used
-
-- Referenced from project and system-design repositories
-- Linked from technical blogs and articles
-- Used as a thinking framework during design reviews
-- Extended through thoughtful community contributions
-
-Concrete implementations and end-to-end systems live in **separate repositories**
-and reference the foundations documented here.
-
----
-
-## Contributions
-
-Contributions are welcome in the form of:
-
-- New conceptual write-ups
-- Refinements to existing explanations
-- Additional diagrams that improve clarity
-
-All contributions should focus on **reusable, system-level insight**, not
-project- or client-specific details.
-
----
-
-## Vision
-
-To help engineers and students move from:
-
-> *"It works in a demo"*  
-to  
-> *"This system works reliably in the real world."*
-
-
-This repository documents the **conceptual layers of modern AI systems**, from language models to autonomous agents.
-
-No frameworks.
-No APIs.
-No vendor lock-in.
-
-Only systems thinking.
-
----
-
-## Concept Layers
-
-- Large Language Models (LLMs)
-- Retrieval-Augmented Generation (RAG)
-- AI Agents
-- Agentic AI
-- Multimodal Intelligence
-
----
-
-## Design Philosophy
-
-- Architecture over tools
-- Failure-aware thinking
-- Production realism
-- Vendor neutrality
-
----
-
-## Intended Audience
-
-- Senior engineers
-- Architects
-- Researchers
-- System designers
-
----
-
-## Author
-
-**Abhinav Kanduri**
-
-- LinkedIn: <https://www.linkedin.com/in/abhinav-kanduri-a943b9353/>
-
-This project is for learning purposes only. It is intended to document and understand modern AI concepts such as LLMs, retrieval-augmented generation (RAG), agentic AI frameworks, prompt engineering workflows, and context management.
-
-#### Disclaimer:
-
-- The information in this repository reflects the author's personal views, knowledge, and experiences.
-
-- No proprietary, confidential, or sensitive information has been used or disclosed. All examples, architectures, and discussions are illustrative and based on publicly available knowledge or generalized industry practices.
-
-
-
-
-----
-
-## Architecture
-
-- Concept 1 -> [Production-Grade LLM System Design](architecture/production-grade-llm-system/mind-map.md)
-
+Core concepts, architecture notes, and hands-on projects for understanding how AI
+systems behave in production: language models, retrieval, agents, evaluation,
+reliability, and enterprise deployment.
+
+The learning material focuses on system design, practical trade-offs, and failure
+modes. The projects provide examples to explore alongside those concepts.
+
+## Start here
+
+1. Build the basics with [Generative AI and deep learning](foundations/generative-ai/README.md).
+2. Study [language models](foundations/llms/README.md) and [tokenization](foundations/llms/tokenization.md).
+3. Follow the [RAG learning sequence](foundations/rag/README.md).
+4. Explore [AI agents](foundations/ai-agents/README.md), [agentic AI](foundations/agentic-ai/README.md), and [multimodal AI](foundations/multimodal/README.md).
+5. Review [system architectures](architectures/README.md) and choose a [project](projects/README.md).
+6. Read or write [blogs, technical articles, and learning guides](content/README.md).
+
+## Repository structure
+
+```text
+ai-systems-foundations/
+├── foundations/                 Concept notes and learning notebooks
+│   ├── generative-ai/
+│   ├── llms/
+│   ├── rag/
+│   ├── ai-agents/
+│   ├── agentic-ai/
+│   └── multimodal/
+├── architectures/               System designs and architecture diagrams
+│   ├── cloud/                   AWS, Azure, Google Cloud, Databricks
+│   ├── production-llm-system/
+│   └── rag/
+├── projects/                    Applications and project guides
+│   ├── genai-career-navigator/
+│   ├── rag-pipeline/
+│   ├── reliable-multi-agent-loan-underwriting/
+│   └── retail-customer-churn/
+├── content/                     Blogs, technical articles, and learning guides
+│   ├── articles/
+│   ├── guides/
+│   └── templates/
+├── career/                      Career resources and Custom GPT configuration
+├── docs/                        FDE Field Guide website (GitHub Pages)
+├── assets/images/               Repository-wide images
+├── archive/placeholders/        Preserved empty placeholder files
+├── .github/workflows/           Deployment automation
+├── CONTRIBUTING.md              Organization and contribution conventions
+├── LICENSE
+└── README.md
+```
+
+| Area | Contents |
+| --- | --- |
+| [Foundations](foundations/README.md) | Concepts, lecture notes, and a tokenizer lab |
+| [Architectures](architectures/README.md) | Cloud platforms, production LLM systems, and RAG validation |
+| [Projects](projects/README.md) | Churn prediction, career dashboard, loan underwriting, and a RAG pipeline guide |
+| [Writing library](content/README.md) | Blogs, technical articles, learning guides, and reusable writing templates |
+| [Career](career/README.md) | Career resources and the GenAI Career Navigator Custom GPT package |
+| [Website](docs/README.md) | FDE Field Guide source, local preview, and deployment instructions |
+
+## Working with projects
+
+Each project owns its dependencies, data, configuration, and run instructions.
+Open its README and run commands from that project's directory. For example:
+
+```powershell
+cd projects/genai-career-navigator
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+The [RAG pipeline](projects/rag-pipeline/README.md) is a setup guide and design
+reference; its proposed application files are not yet implemented.
+
+To preview the FDE website from the repository root:
+
+```powershell
+python -m http.server 8000
+```
+
+Open <http://localhost:8000/docs/>. The website reads the learning map from
+`content/guides/end-to-end-fde-learning-map/README.md` during local development.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for folder placement, naming conventions,
+and a map from the previous layout. Keep explanations reusable, diagrams beside
+the material they describe, and project implementation inside projects.
+
+## Author and license
+
+**Abhinav Kanduri** · [LinkedIn](https://www.linkedin.com/in/abhinav-kanduri-a943b9353/)
+
+Licensed under the [MIT License](LICENSE).
+
+This repository is for educational and research purposes. It reflects the
+author's personal views and is not affiliated with an employer, client, or
+organization. Examples are illustrative and use publicly available knowledge or
+generalized practices; no proprietary, confidential, or client-specific material
+is intended for inclusion.
