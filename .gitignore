@@ -1,0 +1,26 @@
+# Local Python environments and generated caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local credentials and tool settings
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+
+# Generated website content (prepared by the Pages workflow)
+/docs/content/
+
+# Operating system files
+.DS_Store
+Thumbs.db

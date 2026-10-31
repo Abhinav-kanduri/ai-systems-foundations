@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const CONTENT_PATHS = ["content/fde-learning-map.md", "../FordwardDeployementEngineer.md"];
+  const CONTENT_PATHS = ["content/fde-learning-map.md", "../content/guides/end-to-end-fde-learning-map/README.md"];
   const STORAGE_KEY = "fde-field-guide-progress-v1";
 
   const groups = [
