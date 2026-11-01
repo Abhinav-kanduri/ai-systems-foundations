@@ -1,46 +1,87 @@
-name: Deploy FDE Field Guide to GitHub Pages
+name: Validate and optionally deploy Technical Publications
 
 on:
   push:
     branches:
       - main
     paths:
-      - "content/guides/end-to-end-fde-learning-map/**"
+      - "content/**"
       - "docs/**"
+      - "assets/**"
+      - "scripts/**"
+      - "tests/site/**"
+      - "requirements-site*.txt"
+      - "reports/publications/baseline.json"
+      - ".github/workflows/deploy-fde-field-guide.yml"
+  pull_request:
+    paths:
+      - "content/**"
+      - "docs/**"
+      - "assets/**"
+      - "scripts/**"
+      - "tests/site/**"
+      - "requirements-site*.txt"
       - ".github/workflows/deploy-fde-field-guide.yml"
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy the verified public artifact to GitHub Pages"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Set up Node for browser and search tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install site and test dependencies
+        run: |
+          python -m pip install -r requirements-site-test.txt
+          python -m playwright install --with-deps chromium
+          echo "PLAYWRIGHT_MODULE=$(python -c 'import pathlib, playwright; print(pathlib.Path(playwright.__file__).parent / "driver" / "package")')" >> "$GITHUB_ENV"
+      - name: Validate metadata, rendering, and publishing
+        run: python -m unittest discover -s tests/site -v
+      - name: Test publication search
+        run: node --test tests/site/search.test.cjs
+      - name: Build public site and isolated browser fixtures
+        run: |
+          python scripts/publications.py build
+          python tests/site/make_browser_fixture.py
+      - name: Browser and FDE regression tests
+        run: node --test tests/site/browser.test.cjs
+      - name: Upload verified public artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build/site
   deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy
+    needs: verify
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v6
-
-      - name: Prepare source content
-        run: |
-          mkdir -p docs/content
-          cp content/guides/end-to-end-fde-learning-map/README.md docs/content/fde-learning-map.md
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: docs
 
       - name: Deploy to GitHub Pages
         id: deployment

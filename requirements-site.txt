@@ -1,0 +1,6 @@
+Markdown==3.10.2
+PyYAML==6.0.3
+jsonschema==4.26.0
+Pygments==2.21.0
+bleach==6.4.0
+latex2mathml==3.81.1

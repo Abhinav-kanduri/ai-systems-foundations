@@ -183,6 +183,8 @@ svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: 
 }
 
 .sidebar-head { padding: 20px 18px 16px; border-bottom: 1px solid var(--border); }
+.fde-publications-link { display: flex; align-items: center; min-height: 36px; margin-bottom: 12px; color: var(--accent); font-size: 11px; text-decoration: none; }
+.fde-publications-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .search-box {
   height: 42px;

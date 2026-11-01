@@ -1,0 +1,17 @@
+{
+  "title": "Technical Publications",
+  "description": "Engineering concepts, research discoveries, implementation guides, and lessons from building production systems.",
+  "siteUrl": "https://abhinav-kanduri.github.io/ai-systems-foundations/",
+  "language": "en",
+  "defaultAuthor": "Abhinav Kanduri",
+  "repositoryUrl": "https://github.com/Abhinav-kanduri/ai-systems-foundations",
+  "featuredPublicationId": "fde-field-guide",
+  "scheduledPublishing": "build-time-only",
+  "authorBanner": {
+    "src": "assets/images/Abhinav-kanduri-banner.png",
+    "alt": "Abhinav Kanduri — Engineering Scalable Generative AI Systems and Modern LLM Architectures",
+    "width": 2172,
+    "height": 724
+  },
+  "resources": []
+}

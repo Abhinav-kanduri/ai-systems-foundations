@@ -1,12 +1,24 @@
 ---
+id: replace-with-stable-publication-id
+slug: your-article-title
 title: "Your article title"
-type: technical-article
+publicationType: technical-article
 status: draft
 summary: "The problem this article explains and what the reader will learn."
+author: "Abhinav Kanduri"
+primaryCategory: fundamentals
+secondaryCategories: []
 tags: []
-published: null
-updated: null
-canonical_url: null
+technologies: []
+difficulty: null
+publishedAt: null
+updatedAt: null
+canonicalUrl: null
+prerequisites: []
+seriesId: null
+relatedPublicationIds: []
+repositoryLinks: []
+researchReferences: []
 ---
 
 # Your article title

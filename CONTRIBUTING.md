@@ -24,6 +24,13 @@ For authored blogs, technical articles, and guides, follow the
 [writing conventions and templates](content/README.md). Keep the source and its
 assets in one stable folder; track draft/review/published status in metadata.
 
+The publication builder discovers frontmatter automatically. Use the schema's
+`publicationType`, `primaryCategory`, `publishedAt`, and `canonicalUrl` names.
+Run `scripts/publications.py validate` and the site tests before publishing.
+Publication search, topic counts, feeds, and routes are generated; new articles
+do not require editing frontend lists. Register permanent URLs with the publish
+command. Serve `build/site/`, since a repository-root file server exposes drafts.
+
 ## Naming and navigation
 
 - Use lowercase folder names and kebab-case for new documentation files.

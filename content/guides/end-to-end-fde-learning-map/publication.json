@@ -1,0 +1,17 @@
+{
+  "id": "fde-field-guide",
+  "slug": "end-to-end-fde-learning-map",
+  "title": "End-to-End FDE Learning Map",
+  "subtitle": "From customer problems to production outcomes.",
+  "summary": "A complete field guide to discovering customer problems, designing systems, building production AI, and delivering measurable outcomes. Includes 27 chapters, 132 focused topics, 25 portfolio artifacts, and 12 learning stages.",
+  "author": "Abhinav Kanduri",
+  "publishedAt": "2026-10-31",
+  "primaryCategory": "fde",
+  "secondaryCategories": ["generative-ai", "cloud", "reliability"],
+  "tags": ["Customer discovery", "Production AI", "System design", "Deployment"],
+  "technologies": ["Python", "FastAPI", "PostgreSQL", "Kubernetes", "RAG"],
+  "publicationType": "field-guide",
+  "reader": "fde",
+  "status": "published",
+  "repositoryLinks": [{"label": "Source repository", "url": "https://github.com/Abhinav-kanduri/ai-systems-foundations"}]
+}

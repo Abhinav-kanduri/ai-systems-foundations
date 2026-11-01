@@ -1,12 +1,18 @@
 ---
+id: replace-with-stable-publication-id
+slug: your-guide-title
 title: "Your guide title"
-type: guide
+publicationType: field-guide
 status: draft
 summary: "Who this guide helps and what they will be able to do."
+author: "Abhinav Kanduri"
+primaryCategory: fundamentals
 tags: []
-published: null
-updated: null
-canonical_url: null
+publishedAt: null
+updatedAt: null
+canonicalUrl: null
+prerequisites: []
+relatedPublicationIds: []
 ---
 
 # Your guide title
