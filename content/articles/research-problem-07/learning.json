@@ -1,0 +1,17 @@
+{
+  "intuition": "A useful memory needs dates and corrections, like an address book that records when someone moved.",
+  "learningGoal": "Explore agent memory, retrieval, changing facts, provenance, and correction through a practical long-term memory scenario.",
+  "exerciseNote": "Build a small decision store with validity dates, supersession, and provenance. Compare it with semantic retrieval.",
+  "quiz": {
+    "kind": "choice",
+    "question": "An AI assistant stored the following information: January: \"Our production infrastructure runs on AWS.\" March: \"We completed migration of production infrastructure to Azure.\" October: The user asks, \"Where should we deploy the next production release?\" What should the assistant do?",
+    "explanation": "The newer authoritative record supersedes the older one. Check that it remains current and that applicable policies and permissions allow the release.",
+    "choices": [
+      "Recommend AWS because it is the oldest stored architectural decision.",
+      "Recommend Azure based on the newer record, while checking applicable current policies and permissions.",
+      "Recommend whichever cloud platform appears most frequently in memory.",
+      "Ignore all historical context and choose a random cloud platform."
+    ],
+    "answer": 1
+  }
+}

@@ -14,6 +14,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'scripts'))
 from build_publications import build
 from publication_model import PublicationError
+from fixture_content import copy_fixture_content
 
 
 class LinkParser(HTMLParser):
@@ -31,7 +32,10 @@ class BuildTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
         for folder in ('content','docs','assets'):
-            shutil.copytree(ROOT/folder,self.root/folder)
+            if folder == 'content':
+                copy_fixture_content(self.root/folder)
+            else:
+                shutil.copytree(ROOT/folder,self.root/folder)
         self.now=datetime(2026,10,31,23,tzinfo=timezone.utc)
         self.output=self.root/'build/site'
 

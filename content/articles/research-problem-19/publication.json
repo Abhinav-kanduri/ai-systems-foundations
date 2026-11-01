@@ -1,0 +1,50 @@
+{
+  "id": "research-problem-19",
+  "slug": "research-problem-19",
+  "title": "Research Problem 19 — AlphaGenome and Genome Interpretation",
+  "summary": "Explore genome interpretation and variant prioritization while distinguishing predicted molecular effects from evidence of causation.",
+  "primaryCategory": "ai-ml",
+  "secondaryCategories": [
+    "research"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 19,
+  "problemNumber": 19,
+  "researchOrganization": "Google DeepMind",
+  "coverImage": "assets/variant_effect_illustration.png",
+  "coverAlt": "Conceptual DNA variant effect",
+  "tags": [
+    "Google DeepMind",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic DNA and gene regulation",
+    "Prediction, uncertainty, and validation"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-18",
+    "research-problem-20"
+  ],
+  "packageFiles": [
+    ".gitignore",
+    "README.md",
+    "requirements.txt",
+    "examples/variant_prioritization.py",
+    "diagrams/interpretation_pipeline.mmd",
+    "diagrams/model_architecture.mmd",
+    "diagrams/prediction_vs_evidence.mmd",
+    "source/original_article.txt",
+    "assets/synthetic_priority_ranking.png",
+    "assets/variant_effect_illustration.png",
+    "assets/candidate_funnel.png"
+  ],
+  "originalSources": [
+    "source/original_article.txt"
+  ]
+}

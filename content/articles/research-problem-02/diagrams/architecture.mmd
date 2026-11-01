@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph Physical_Model[Physical and mathematical model]
+      A[Physical scenario] --> B[PDE specification]
+      B --> C[Initial and boundary conditions]
+    end
+    subgraph AI_Lab[AI-supported research workbench]
+      C --> D[Literature and theorem retrieval]
+      D --> E[Candidate conjectures and proof ideas]
+      E --> F[Symbolic algebra and numerical tests]
+      F --> G[Assumption and counterexample checks]
+    end
+    subgraph Verification[Evidence and review]
+      G --> H{Rigorous argument?}
+      H -->|No| E
+      H -->|Yes| I[Human proof review]
+      I --> J[Optional proof assistant]
+      J --> K[Independent review and reproduction]
+      K --> L[Qualified theorem or research finding]
+    end

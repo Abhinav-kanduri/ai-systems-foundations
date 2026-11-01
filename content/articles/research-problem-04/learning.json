@@ -1,0 +1,10 @@
+{
+  "intuition": "Translating a program is like translating a contract: familiar words are less important than preserving what the agreement actually requires.",
+  "learningGoal": "Study cross-language software modernization through behavioral equivalence, differential testing, and independent correctness evidence.",
+  "exerciseNote": "CPU-only Python: use the supplied interest-migration example and differential tests; examine rounding and boundary cases.",
+  "quiz": {
+    "kind": "reflection",
+    "question": "Imagine an AI agent successfully translates 100,000 lines of COBOL into Python. All unit tests pass. Can the bank immediately replace the original application?",
+    "explanation": "Not necessarily. Assess test coverage, business rules, integrations, security, and operational behavior. Compilation and passing tests provide useful but bounded evidence."
+  }
+}

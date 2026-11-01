@@ -1,0 +1,16 @@
+flowchart TB
+  ALL[1,000 evaluated agent actions] --> ACT{Actual policy status}
+  ACT -->|100 violations| VI[Violation]
+  ACT -->|900 legitimate| LE[Legitimate]
+  VI --> TP[80 flagged: True Positives]
+  VI --> FN[20 missed: False Negatives]
+  LE --> FP[40 flagged: False Positives]
+  LE --> TN[860 not flagged: True Negatives]
+  TP --> PREC[Precision = 80 / 120 = 66.7%]
+  FP --> PREC
+  TP --> REC[Recall = 80 / 100 = 80%]
+  FN --> REC
+  classDef good fill:#def7ef,stroke:#139e83,color:#104b40
+  classDef bad fill:#ffe0e0,stroke:#d74747,color:#721e1e
+  class TP,TN good
+  class FP,FN bad

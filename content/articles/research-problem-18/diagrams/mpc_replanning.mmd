@@ -1,0 +1,8 @@
+flowchart LR
+    O[Observe State] --> M[Predict H-Step Trajectories]
+    M --> R[Score Goal Progress and Risk]
+    R --> U[Choose Best First Action]
+    U --> EX[Execute One Action]
+    EX --> O
+    EX --> S[Independent Safety Supervisor]
+    S -->|Unsafe| ST[Emergency Stop]

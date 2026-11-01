@@ -1,0 +1,19 @@
+flowchart LR
+  BEFORE[Before Transfer
+A = $1000 | B = $500
+Total = $1500] --> GATE{Valid and Authorized?}
+  GATE -- Yes --> TX[Atomic Debit and Credit
+A' = A - $200
+B' = B + $200]
+  GATE -- No --> REJECT[Reject; No Balances Changed]
+  TX --> AFTER[After Transfer
+A = $800 | B = $700
+Total = $1500]
+  AFTER --> CONS[Check Conservation
+A' + B' = A + B]
+  classDef foundation fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+  classDef research fill:#e6f2f1,stroke:#0d9488,color:#134e4a;
+  classDef warning fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+  class BEFORE,GATE foundation;
+  class TX,AFTER,CONS research;
+  class REJECT warning;

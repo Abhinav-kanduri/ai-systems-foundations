@@ -1,0 +1,26 @@
+flowchart TD
+  A[Human request] --> B[Identify intent]
+  B --> C[Extract hard constraints]
+  C --> D[Infer soft preferences]
+  D --> E[Identify missing information]
+  E --> F{Preference uncertainty high?}
+  F -->|Yes| G[Ask targeted clarifying questions]
+  G --> H[Build preference model]
+  F -->|No| H
+  H --> I[Retrieve candidate options]
+  I --> J[Apply hard constraints]
+  J --> K[Estimate utility and rank]
+  K --> L[Explain tradeoffs]
+  L --> M[Collect user feedback]
+  M --> N{User confirms preferences?}
+  N -->|No| O[Revise preference model]
+  O --> K
+  N -->|Yes| P[Propose best-fit decision]
+  P --> Q{Consequential action?}
+  Q -->|Yes| R[Request explicit approval]
+  R --> S[Execute authorized action]
+  Q -->|No| T[Present recommendation]
+  S --> U[Verify actual outcome]
+  T --> U
+  U --> V[Update preferences with consent]
+  V --> W[Report outcome]

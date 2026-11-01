@@ -1,0 +1,50 @@
+[
+  {
+    "problem": 1,
+    "command": "python -m unittest discover -s examples -p test_*.py",
+    "exitCode": 0,
+    "output": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n"
+  },
+  {
+    "problem": 4,
+    "command": "python -m unittest discover -s tests",
+    "exitCode": 0,
+    "output": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n"
+  },
+  {
+    "problem": 10,
+    "command": "python -m unittest discover -s tests",
+    "exitCode": 0,
+    "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.001s\n\nOK\n"
+  },
+  {
+    "problem": 11,
+    "command": "python -m unittest discover -s examples -p test_*.py",
+    "exitCode": 0,
+    "output": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+  },
+  {
+    "problem": 18,
+    "command": "python -m unittest discover -s tests",
+    "exitCode": 0,
+    "output": "Step 0: action=1.0, predicted=1.0, observed=1.0\nStep 1: action=1.0, predicted=2.0, observed=2.0\nStep 2: action=1.0, predicted=3.0, observed=3.0\nStep 3: action=1.0, predicted=4.0, observed=4.0\nStep 4: action=1.0, predicted=5.0, observed=5.0\nTarget reached.\nStep 00: predicted=1.000, observed=0.986, error=-0.014\nStep 01: predicted=1.986, observed=2.004, error=+0.018\nStep 02: predicted=3.004, observed=3.131, error=+0.127\nStep 03: predicted=4.131, observed=4.121, error=-0.010\nStep 04: predicted=5.000, observed=5.002, error=+0.002\nNear target.\n....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+  },
+  {
+    "problem": 5,
+    "command": "python examples/proxy_metric_demo.py",
+    "exitCode": 0,
+    "output": "Closed (proxy): 4/5\nIndependently verified resolved (outcome): 2/5\n"
+  },
+  {
+    "problem": 17,
+    "command": "python examples/mini_evolution.py",
+    "exitCode": 0,
+    "output": "Best solution: 7.0019\nObjective value: 3.0\nKnown optimum: x = 7, f(x) = 3\n"
+  },
+  {
+    "problem": 20,
+    "command": "python build/qa/physical-ai-reality-gap.py (exact inline source)",
+    "exitCode": 0,
+    "output": "Step 0: predicted=1.00, observed=0.91, prediction_error=0.09\nStep 1: predicted=1.91, observed=1.57, prediction_error=0.34\nStep 2: predicted=2.57, observed=2.33, prediction_error=0.24\nStep 3: predicted=3.33, observed=3.07, prediction_error=0.26\nStep 4: predicted=4.07, observed=4.01, prediction_error=0.06\nStep 5: predicted=5.00, observed=4.92, prediction_error=0.08\nStep 6: predicted=5.00, observed=5.00, prediction_error=0.00\nGoal reached within tolerance.\n"
+  }
+]

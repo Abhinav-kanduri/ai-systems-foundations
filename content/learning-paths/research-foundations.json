@@ -1,0 +1,15 @@
+{
+  "id": "research-foundations",
+  "slug": "research-foundations",
+  "title": "Start here: Evidence, algorithms, and reliable AI",
+  "description": "Begin with algorithms, software correctness, evaluation, and human oversight. Read the prerequisites first; each article includes an intuition and a challenge.",
+  "status": "published",
+  "publicationIds": [
+    "research-problem-01",
+    "research-problem-04",
+    "research-problem-05",
+    "research-problem-06",
+    "research-problem-07",
+    "research-problem-16"
+  ]
+}

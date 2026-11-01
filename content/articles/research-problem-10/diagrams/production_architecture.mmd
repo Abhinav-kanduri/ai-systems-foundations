@@ -1,0 +1,37 @@
+flowchart TD
+    A[Human Business Objective] --> B[Capture Requirements and Constraints]
+    B --> C[Coordinator / Orchestrator]
+    C --> D[Task Decomposition]
+    D --> E[Cost Optimization Agent]
+    D --> F[GPU Scheduling Agent]
+    D --> G[Performance Agent]
+    D --> H[Reliability Agent]
+    S[(Versioned Shared Evidence Store)] -. evidence .-> E
+    S -. evidence .-> F
+    S -. evidence .-> G
+    S -. evidence .-> H
+    E --> I[Collect Proposed Decisions]
+    F --> I
+    G --> I
+    H --> I
+    I --> J[Detect Conflicts and Dependencies]
+    J --> K{Conflicting Recommendations?}
+    K -- Yes --> L[Resolve Conflict or Replan]
+    L --> C
+    K -- No --> M[Independent Verification Agent]
+    M --> N[Evaluate Business Goal and Constraints]
+    N --> O{Better Than Baseline?}
+    O -- No --> P[Reject or Use Simpler Workflow]
+    O -- Yes --> Q[Human Approval]
+    Q --> R[Controlled Execution]
+    R --> T[Monitor Outcomes]
+    T --> U{SLOs Satisfied?}
+    U -- Yes --> V[Continue Deployment]
+    U -- No --> W[Rollback and Investigate]
+    W --> C
+    classDef agent fill:#d8f4ef,stroke:#078675,color:#08483f
+    classDef decision fill:#fff0c7,stroke:#c98510,color:#6e4700
+    classDef warning fill:#ffe1e1,stroke:#c13030,color:#812020
+    class E,F,G,H,M agent
+    class K,O,U decision
+    class P,W warning

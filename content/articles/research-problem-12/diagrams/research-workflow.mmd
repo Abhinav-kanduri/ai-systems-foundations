@@ -1,0 +1,34 @@
+flowchart TD
+ A[Mathematical research problem] --> B[Literature and definitions review]
+ B --> C[Identify known results and assumptions]
+ C --> D[AI-assisted mathematical exploration]
+ D --> E[Generate candidate conjectures]
+ E --> F[Symbolic and numerical experiments]
+ F --> G[Counterexample search]
+ G --> H{Counterexample found?}
+ H -->|Yes| I[Reject or refine conjecture]
+ I --> E
+ H -->|No| J[Formulate precise theorem]
+ J --> K[Decompose into lemmas]
+ K --> L[AI-assisted proof search]
+ L --> M[Construct candidate proof]
+ M --> N[Formalize in Lean]
+ N --> O[Lean kernel verification]
+ O --> P{Formal proof accepted?}
+ P -->|No| Q[Analyze proof gaps]
+ Q --> L
+ P -->|Yes| R[Review theorem and assumptions]
+ R --> S{Matches intended claim?}
+ S -->|No| T[Revise formal statement]
+ T --> J
+ S -->|Yes| U[Independent mathematical review]
+ U --> V[Reproducible verified result]
+ V --> W[Publish research artifacts]
+ classDef foundation fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+ classDef research fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+ classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500
+ classDef warning fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+ class A,B,C,J,K,N,O,R,U,V,W foundation
+ class D,E,F,G,L,M research
+ class H,P,S decision
+ class I,Q,T warning

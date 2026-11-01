@@ -1,0 +1,11 @@
+flowchart TD
+    CLAIM[Claim: subexponential algorithm for general 3-SAT] --> SCOPE{All 3-SAT inputs?}
+    SCOPE -- No --> LIMITED[Restricted-family result: state the restriction]
+    SCOPE -- Yes --> EXACT{Exact and correct?}
+    EXACT -- No --> REJECT[Not a general exact SAT result]
+    EXACT -- Yes --> TIME{Proven worst-case 2^o(n)?}
+    TIME -- No --> EMP[Benchmarks are insufficient]
+    TIME -- Yes --> MODEL[Check input encoding and computational model]
+    MODEL --> PROOF[Verify proof and formal theorem alignment]
+    PROOF --> REVIEW[Independent replication and scrutiny]
+    REVIEW --> ETH[Potential implication for ETH, not automatically P = NP]

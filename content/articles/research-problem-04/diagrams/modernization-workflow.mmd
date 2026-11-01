@@ -1,0 +1,26 @@
+flowchart TD
+ A[Legacy application: COBOL / Fortran] --> B[Analyze source and build AST / dependency graph]
+ B --> C[Extract business rules and invariants]
+ C --> D[Capture golden baseline inputs and outputs]
+ D --> E[AI-assisted translation into Python / Java / Go]
+ E --> F[Build modern implementation]
+ F --> G[Unit and integration tests]
+ G --> H[Differential testing against legacy behavior]
+ H --> I{Equivalent on defined test cases?}
+ I -->|No| J[Investigate mismatch and revise]
+ J --> E
+ I -->|Yes| K[Static analysis and security checks]
+ K --> L[Symbolic execution or formal checks for critical properties]
+ L --> M[Human engineering review]
+ M --> N[Shadow deployment with production-like traffic]
+ N --> O[Compare outcomes, latency, logs, and transaction effects]
+ O --> P{Release criteria satisfied?}
+ P -->|No| Q[Rollback plan and further correction]
+ Q --> E
+ P -->|Yes| R[Controlled migration with monitoring and rollback readiness]
+ classDef legacy fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+ classDef agent fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+ classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500
+ class A,B,C,D legacy
+ class E,F,J agent
+ class I,P decision

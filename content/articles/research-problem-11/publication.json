@@ -1,0 +1,58 @@
+{
+  "id": "research-problem-11",
+  "slug": "research-problem-11",
+  "title": "Research Problem 11: Formal Software Verification — Can AI Mathematically Prove That Software Is Correct?",
+  "summary": "Distinguish tests from proofs and study specifications, invariants, proof assistants, and a small transfer-contract lab.",
+  "primaryCategory": "fundamentals",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 11,
+  "problemNumber": 11,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/research-11-cover.png",
+  "coverAlt": "Research Problem 11 cover",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Programming and logic",
+    "Preconditions and postconditions"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-10",
+    "research-problem-12"
+  ],
+  "packageFiles": [
+    "README.md",
+    ".gitignore",
+    "PUBLISHING_GUIDE.md",
+    "assets/prompt-pulse-logo.png",
+    "assets/anthropic-proof-pipeline.svg",
+    "assets/research-11-cover.png",
+    "assets/verification-architecture.png",
+    "assets/bank-transfer-contract.svg",
+    "assets/verification-architecture.svg",
+    "assets/anthropic-proof-pipeline.png",
+    "assets/bank-transfer-contract.png",
+    "diagrams/bank-transfer-contract.dot",
+    "diagrams/README.md",
+    "diagrams/verification-architecture.dot",
+    "diagrams/verification-architecture.mmd",
+    "diagrams/anthropic-proof-pipeline.dot",
+    "diagrams/bank-transfer-contract.mmd",
+    "diagrams/anthropic-proof-pipeline.mmd",
+    "examples/transfer_lab.py",
+    "examples/test_transfer.py"
+  ],
+  "originalSources": []
+}

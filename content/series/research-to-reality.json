@@ -1,0 +1,29 @@
+{
+  "id": "research-to-reality",
+  "slug": "research-to-reality",
+  "title": "Research to Reality — 20 AI Research Problems",
+  "description": "An independent student learning series based on publicly available research. Explore the intuition, theory, architectures, evidence, and open questions, with original figures, practical challenges, and links to primary sources. Research organizations identify the work discussed; they do not endorse this series.",
+  "status": "published",
+  "publicationIds": [
+    "research-problem-01",
+    "research-problem-02",
+    "research-problem-03",
+    "research-problem-04",
+    "research-problem-05",
+    "research-problem-06",
+    "research-problem-07",
+    "research-problem-08",
+    "research-problem-09",
+    "research-problem-10",
+    "research-problem-11",
+    "research-problem-12",
+    "research-problem-13",
+    "research-problem-14",
+    "research-problem-15",
+    "research-problem-16",
+    "research-problem-17",
+    "research-problem-18",
+    "research-problem-19",
+    "research-problem-20"
+  ]
+}

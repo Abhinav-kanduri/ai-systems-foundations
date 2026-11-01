@@ -1,0 +1,21 @@
+flowchart LR
+  REQUEST[User intent] --> ID[Identity / role]
+  ID --> PLAN[Agent planning]
+  PLAN --> AUTH{Preventive permission check}
+  AUTH -->|Denied| BLOCK[Block before side effect]
+  AUTH -->|Allowed| APPROVE{High-impact approval needed?}
+  APPROVE -->|Yes| HUMAN[Human approval]
+  HUMAN -->|Approved| EXEC[Tool execution]
+  HUMAN -->|Rejected| BLOCK
+  APPROVE -->|No| EXEC
+  EXEC --> OBS[Observe and log]
+  OBS --> DETECT{Failure detected?}
+  DETECT -->|Yes| CONTAIN[Contain + recover]
+  DETECT -->|No| VERIFY[Verify result]
+  CONTAIN --> VERIFY
+  classDef secure fill:#d8f4ee,stroke:#11998e,color:#103f3d
+  classDef warning fill:#fff0cf,stroke:#d69c26,color:#69440b
+  classDef stop fill:#ffe0e0,stroke:#d74747,color:#721e1e
+  class AUTH,APPROVE warning
+  class BLOCK,CONTAIN stop
+  class EXEC,OBS,VERIFY secure

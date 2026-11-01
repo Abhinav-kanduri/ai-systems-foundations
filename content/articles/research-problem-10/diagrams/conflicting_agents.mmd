@@ -1,0 +1,15 @@
+flowchart LR
+   X[Shared GPU platform metrics v42] --> C[Cost Agent]
+   X --> P[Performance Agent]
+   X --> R[Reliability Agent]
+   C --> A[Reduce GPU replicas]
+   P --> B[Add GPU replicas]
+   R --> D[Keep spare failover capacity]
+   A --> K{Coordinator: feasible combined plan?}
+   B --> K
+   D --> K
+   K -- No --> E[Conflict report and replan]
+   K -- Yes --> V[Independent SLO and budget validation]
+   V --> H[Human approval before changes]
+   classDef warning fill:#ffe1e1,stroke:#d33,color:#822
+   class A,B,D warning

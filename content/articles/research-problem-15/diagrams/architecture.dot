@@ -1,0 +1,29 @@
+digraph G {
+	bgcolor="#0b1220" nodesep=0.35 pad=0.35 rankdir=TB ranksep=0.58 splines=polyline
+	node [color="#37c7c2" fillcolor="#182b3d" fontcolor="#ffffff" fontname="DejaVu Sans" fontsize=12 margin="0.18,0.12" shape=box style="rounded,filled"]
+	edge [arrowsize=0.65 color="#f3b548" penwidth=1.6]
+	a [label="Research question"]
+	b [label="Literature & data"]
+	c [label="Target agents"]
+	d [label="Candidate designs"]
+	e [label="Property models"]
+	f [label="Uncertainty & constraints"]
+	g [label="Scientific review"]
+	h [label="Human approval"]
+	i [label="Lab measurements"]
+	j [label="Lead optimization"]
+	k [label=Preclinical]
+	l [label="Clinical development"]
+	a -> b
+	b -> c
+	c -> d
+	d -> e
+	e -> f
+	f -> g
+	g -> h
+	h -> i
+	i -> j
+	j -> k
+	k -> l
+	i -> e
+}

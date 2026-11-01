@@ -1,0 +1,63 @@
+{
+  "id": "research-problem-01",
+  "slug": "research-problem-01",
+  "title": "Research Problem 01 — Mathematical Discovery and Computational Complexity",
+  "summary": "Algorithm discovery, computational complexity, and the difference between empirical speedups and mathematical proof.",
+  "primaryCategory": "fundamentals",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 1,
+  "problemNumber": 1,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/discovery-workflow.png",
+  "coverAlt": "Research workflow — actual, bundled image",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Algorithms and asymptotic complexity",
+    "Basic Boolean logic"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-02"
+  ],
+  "packageFiles": [
+    "README.md",
+    "docs/original_uploaded_explanation.md",
+    "examples/sat_baseline.py",
+    "examples/test_sat_baseline.py",
+    "assets/research-architecture.png",
+    "assets/discovery-workflow.png",
+    "assets/discovery-workflow.svg",
+    "assets/claim-audit.svg",
+    "assets/prompt-pulse-logo.png",
+    "assets/sat-search-space.png",
+    "assets/claim-audit.png",
+    "assets/research-architecture.svg",
+    "diagrams/discovery-workflow.dot",
+    "diagrams/research-architecture.mmd",
+    "diagrams/research-architecture.dot",
+    "diagrams/claim-audit.dot",
+    "diagrams/claim-audit.mmd",
+    "diagrams/discovery-workflow.mmd"
+  ],
+  "originalSources": [
+    "docs/original_uploaded_explanation.md"
+  ],
+  "researchReferences": [
+    {
+      "label": "Background: Clay Mathematics Institute — P vs NP",
+      "url": "https://www.claymath.org/millennium/p-vs-np/"
+    }
+  ]
+}

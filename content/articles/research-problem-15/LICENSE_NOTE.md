@@ -1,0 +1,1 @@
+All schematic visuals are newly created for this educational README. Third-party research claims are attributed to their sources. No third-party research figures are copied into this repository. The original user-provided draft is archived in source/.

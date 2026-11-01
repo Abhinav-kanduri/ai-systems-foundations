@@ -1,0 +1,10 @@
+digraph G {graph [rankdir=LR bgcolor="#0b1220" pad="0.4" nodesep="0.38" ranksep="0.5"];node[shape=box style="rounded,filled" color="#f0b95d" fillcolor="#16263a" fontcolor="white" fontname="DejaVu Sans" fontsize=11 margin="0.2,0.16"]; edge[color="#f0b95d" arrowsize=.7]; A[label="201 people
+bring books"];B[label="Short preference
+interviews"];C[label="Claude predicts
+book rankings"];D[label="Agents negotiate
+book swaps"];E[label="Book outcomes +
+follow-up survey"]; A->B->C->D->E;F[label="Human-ranked
+sample books"];B->F;F->G[label="Compare predicted
+preferences"];C->G;G->H[label="Measure
+representation gap"];D->I[label="Measure bargaining
+outcome gap"]; }

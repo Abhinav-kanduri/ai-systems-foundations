@@ -1,0 +1,58 @@
+{
+  "id": "research-problem-05",
+  "slug": "research-problem-05",
+  "title": "Research Problem 05: Reward Hacking and AI Alignment",
+  "summary": "Understand reward hacking: why improving a proxy score can leave the real objective unmet, and how independent evaluation helps.",
+  "primaryCategory": "reliability",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 5,
+  "problemNumber": 5,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/architecture.png",
+  "coverAlt": "Research Problem 05 architecture",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic machine learning",
+    "Evaluation metrics"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-04",
+    "research-problem-06"
+  ],
+  "packageFiles": [
+    "README.md",
+    "examples/proxy_metric_demo.py",
+    "diagrams/coding.dot",
+    "diagrams/README.md",
+    "diagrams/architecture.dot",
+    "diagrams/01-reward-hacking-detection.mmd",
+    "diagrams/02-proxy-vs-outcome.mmd",
+    "diagrams/04-independent-evaluation.mmd",
+    "diagrams/03-coding-agent-evaluation.mmd",
+    "diagrams/banking.dot",
+    "source/original-user-text.md",
+    "assets/architecture.png",
+    "assets/coding.png",
+    "assets/architecture.svg",
+    "assets/coding.svg",
+    "assets/banking.svg",
+    "assets/prompt-pulse-logo.png",
+    "assets/banking.png"
+  ],
+  "originalSources": [
+    "source/original-user-text.md"
+  ]
+}

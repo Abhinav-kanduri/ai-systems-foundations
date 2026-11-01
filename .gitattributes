@@ -1,0 +1,2 @@
+# Preserve source-package bytes so provenance checks work on every platform.
+/content/articles/research-problem-*/** -text

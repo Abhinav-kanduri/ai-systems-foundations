@@ -1,0 +1,11 @@
+flowchart TD
+    A[Candidate causal hypothesis] --> B[Check source validity]
+    B --> C[Assess confounding and alternative explanations]
+    C --> D[Pre-register experiment and success criteria]
+    D --> E[Human scientist / ethics approval]
+    E --> F[Conduct controlled experiment]
+    F --> G[Analyze uncertainty, effect size, reproducibility]
+    G --> H{Evidence confirms prediction?}
+    H -->|Not yet| I[Refine hypothesis and repeat]
+    I --> D
+    H -->|Supported| J[Report qualified finding with full provenance]

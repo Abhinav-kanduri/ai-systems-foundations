@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 from publication_content import load_library, render_markdown, split_frontmatter
 from publication_model import PublicationError
+from fixture_content import copy_fixture_content
 
 
 class ContentTests(unittest.TestCase):
@@ -17,7 +18,7 @@ class ContentTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        shutil.copytree(ROOT / "content", self.root / "content")
+        copy_fixture_content(self.root / 'content')
         self.now = datetime(2026, 10, 31, 23, tzinfo=timezone.utc)
 
     def article(self, slug="fixture", status="published", **extra):

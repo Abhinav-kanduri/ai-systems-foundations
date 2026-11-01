@@ -1,0 +1,20 @@
+digraph G {
+graph [bgcolor="#0b1421",pad="0.30",ranksep="0.58",nodesep="0.3",label="FASTEST IS NOT ALWAYS VALID",labelloc=t,fontcolor="white",fontsize=23,fontname="DejaVu Sans"];
+node [shape=box,style="rounded,filled",fillcolor="#142b3e",color="#27cbbd",fontcolor="white",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.15"];
+edge [color="#f9b94e",arrowsize=.7,penwidth=1.6];
+A [label="Baseline\n100 ms"];
+B [label="Generate variants"];
+C [label="Candidate A\n80 ms / SLO FAIL"];
+D [label="Candidate B\n88 ms / PASS"];
+E [label="Candidate C\n94 ms / PASS"];
+F [label="Reject A"];
+G [label="Validate B"];
+H [label="Retain C\nfor diversity"];
+A -> B;
+B -> C;
+B -> D;
+B -> E;
+C -> F;
+D -> G;
+E -> H;
+}

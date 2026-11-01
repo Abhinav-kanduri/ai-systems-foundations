@@ -1,0 +1,19 @@
+flowchart TD
+  A[1000-GPU inference fleet] --> B[Workload traces and fleet inventory]
+  B --> C[Baseline scheduler: FIFO or production policy]
+  B --> D[Candidate policy generator]
+  D --> E[Static and isolation constraints]
+  E --> F[Trace replay simulator]
+  C --> F
+  F --> G[Throughput / queue time / GPU utilization]
+  F --> H[P50 / P95 / P99 latency]
+  F --> I[Cost / fairness / model correctness]
+  G --> J{Hard SLO and safety gates pass?}
+  H --> J
+  I --> J
+  J -->|No| K[Reject and record failure]
+  J -->|Yes| L[Rank feasible policies]
+  L --> M[Holdout traces / multiple seeds / confidence intervals]
+  M --> N[Engineer approval and canary]
+  N --> O[Monitor and rollback]
+  K --> D

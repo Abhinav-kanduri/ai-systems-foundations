@@ -148,3 +148,17 @@ scripts are not supported. Interactive demos should be linked as external demos.
 
 Review [website checks and deployment](../docs/README.md) and the
 [implementation report](../reports/publications/implementation.md).
+
+## Research to Reality student series
+
+The twenty research packages are integrated in
+[`series/research-to-reality.json`](series/research-to-reality.json), with three
+student learning paths and complete articles in `articles/research-problem-NN/`.
+Each article keeps its original package README and supporting files. Edit student
+introductions and knowledge checks separately in `learning.json`.
+
+Run `python scripts/audit_research.py` after building to verify source preservation
+and generated attachments. See the
+[research implementation report](../docs/research-publications/FINAL-IMPLEMENTATION-REPORT.md)
+before changing a source baseline or importing another package. The ignored
+`Research-opensource/` ZIPs are not required for normal builds.

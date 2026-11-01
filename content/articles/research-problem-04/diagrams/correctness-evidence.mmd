@@ -1,0 +1,16 @@
+flowchart TD
+ CLAIM[Migration correctness claim] --> CONTRACT[Define observable contract and assumptions]
+ CONTRACT --> TESTS[Unit + regression + differential tests]
+ CONTRACT --> STATIC[Static analysis + type checks]
+ CONTRACT --> FORMAL[Symbolic / formal proof for scoped properties]
+ CONTRACT --> OPS[Integration and shadow-run evidence]
+ TESTS --> REVIEW[Independent engineer review]
+ STATIC --> REVIEW
+ FORMAL --> REVIEW
+ OPS --> REVIEW
+ REVIEW --> DECIDE{Risk and evidence acceptable?}
+ DECIDE -->|No| FIX[Generate counterexamples and revise]
+ FIX --> TESTS
+ DECIDE -->|Yes| RELEASE[Approved deployment gate]
+ classDef warn fill:#fff2d6,stroke:#d59a21,color:#734500
+ class DECIDE warn

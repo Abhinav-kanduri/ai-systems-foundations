@@ -1,0 +1,13 @@
+flowchart LR
+ A[DNA sequence up to ~1 Mb] --> B[Convolutional encoder / downsampling]
+ B --> C[Transformer tower / long-range context]
+ C --> D[Decoder / upsampling and skip connections]
+ B -.->|skip connections| D
+ D --> E[Task-specific output heads]
+ E --> F[Expression tracks]
+ E --> G[Splicing tracks]
+ E --> H[Chromatin and accessibility]
+ E --> I[Contact maps]
+ J[Cell or tissue context / track definitions] -.-> E
+ classDef core fill:#dff6f2,stroke:#078779,color:#134e4a;
+ class B,C,D,E core;

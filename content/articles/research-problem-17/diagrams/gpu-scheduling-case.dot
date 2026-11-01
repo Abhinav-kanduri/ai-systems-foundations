@@ -1,0 +1,22 @@
+digraph G {
+graph [bgcolor="#0b1421",pad="0.30",ranksep="0.58",nodesep="0.3",label="ILLUSTRATIVE 1,000-GPU OPTIMIZATION",labelloc=t,fontcolor="white",fontsize=23,fontname="DejaVu Sans"];
+node [shape=box,style="rounded,filled",fillcolor="#142b3e",color="#27cbbd",fontcolor="white",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.15"];
+edge [color="#f9b94e",arrowsize=.7,penwidth=1.6];
+A [label="1,000 GPUs\nand arrival traces"];
+B [label="Baseline FIFO policy"];
+C [label="Proposal agent\npolicy mutations"];
+D [label="Trace replay and\nsafety validation"];
+E [label="Throughput and\nGPU utilization"];
+F [label="P99 SLO and\ntenant isolation"];
+G [label="Holdout traces\nand repeat trials"];
+H [label="Canary / monitor\nrollback"];
+A -> B;
+A -> C;
+B -> D;
+C -> D;
+D -> E;
+D -> F;
+E -> G;
+F -> G;
+G -> H;
+}

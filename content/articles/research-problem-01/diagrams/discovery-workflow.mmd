@@ -1,0 +1,22 @@
+flowchart TD
+    A[Computational problem: SAT] --> B[Define variables, constraints, and input size]
+    B --> C[Review established algorithms and complexity]
+    C --> D[AI-assisted candidate discovery]
+    D --> E[Implement candidate algorithm]
+    E --> F[Test easy, hard, and adversarial cases]
+    F --> G{Correct on tested cases?}
+    G -- No --> D
+    G -- Yes --> H[Analyze worst-case time and space]
+    H --> I[State precise theorem, scope, and assumptions]
+    I --> J[Construct a mathematical proof]
+    J --> K[Formalize in Lean when feasible]
+    K --> L{Formal statement checks?}
+    L -- No --> I
+    L -- Yes --> M[Independent peer review and reproducibility]
+    M --> N[Evidence-backed algorithmic result]
+    classDef problem fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+    classDef research fill:#e6f2f1,stroke:#0d9488,color:#134e4a;
+    classDef validation fill:#fff2d6,stroke:#d59a21,color:#734500;
+    class A,B,C problem;
+    class D,E,H,I,J research;
+    class F,G,K,L,M,N validation;

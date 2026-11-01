@@ -1,0 +1,17 @@
+{
+  "intuition": "Three people turning the same steering wheel need a shared destination and rules for resolving conflicting actions.",
+  "learningGoal": "Learn multi-agent coordination through shared resources, conflicting actions, synchronization, and measurable system outcomes.",
+  "exerciseNote": "CPU-only Python: run the coordination simulator and compare independent proposals with a constrained shared plan.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: Three AI agents manage a shared GPU inference platform. The cost agent wants to shut down underutilized GPUs. The reliability agent wants to retain spare capacity. The performance agent recommends adding resources to reduce latency. What is the best next action?",
+    "explanation": "Coordination must reconcile cost, latency, and spare-capacity constraints before execution. Independent locally reasonable actions can produce an invalid combined outcome.",
+    "choices": [
+      "Allow all three agents to execute their recommendations independently.",
+      "Accept whichever recommendation was generated first.",
+      "Reconcile the proposals against shared objectives and constraints, then validate the combined plan.",
+      "Add ten more agents and use majority voting."
+    ],
+    "answer": 2
+  }
+}

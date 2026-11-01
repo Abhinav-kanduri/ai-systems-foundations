@@ -1,0 +1,24 @@
+flowchart TD
+ A[Established mathematical theorem] --> B[Define formal target in Lean]
+ B --> C[Construct theorem dependency graph]
+ C --> D[Coordinator agent]
+ D --> E[Algebra agent]
+ D --> F[Number theory agent]
+ D --> G[Geometry agent]
+ E --> H[(Proof and lemma store)]
+ F --> H
+ G --> H
+ H --> I[Lean proof checking]
+ I --> J{Proof accepted?}
+ J -->|No| K[Debug or reassign subproblem]
+ K --> D
+ J -->|Yes| L[Combine verified lemmas]
+ L --> M[Final theorem check]
+ M --> N[Statement comparator and review]
+ N --> O[Published formalization]
+ classDef foundation fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+ classDef research fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+ classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500
+ class A,B,C,I,M,N,O foundation
+ class D,E,F,G,H,K,L research
+ class J decision

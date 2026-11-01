@@ -1,0 +1,17 @@
+{
+  "intuition": "A map helps you plan, but you still look at the road. A world model must be corrected by observations.",
+  "learningGoal": "Connect world models, state transitions, feedback, and replanning through a small CPU-only control experiment.",
+  "exerciseNote": "CPU-only Python: use the deterministic and noisy one-dimensional world-model examples. They are teaching models, not robotics safety systems.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: A warehouse robot uses a world model to plan a movement around an obstacle. The model predicts that the path is clear, but a sensor detects a person entering the planned route. What is the most appropriate response?",
+    "explanation": "Observed conditions can invalidate a prediction. Independent safety controls, updated state estimates, and replanning address that mismatch.",
+    "choices": [
+      "Continue because the original world-model prediction was confident.",
+      "Ignore the sensor because the model has already created a complete plan.",
+      "Use safety controls to stop or avoid unsafe motion, update the state estimate, and replan when appropriate.",
+      "Increase the robot's speed to finish the planned movement sooner."
+    ],
+    "answer": 2
+  }
+}

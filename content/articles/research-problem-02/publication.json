@@ -1,0 +1,53 @@
+{
+  "id": "research-problem-02",
+  "slug": "research-problem-02",
+  "title": "Research Problem 02: Mathematical Foundations of Physics",
+  "summary": "Explore AI-assisted mathematical physics, fluid equations, and why successful simulations cannot establish a universal theorem.",
+  "primaryCategory": "research",
+  "secondaryCategories": [
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 2,
+  "problemNumber": 2,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/illustrative-flow-field.png",
+  "coverAlt": "Illustrative fluid streamlines",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Calculus and differential equations",
+    "Numerical simulation basics"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-01",
+    "research-problem-03"
+  ],
+  "packageFiles": [
+    "LICENSE-NOTE.md",
+    "README.md",
+    ".gitignore",
+    "assets/evidence-vs-proof.png",
+    "assets/evidence.svg",
+    "assets/illustrative-flow-field.png",
+    "assets/pde-evolution.png",
+    "assets/workflow.svg",
+    "assets/architecture.svg",
+    "assets/prompt-pulse-logo.png",
+    "source/original-educational-text.md",
+    "diagrams/workflow.mmd",
+    "diagrams/architecture.mmd",
+    "diagrams/evidence.mmd"
+  ],
+  "originalSources": [
+    "source/original-educational-text.md"
+  ]
+}

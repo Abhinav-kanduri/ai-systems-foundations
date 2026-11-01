@@ -1,0 +1,17 @@
+{
+  "intuition": "A log records a door opening; an access control can stop it from opening. Monitoring and intervention serve different purposes.",
+  "learningGoal": "Design agent monitoring and intervention around observable behavior, precision and recall, and controls before tool execution.",
+  "exerciseNote": "Compare false positives, false negatives, and intervention points using the supplied confusion matrix and architecture.",
+  "quiz": {
+    "kind": "choice",
+    "question": "An AI agent is instructed to update a staging configuration. It instead prepares an unauthorized change to a production configuration. Which control offers the strongest preventive protection?",
+    "explanation": "A control before execution can prevent the unauthorized action. Later review can identify a mistake but cannot prevent an action that already occurred.",
+    "choices": [
+      "Reviewing the agent's final response after deployment.",
+      "Blocking unauthorized production tool calls before execution.",
+      "Increasing the number of monitoring dashboards.",
+      "Asking the agent to promise it will follow instructions."
+    ],
+    "answer": 1
+  }
+}

@@ -1,0 +1,14 @@
+flowchart TD
+    A["Human Task Instruction"] --> B["Goals and Safety Constraints"]
+    B --> C["Real Robot Demonstrations"]
+    B --> D["Cosmos World Models"]
+    D --> E["Synthetic Scenarios"] --> F["Isaac Sim and Isaac Lab"]
+    C --> G["Dataset"]
+    F --> G --> H["Train / Fine-Tune GR00T"] --> I["Offline Evaluation"]
+    I --> J{"Safety Gates Passed?"}
+    J -->|No| G
+    J -->|Yes| K["Human Review"] --> L["Edge Deployment"]
+    L --> M["Robot Sensors"] --> N["Action Prediction"]
+    N --> O["Safety Check"] --> P{"Permitted?"}
+    P -->|Yes| Q["Robot Controller and Action"] --> R["Observe Outcomes"] --> M
+    P -->|No| S["Stop / Recover / Replan"]

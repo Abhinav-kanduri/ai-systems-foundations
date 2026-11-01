@@ -1,0 +1,1 @@
+All PNG images in this directory are original illustrations created for this README. The performance chart uses explicitly illustrative data. The queue experiment graphic visually depicts supplied source numbers (2.4 million and 117), not an independently measured result. Diagram editable sources are in ../diagrams/.

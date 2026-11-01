@@ -1,0 +1,12 @@
+flowchart TD
+ A[DNA variant] --> B[Model-predicted molecular effect]
+ B --> C{Predicted significant effect?}
+ C -->|No| D[Record result and uncertainty]
+ C -->|Yes| E[Prioritize follow-up study]
+ E --> F[Independent functional assays]
+ F --> G[Genetic and biological evidence]
+ G --> H[Expert interpretation]
+ H --> I[Research conclusion, qualified by evidence]
+ H -.-> J[Clinical decisions require separate clinical validation]
+ classDef warn fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+ class J warn;

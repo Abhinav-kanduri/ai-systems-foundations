@@ -1,0 +1,27 @@
+flowchart TD
+    Q[Scientific Research Question] --> C[Research Coordinator Agent]
+    C --> L[Literature Research Agent]
+    C --> D[Data Analysis Agent]
+    C --> H[Hypothesis Generation Agent]
+    C --> X[Experimental Design Agent]
+    P[(Scientific Publications)] --> L
+    S[(Research Datasets)] --> D
+    L --> E[Evidence Synthesis]
+    D --> E
+    H --> K[Candidate Hypotheses]
+    X --> T[Proposed Experiments]
+    K --> E
+    T --> E
+    E --> V[Independent Verification Agent]
+    V --> G{Evidence sufficient?}
+    G -->|No| R[Identify gaps and revise hypotheses]
+    R --> C
+    G -->|Yes for review| U[Human Scientist Review]
+    U --> B[Laboratory or Real-World Experiments]
+    B --> F[Evaluate Experimental Results]
+    F --> N[Scientific Findings]
+    F -->|New evidence| C
+    classDef agent fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+    classDef validation fill:#fff2d6,stroke:#d59a21,color:#734500
+    class C,L,D,H,X,V agent
+    class G,U,B,F validation

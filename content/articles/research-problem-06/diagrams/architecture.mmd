@@ -1,0 +1,33 @@
+flowchart TD
+  U[User Request] --> A[Authentication and Role Validation]
+  A --> P[Agent Planner]
+  P --> R[Retrieve Trusted Context]
+  R --> T[Proposed Tool Action]
+  T --> G[Tool Authorization Gateway]
+  G --> Q{Action Authorized?}
+  Q -->|No| X[Reject and Record Violation]
+  Q -->|Yes| K[Risk Classification]
+  K --> H{High-Risk Action?}
+  H -->|Yes| AP[Human Approval]
+  AP --> OK{Approved?}
+  OK -->|No| X
+  OK -->|Yes| EX[Execute Authorized Tool]
+  H -->|No| EX
+  EX --> E[Capture Execution Evidence]
+  E --> M[Independent Monitoring]
+  M --> V{Violation or Failure Detected?}
+  V -->|Yes| C[Pause, Investigate and Contain]
+  C --> RB[Recover or Roll Back if Possible]
+  RB --> OV[Outcome Verification]
+  V -->|No| OV
+  OV --> F[Return Verified Result]
+  G -.-> L[(Tracing, Audit Logs and Metrics)]
+  E -.-> L
+  M -.-> L
+  X -.-> L
+  classDef safe fill:#d8f4ee,stroke:#11998e,color:#103f3d
+  classDef risk fill:#ffedcc,stroke:#e5a329,color:#603b0b
+  classDef stop fill:#ffe0e0,stroke:#d74747,color:#721e1e
+  class P,R,T,G,EX,E,M,OV,F safe
+  class Q,H,AP,OK risk
+  class X,C,RB stop

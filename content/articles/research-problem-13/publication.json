@@ -1,0 +1,54 @@
+{
+  "id": "research-problem-13",
+  "slug": "research-problem-13",
+  "title": "Research Problem 13 — GPU Kernel & Scientific-Model Optimization",
+  "summary": "Study GPU optimization through memory traffic, kernel fusion, correctness gates, and the limits of benchmark speedups.",
+  "primaryCategory": "gpu",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 13,
+  "problemNumber": 13,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/agent_loop.png",
+  "coverAlt": "AI optimization overview",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Python and numerical arrays",
+    "Basic GPU execution and memory"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-12",
+    "research-problem-14"
+  ],
+  "packageFiles": [
+    "README.md",
+    "SOURCE_ORIGINAL.txt",
+    "requirements.txt",
+    "assets/agent_loop.png",
+    "assets/fusion_explained.png",
+    "assets/agent_loop.svg",
+    "assets/roofline.png",
+    "assets/fusion_explained.svg",
+    "diagrams/optimization_pipeline.mmd",
+    "diagrams/kernel_fusion.mmd",
+    "diagrams/README.md",
+    "diagrams/validation_gate.mmd",
+    "examples/kernel_fusion.py",
+    "examples/roofline.py"
+  ],
+  "originalSources": [
+    "SOURCE_ORIGINAL.txt"
+  ]
+}

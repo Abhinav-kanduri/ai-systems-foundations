@@ -1,0 +1,10 @@
+{
+  "intuition": "Testing many examples is like checking many steps on a staircase: it does not tell you how every possible staircase behaves.",
+  "learningGoal": "Algorithm discovery, computational complexity, and the difference between empirical speedups and mathematical proof.",
+  "exerciseNote": "CPU-only: run the packaged SAT baseline and explain what its tests can and cannot establish.",
+  "quiz": {
+    "kind": "reflection",
+    "question": "Explain why testing a proposed algorithm on one million SAT instances cannot, by itself, establish its worst-case complexity for all possible inputs.",
+    "explanation": "A finite test set checks particular instances. A worst-case complexity claim quantifies over all permitted inputs and sizes, so it needs a rigorous argument under a precise computational model."
+  }
+}

@@ -1,0 +1,18 @@
+digraph G {
+graph [rankdir=LR,bgcolor="#0b1220",pad="0.3",nodesep="0.36",ranksep="0.6"];
+node [shape=box,style="rounded,filled",fontname="DejaVu Sans",fontsize=12,fillcolor="#172438",color="#33bdb3",fontcolor="#f3f7fb",margin="0.17,0.13"];
+edge [color="#f4ad36",penwidth=1.6,arrowsize=.7];
+n0 [label="Observable contract"];
+n1 [label="Differential testing"];
+n2 [label="Static analysis"];
+n3 [label="Symbolic / formal checks"];
+n4 [label="Integration + shadow tests"];
+n5 [label="Independent review"];
+n6 [label="Deployment decision"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+n5 -> n6;
+}

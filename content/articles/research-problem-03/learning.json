@@ -1,0 +1,10 @@
+{
+  "intuition": "Several assistants can divide a literature search, but agreeing with each other does not turn a hypothesis into evidence.",
+  "learningGoal": "Learn how scientific agents coordinate hypotheses, evidence, provenance, and independent experimental validation.",
+  "exerciseNote": "Design a research record with provenance and a validation plan. Use fictional data for the proposed scientific workflow.",
+  "quiz": {
+    "kind": "reflection",
+    "question": "Suppose five scientific agents independently conclude that a particular biological factor causes a disease. Is agreement among five agents sufficient to establish a scientific discovery?",
+    "explanation": "No. Agents can share datasets, assumptions, or errors. A causal claim needs appropriate causal evidence, experimental testing, and scrutiny of independence and methodology."
+  }
+}

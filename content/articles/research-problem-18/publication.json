@@ -1,0 +1,63 @@
+{
+  "id": "research-problem-18",
+  "slug": "research-problem-18",
+  "title": "Research Problem 18: World Models and Embodied Intelligence — Can AI Predict What Happens Before It Acts?",
+  "summary": "Connect world models, state transitions, feedback, and replanning through a small CPU-only control experiment.",
+  "primaryCategory": "robotics",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 18,
+  "problemNumber": 18,
+  "researchOrganization": "Google DeepMind",
+  "coverImage": "assets/warehouse_robot_scenario.png",
+  "coverAlt": "Warehouse robot scenario",
+  "tags": [
+    "Google DeepMind",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Python fundamentals",
+    "States, actions, and feedback control"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-17",
+    "research-problem-19"
+  ],
+  "packageFiles": [
+    "README.md",
+    "SOURCE_ORIGINAL.txt",
+    "assets/closed_loop_architecture.png",
+    "assets/closed_loop_architecture.svg",
+    "assets/genie_vs_control.png",
+    "assets/genie_vs_control.svg",
+    "assets/mpc_replanning.png",
+    "assets/mpc_replanning.svg",
+    "assets/three_stages.png",
+    "assets/three_stages.svg",
+    "assets/toy_world_model.png",
+    "assets/toy_world_model.svg",
+    "assets/warehouse_robot_scenario.png",
+    "assets/warehouse_robot_scenario.svg",
+    "diagrams/closed_loop_architecture.dot",
+    "diagrams/closed_loop_architecture.mmd",
+    "diagrams/genie_vs_control.dot",
+    "diagrams/genie_vs_control.mmd",
+    "diagrams/mpc_replanning.dot",
+    "diagrams/mpc_replanning.mmd",
+    "examples/__init__.py",
+    "examples/mini_world_model.py",
+    "tests/test_world_model.py"
+  ],
+  "originalSources": [
+    "SOURCE_ORIGINAL.txt"
+  ]
+}

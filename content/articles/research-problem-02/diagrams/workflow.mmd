@@ -1,0 +1,27 @@
+flowchart TD
+    A[Physical phenomenon: fluid flow, weather, aerodynamics] --> B[Define mathematical model: PDEs]
+    B --> C[Specify initial and boundary conditions]
+    C --> D{Investigate mathematical properties}
+    D --> E[Existence]
+    D --> F[Uniqueness]
+    D --> G[Regularity and stability]
+    E --> H[AI-assisted exploration]
+    F --> H
+    G --> H
+    H --> I[Hypotheses and proof strategies]
+    H --> J[Numerical experiments and symbolic analysis]
+    I --> K{Rigorous proof available?}
+    J --> K
+    K -->|No| L[Find gaps, counterexamples, or missing assumptions]
+    L --> H
+    K -->|Candidate proof| M[Construct rigorous mathematical argument]
+    M --> N[Formal verification where feasible]
+    N --> O[Independent mathematical review]
+    O --> P[Validated theorem under explicit assumptions]
+    P --> Q[Improved scientific understanding and modeling foundations]
+    classDef foundation fill:#dbeafe,color:#1e3a8a,stroke:#2563eb
+    classDef research fill:#e6f2f1,color:#134e4a,stroke:#0d9488
+    classDef validation fill:#fff2d6,color:#734500,stroke:#d59a21
+    class A,B,C,D,E,F,G foundation
+    class H,I,J,K,L research
+    class M,N,O,P,Q validation

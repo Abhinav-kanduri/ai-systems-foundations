@@ -1,0 +1,22 @@
+digraph G {
+graph [bgcolor="#0c111c", rankdir=LR, pad="0.25", nodesep="0.4", ranksep="0.65", fontname="DejaVu Sans"];
+node [shape=box,style="rounded,filled",color="#34d1c2",fontcolor="white",fontname="DejaVu Sans",fontsize=13,margin="0.20,0.15"];
+edge [color="#f8b547",penwidth=2,arrowsize=0.7];
+n0 [label="Quantum problem",fillcolor="#1f3454"];
+n1 [label="Specify operation",fillcolor="#123c44"];
+n2 [label="Baseline circuit",fillcolor="#2c4159"];
+n3 [label="AI candidate generation",fillcolor="#134e4a"];
+n4 [label="Correctness gate",fillcolor="#514021"];
+n5 [label="Hardware-aware compiler",fillcolor="#1f3454"];
+n6 [label="Noise / resource scoring",fillcolor="#123c44"];
+n7 [label="Independent review",fillcolor="#2c4159"];
+n8 [label="Validated outcome",fillcolor="#134e4a"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+n5 -> n6;
+n6 -> n7;
+n7 -> n8;
+}

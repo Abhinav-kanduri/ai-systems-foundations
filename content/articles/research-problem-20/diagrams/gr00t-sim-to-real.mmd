@@ -1,0 +1,8 @@
+flowchart TD
+    A["Set Up Simulation"] --> B["Collect Demonstrations"] --> C["Validate Dataset"]
+    C --> D["Post-Train GR00T"] --> E["Evaluate in Isaac Lab"]
+    E --> F{"Targets Met?"}
+    F -->|No| G["Improve Training"] --> B
+    F -->|Yes| H["Export Policy"] --> I["Deploy on Jetson Thor"]
+    I --> J["Sensor Observations"] --> K["VLA Prediction"] --> L["Safety Controller"]
+    L --> M["Physical Robot Action"] --> N["Measure Outcome"] --> J

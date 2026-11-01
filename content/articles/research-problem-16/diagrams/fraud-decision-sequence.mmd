@@ -1,0 +1,20 @@
+sequenceDiagram
+  autonumber
+  participant Case as Evidence store
+  participant AI as AI assessment agent
+  participant Policy as Risk and policy gate
+  participant Analyst as Human analyst
+  participant Audit as Audit log
+  Case->>AI: Transaction details and history
+  AI-->>Policy: Recommendation + evidence references + uncertainty
+  Policy->>Policy: Assess impact and authorization
+  alt High impact or uncertain
+    Policy->>Analyst: Primary evidence and policy first
+    Analyst->>Audit: Independent preliminary assessment
+    Policy->>Analyst: Disclose AI recommendation
+    Analyst->>Case: Request contradicting evidence when necessary
+    Analyst->>Audit: Final decision, rationale, disagreement
+  else Explicitly authorized low-risk operation
+    Policy->>Audit: Automated decision and policy basis
+  end
+  Audit->>Audit: Outcomes and overreliance monitoring

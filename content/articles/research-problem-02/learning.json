@@ -1,0 +1,10 @@
+{
+  "intuition": "A simulation is a controlled experiment on a model. A theorem must cover every case allowed by its assumptions.",
+  "learningGoal": "Explore AI-assisted mathematical physics, fluid equations, and why successful simulations cannot establish a universal theorem.",
+  "exerciseNote": "Read the evidence comparison and change simulation assumptions on paper; no laboratory or GPU is required.",
+  "quiz": {
+    "kind": "reflection",
+    "question": "Imagine an AI system produces one million successful simulations of fluid flow without encountering a singularity. Can we conclude that the Navier–Stokes equations always produce smooth solutions?",
+    "explanation": "No. Simulations supply evidence for the cases examined. A universal smoothness claim needs a mathematical proof covering the conditions specified by the theorem."
+  }
+}

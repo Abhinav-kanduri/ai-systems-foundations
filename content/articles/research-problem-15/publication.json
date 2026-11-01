@@ -1,0 +1,61 @@
+{
+  "id": "research-problem-15",
+  "slug": "research-problem-15",
+  "title": "Research Problem 15 — Drug-Development Assistance",
+  "summary": "Learn how AI can assist drug-development research while separating computational predictions from experimental and clinical evidence.",
+  "primaryCategory": "research",
+  "secondaryCategories": [
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 15,
+  "problemNumber": 15,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/research_problem_15_banner.png",
+  "coverAlt": "Research Problem 15 banner",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic biology and scientific method",
+    "Uncertainty and multi-objective ranking"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-14",
+    "research-problem-16"
+  ],
+  "packageFiles": [
+    ".gitignore",
+    "HOW_TO_USE.md",
+    "LICENSE_NOTE.md",
+    "README.md",
+    "diagrams/drug_development_stages.dot",
+    "diagrams/evidence_feedback_loop.dot",
+    "diagrams/candidate_decision.dot",
+    "diagrams/candidate_decision.mmd",
+    "diagrams/drug_development_stages.mmd",
+    "diagrams/architecture.mmd",
+    "diagrams/architecture.dot",
+    "diagrams/evidence_feedback_loop.mmd",
+    "source/original_research_problem_15.txt",
+    "assets/architecture.svg",
+    "assets/architecture.png",
+    "assets/evidence_feedback_loop.svg",
+    "assets/candidate_decision.svg",
+    "assets/drug_development_stages.png",
+    "assets/candidate_decision.png",
+    "assets/research_problem_15_banner.png",
+    "assets/evidence_feedback_loop.png",
+    "assets/drug_development_stages.svg"
+  ],
+  "originalSources": [
+    "source/original_research_problem_15.txt"
+  ]
+}

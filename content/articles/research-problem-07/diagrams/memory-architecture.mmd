@@ -1,0 +1,33 @@
+flowchart TD
+    U[User Request] --> A[Authentication and User Context]
+    A --> R[Identify Memory Requirements]
+    R --> Q[Retrieve Candidate Memories]
+    E[(Episodic Memory Store)] --> Q
+    S[(Semantic Knowledge Store)] --> Q
+    D[(Source Documents and Events)] --> Q
+    Q --> P[Check Provenance and Access]
+    P --> T[Check Temporal Validity]
+    T --> V{Memory Current and Authorized?}
+    V -- No --> X[Reject or Mark as Historical]
+    X --> Q
+    V -- Yes --> C[Resolve Conflicting Memories]
+    C --> F{Conflict Resolved?}
+    F -- No --> H[Ask User or Query Authoritative Source]
+    H --> C
+    F -- Yes --> B[Build Verified Context]
+    B --> G[Agent Planning and Execution]
+    G --> O[Independent Outcome Evaluation]
+    O --> N[Generate Response]
+    N --> M[Propose Memory Update]
+    M --> L[Validate Update and Retention Rules]
+    L --> W[Version or Consolidate Memory]
+    W --> E
+    W --> S
+    W --> Z[Audit and Monitoring]
+    O --> Z
+    classDef memory fill:#e6f2f1,stroke:#0d9488,color:#134e4a;
+    classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500;
+    classDef warning fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+    class E,S,D memory;
+    class V,F decision;
+    class X,H warning;

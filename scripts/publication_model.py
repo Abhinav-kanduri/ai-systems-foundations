@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 
 from jsonschema import Draft202012Validator, FormatChecker
 
-RESERVED = {"latest", "topics", "series", "paths", "feed", "index", "assets", "search", "preview"}
+RESERVED = {"latest", "topics", "series", "paths", "feed", "index", "assets", "search", "preview", "about"}
 STATUSES = {"draft", "review", "scheduled", "published", "archived"}
 
 

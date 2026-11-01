@@ -1,0 +1,6 @@
+flowchart LR
+  J[January: AWS approved] --> M[March: Azure migration complete]
+  M --> JN[June: Production approval required]
+  JN --> O[October: Deployment request]
+  O --> V[Use Azure + approval policy]
+  J -.->|Superseded cloud choice| M

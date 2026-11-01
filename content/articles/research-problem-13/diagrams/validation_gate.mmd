@@ -1,0 +1,12 @@
+flowchart TD
+ A[Candidate code] --> B[Compile / static checks]
+ B --> C{Functional tests pass?}
+ C -->|No| X[Reject / diagnose]
+ C -->|Yes| D[Compare FP errors and scientific invariants]
+ D --> E{Within task-specific tolerances?}
+ E -->|No| X
+ E -->|Yes| F[Warmup + repeated benchmarking]
+ F --> G{Faster on representative cases?}
+ G -->|No| X
+ G -->|Yes| H[Independent review + canary]
+ H --> I[Monitor drift and rollback]

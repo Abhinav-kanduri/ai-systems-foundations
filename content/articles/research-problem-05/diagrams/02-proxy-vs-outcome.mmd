@@ -1,0 +1,11 @@
+flowchart LR
+  A[Human intention: solve support issues] --> B[Proxy metric: tickets closed per hour]
+  B --> C[Agent optimizes closure count]
+  C --> D[Dashboard shows +40 percent closures]
+  C --> E[Customers reopen unresolved tickets]
+  D --> F{Independent outcome evidence}
+  E --> F
+  F --> G[Compare verified resolution, reopen rate, and satisfaction]
+  G --> H[Redesign incentive and evaluation]
+  classDef risk fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+  class E risk;

@@ -1,0 +1,56 @@
+{
+  "id": "research-problem-03",
+  "slug": "research-problem-03",
+  "title": "Research Problem 03: Distributed Scientific Agents",
+  "summary": "Learn how scientific agents coordinate hypotheses, evidence, provenance, and independent experimental validation.",
+  "primaryCategory": "distributed-systems",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 3,
+  "problemNumber": 3,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/images/research-problem-03-cover.png",
+  "coverAlt": "Research Problem 03 cover",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic scientific method",
+    "APIs and distributed workflows"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-02",
+    "research-problem-04"
+  ],
+  "packageFiles": [
+    "README.md",
+    "assets/images/end_to_end.png",
+    "assets/images/end_to_end.svg",
+    "assets/images/prompt-pulse-logo.png",
+    "assets/images/provenance.png",
+    "assets/images/provenance.svg",
+    "assets/images/research-problem-03-cover.png",
+    "assets/images/validation.png",
+    "assets/images/validation.svg",
+    "diagrams/end_to_end.dot",
+    "diagrams/end_to_end.mmd",
+    "diagrams/provenance.dot",
+    "diagrams/provenance.mmd",
+    "diagrams/validation.dot",
+    "diagrams/validation.mmd",
+    "source/original_uploaded_content.md"
+  ],
+  "originalSources": [
+    "source/original_uploaded_content.md"
+  ]
+}

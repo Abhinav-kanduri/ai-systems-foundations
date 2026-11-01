@@ -1,0 +1,12 @@
+flowchart LR
+ A[Baseline: 100 ms] --> B[Generate variants]
+ B --> C[A: 80 ms - violates SLO]
+ B --> D[B: 88 ms - passes constraints]
+ B --> E[C: 94 ms - passes constraints]
+ C --> F[Reject A]
+ D --> G[Select B for independent validation]
+ E --> H[Retain C for diversity]
+ classDef bad fill:#ffe2e2,stroke:#c0392b,color:#602015
+ classDef good fill:#d6f4ed,stroke:#10877d,color:#17463d
+ class C,F bad
+ class D,E,G,H good

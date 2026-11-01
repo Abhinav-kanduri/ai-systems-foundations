@@ -1,0 +1,62 @@
+{
+  "id": "research-problem-16",
+  "slug": "research-problem-16",
+  "title": "Research Problem 16: Human Judgment and Oversight — Can AI Influence Our Decisions Without Us Realizing It?",
+  "summary": "Investigate automation bias and human oversight with evidence-first review, independent judgment, and an interface experiment.",
+  "primaryCategory": "reliability",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 16,
+  "problemNumber": 16,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/hypothetical-approval-ui.png",
+  "coverAlt": "Hypothetical AI approval interface showing why a click is not meaningful oversight",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic evaluation and experimental design",
+    "Human review workflows"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-15",
+    "research-problem-17"
+  ],
+  "packageFiles": [
+    "LICENSE-NOTE.md",
+    "README.md",
+    "ORIGINAL_SOURCE.md",
+    "ASSET_MANIFEST.md",
+    "diagrams/oversight-architecture.dot",
+    "diagrams/research-experiment.dot",
+    "diagrams/fraud-decision-sequence.dot",
+    "diagrams/fraud-decision-sequence.mmd",
+    "diagrams/recommendation-first-vs-evidence-first.mmd",
+    "diagrams/recommendation-first-vs-evidence-first.dot",
+    "diagrams/oversight-architecture.mmd",
+    "diagrams/research-experiment.mmd",
+    "assets/oversight-architecture.png",
+    "assets/research-experiment.png",
+    "assets/fraud-decision-sequence.png",
+    "assets/oversight-architecture.svg",
+    "assets/fraud-decision-sequence.svg",
+    "assets/recommendation-first-vs-evidence-first.svg",
+    "assets/prompt-pulse-logo.png",
+    "assets/research-experiment.svg",
+    "assets/hypothetical-approval-ui.png",
+    "assets/recommendation-first-vs-evidence-first.png"
+  ],
+  "originalSources": [
+    "ORIGINAL_SOURCE.md"
+  ]
+}

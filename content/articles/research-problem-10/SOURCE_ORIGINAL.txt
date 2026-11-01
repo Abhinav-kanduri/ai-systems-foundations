@@ -1,0 +1,308 @@
+Research Problem 10: Multi-Agent Coordination — Why Can More AI Agents Produce Worse Results?
+PROMPT & PULSE AI | RESEARCH TO REALITY | ANTHROPIC RESEARCH DIRECTION | SERIES 10/20
+1. Problem statement
+How can multiple autonomous AI agents collaborate effectively on complex tasks while avoiding conflicting decisions, duplicated work, communication overhead, shared mistakes, and failures caused by inconsistent information?
+
+Imagine a technology company operating an AI platform with 1,000 GPUs.
+
+The engineering team wants to reduce inference costs while maintaining application performance.
+
+Instead of assigning the task to one AI agent, the team deploys five specialized agents:
+- A cost optimization agent identifies expensive resources.
+- A GPU scheduling agent improves resource allocation.
+- A performance agent evaluates latency and throughput.
+- A reliability agent monitors service availability.
+- A coordinator agent combines recommendations and proposes changes.
+At first, the design sounds excellent.
+
+Each agent has a specialized responsibility.
+
+But then something unexpected happens.
+
+The cost optimization agent recommends reducing the number of running GPU instances.
+
+The scheduling agent simultaneously recommends increasing batch sizes to improve utilization.
+
+The performance agent predicts that these changes will increase response latency.
+
+Meanwhile, the reliability agent discovers that some of the proposed GPU instances are required for failover capacity.
+
+The coordinator receives five technically plausible recommendations that do not agree.
+
+Each agent may have performed its assigned task correctly, yet the overall system could still make a poor decision.
+
+This introduces an important research question:
+
+If multiple capable AI agents cannot reliably coordinate their decisions, does increasing the number of agents actually improve intelligence—or simply increase system complexity?
+
+2. Why is this problem difficult?
+We often assume that dividing a difficult task among several intelligent agents will improve performance.
+
+The reasoning seems straightforward: different agents specialize, tasks can execute in parallel, and results can be reviewed independently.
+
+However, collaboration introduces new requirements that do not exist in an isolated task.
+
+Consider how a software engineering team works.
+
+A backend engineer changes an API contract. A frontend engineer implements the original contract. A database engineer changes a table schema. A test engineer validates an outdated version of the application.
+
+Everyone may be productive individually, but the integrated application fails.
+
+Multi-agent systems face similar problems.
+Four fundamental coordination challenges
+Shared-state inconsistency: Different agents may operate using different versions of the same information.
+
+Conflicting objectives: Agents may optimize individual metrics that compete with one another.
+
+Correlated mistakes: Agents using similar models, prompts, or evidence may reproduce the same incorrect assumptions.
+
+Coordination overhead: Communication, arbitration, repeated tool calls, and conflict resolution may eliminate the benefits of parallel execution.
+
+The research challenge is therefore not just how to make agents communicate.
+
+It is how to make their communication and collaboration improve the final outcome.
+3. Technical concepts behind the problem
+Concept	Explanation
+Multi-agent systems (MAS)	Systems in which multiple agents interact to pursue individual or shared objectives.
+Task decomposition	Dividing a large problem into manageable subtasks.
+Agent specialization	Assigning agents distinct roles or capabilities.
+Orchestration	Managing the execution order, dependencies, and coordination of agents.
+Shared state	Information accessed or updated by multiple agents.
+Distributed consistency	Ensuring components use sufficiently consistent information.
+Consensus	A process for reaching agreement on a decision or shared state under specified assumptions.
+Correlated errors	Similar mistakes occurring across agents because of shared assumptions, data, or models.
+Coordination overhead	Additional computation, communication, and waiting introduced by collaboration.
+Conflict resolution	Identifying and reconciling incompatible recommendations or changes.
+Independent verification	Checking outputs against original evidence without merely trusting another agent's conclusion.
+Fault tolerance	Preserving useful system behavior when components or agents fail.
+Termination conditions	Rules that prevent workflows from continuing indefinitely.
+Idempotency	Ensuring repeated actions do not unintentionally duplicate side effects.
+
+The theoretical connection: Distributed systems
+A multi-agent architecture resembles a distributed system in which several independent components communicate and coordinate.
+
+However, language-model agents introduce additional uncertainty because their decisions can be probabilistic and influenced by unstructured context.
+
+For example, two agents might interpret the same requirement differently even when they have access to identical information.
+
+This means engineers must consider both conventional distributed-systems failures and semantic disagreements between agents.
+The performance connection: Parallelism versus coordination
+A simplified model of total execution time is:
+\[
+T_{\text{total}} =
+T_{\text{execution}}+
+T_{\text{coordination}}+
+T_{\text{recovery}}
+\]
+
+Here, execution time includes useful work; coordination time includes communication and synchronization; and recovery time includes resolving failures or conflicts.
+
+Adding agents may reduce execution time through parallelism, but increase the other components.
+Does adding agents always make a task faster?
+
+Useful executionCoordination and recoveryTotal time
+
+0 s35 s70 s105 s140 s1248
+
+
+
+
+
+
+
+
+
+Illustrative hypothetical timings, not published benchmark results.
+
+
+
+
+
+In this example, four agents produce the shortest total completion time. Eight agents perform more work in parallel but spend too much time coordinating.
+Important: These are illustrative numbers. Actual multi-agent performance depends on the task, models, tools, dependencies, and architecture.
+
+4. End-to-end Mermaid architecture diagram
+The diagram below demonstrates a production-oriented multi-agent architecture that uses task decomposition, shared evidence, conflict detection, independent verification, and human approval.
+#chatgpt-mermaid-_r_168_ :is(.node,.pele-node).warning :is(rect,circle,ellipse,polygon,path):where(:not(.label *)) {fill:#442d21;stroke:#613721}#chatgpt-mermaid-_r_168_ :is(.node,.pele-node).warning [fill="none"]:where(:not(.label *)) {fill:none}#chatgpt-mermaid-_r_168_ :is(.node,.pele-node).warning [stroke="none"]:where(:not(.label *)) {stroke:none}#chatgpt-mermaid-_r_168_ :is(.node,.pele-node).warning :where(text,.label,.nodeLabel) {fill:#ffffff;color:#ffffff}#chatgpt-mermaid-_r_168_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_168_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_168_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_168_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-_r_168_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_168_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_168_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_168_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_168_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_168_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_168_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_168_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_168_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_168_ p{margin:0;}#chatgpt-mermaid-_r_168_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_168_ .label text,#chatgpt-mermaid-_r_168_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .node rect,#chatgpt-mermaid-_r_168_ .node circle,#chatgpt-mermaid-_r_168_ .node ellipse,#chatgpt-mermaid-_r_168_ .node polygon,#chatgpt-mermaid-_r_168_ .node path{fill:rgb(19, 33, 54);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-_r_168_ .rough-node .label text,#chatgpt-mermaid-_r_168_ .node .label text,#chatgpt-mermaid-_r_168_ .image-shape .label,#chatgpt-mermaid-_r_168_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_168_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_168_ .rough-node .label,#chatgpt-mermaid-_r_168_ .node .label,#chatgpt-mermaid-_r_168_ .image-shape .label,#chatgpt-mermaid-_r_168_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_168_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_168_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_168_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-_r_168_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-_r_168_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-_r_168_ .edgeLabel{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_168_ .edgeLabel p{background-color:rgb(14, 14, 14);}#chatgpt-mermaid-_r_168_ .edgeLabel rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_168_ .labelBkg{background-color:rgba(14, 14, 14, 0.5);}#chatgpt-mermaid-_r_168_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-_r_168_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_168_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_168_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_168_ .icon-shape,#chatgpt-mermaid-_r_168_ .image-shape{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_168_ .icon-shape p,#chatgpt-mermaid-_r_168_ .image-shape p{background-color:rgb(14, 14, 14);padding:2px;}#chatgpt-mermaid-_r_168_ .icon-shape .label rect,#chatgpt-mermaid-_r_168_ .image-shape .label rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_168_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_168_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_168_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-_r_168_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_168_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_168_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_168_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_168_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_168_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_168_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_168_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_168_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-_r_168_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_168_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_168_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_168_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_168_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_168_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_168_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_168_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_168_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_168_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_168_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_168_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-width:1px;}#chatgpt-mermaid-_r_168_ .node rect,#chatgpt-mermaid-_r_168_ .node circle,#chatgpt-mermaid-_r_168_ .node ellipse,#chatgpt-mermaid-_r_168_ .node polygon,#chatgpt-mermaid-_r_168_ .node path{fill:rgb(24, 24, 24);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_168_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_168_ .mermaid-decision .label-container{fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_168_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_168_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_168_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}#chatgpt-mermaid-_r_168_ .agent rect{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .agent polygon{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .agent ellipse{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .agent circle{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .agent path{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .agent tspan{fill:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_168_ .decision rect{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .decision polygon{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .decision ellipse{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .decision circle{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .decision path{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .decision tspan{fill:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_168_ .warning rect{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_168_ .warning polygon{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_168_ .warning ellipse{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_168_ .warning circle{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_168_ .warning path{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_168_ .warning tspan{fill:rgb(127, 29, 29)!important;}Human Business ObjectiveCapture Requirements andConstraintsCoordinator / OrchestratorTask DecompositionCost Optimization AgentGPU Scheduling AgentPerformance AgentReliability AgentVersioned Shared EvidenceStoreCollect Proposed DecisionsDetect Conflicts andDependenciesConflicting Recommendations?Resolve Conflict or ReplanIndependent Verification AgentEvaluate Business Goal andConstraintsBetter Than Baseline?Reject or Use SimplerWorkflowHuman ApprovalControlled ExecutionMonitor OutcomesSLOs Satisfied?Continue DeploymentRollback and InvestigateYesNoNoYesYesNo
+
+
+
+
+
+How the diagram works
+The system begins by defining the business objective and non-negotiable constraints.
+
+The coordinator decomposes the task into separate investigations, which specialized agents perform using versioned evidence.
+
+Their results are collected and checked for conflicts.
+
+If the recommendations are incompatible, the workflow requests revision rather than combining them blindly.
+
+An independent verifier then assesses the proposed solution against the original requirements.
+
+Only after the candidate demonstrates an improvement over an appropriate baseline does it proceed to approval and controlled deployment.
+
+The essential lesson is that coordination, verification, and recovery must be designed into the architecture—not added after agents begin interfering with one another.
+
+5. Real research example: Anthropic's multi-agent experiments
+ANTHROPIC | AUGUST 13, 2026
+
+
+
+
+
+
+
+
+
+Anthropic published Patterns and Problems in Emerging Multiagent Systems, investigating how groups of AI agents behave when collaborating, competing, and pursuing potentially incompatible goals. 
+anthropic.com
+
+
+Three experiments are particularly interesting.
+Experiment A — Multiple agents building the same software project
+Researchers tasked groups of agents with creating a text-based, web-playable fantasy game.
+
+Agents shared a code repository and communication forum.
+
+Some earlier models frequently produced conflicting pull requests that were never merged.
+
+Other models avoided conflicts largely by working on separate files, reducing how much they actually collaborated.
+
+A more recent model showed stronger evidence of contributing to shared files while maintaining useful pull-request throughput.
+
+What does this teach us?
+
+Avoiding conflicts is not always the same as coordinating effectively.
+
+A system could report few conflicts simply because agents avoid working together.
+
+Therefore, researchers must evaluate both the amount of collaboration and the quality of the final result.
+Experiment B — Agents independently making the same mistake
+In another experiment, agents were asked to pursue individual creative projects.
+
+Many independently chose similar approaches, such as building ray tracers or self-hosting compilers, and encountered similar failures.
+
+This illustrates correlated behavior.
+
+Multiple agents do not necessarily provide independent perspectives when they share similar models or assumptions.
+Experiment C — Agents overwhelming a shared system
+Researchers also examined agents managing job queues with limited bandwidth.
+
+Without effective coordination, agents repeatedly polled the shared service to advance their jobs.
+
+In one experimental run:
+2.4M
+Job requests generated
+
+
+117
+Jobs accepted
+
+
+
+One reported experimental run, not a general benchmark of agent performance. 
+anthropic.com
+This is a powerful distributed-systems lesson.
+
+Each agent attempted to improve its individual progress, but the combined behavior overloaded a limited shared resource.
+
+Locally rational decisions can create globally undesirable outcomes.
+
+6. Research goal
+The research aims to understand when coordination among agents produces a measurable benefit, and how to prevent collective failures.
+
+Important goals include reliable delegation, shared-state consistency, effective conflict resolution, reducing correlated mistakes, improving resource allocation, and preserving useful cooperation under changing conditions.
+
+A major engineering goal is to discover when a multi-agent architecture is justified at all.
+
+Anthropic's earlier production research on its multi-agent Research system reported strong improvements on certain breadth-first research tasks, but also significantly higher token consumption and substantial orchestration complexity. 
+anthropic.com
+
+
+The larger principle is that multi-agent systems should be selected based on demonstrated task value, not architectural novelty.
+7. What remains difficult?
+Conflicting goals: Agents may pursue individually reasonable but mutually incompatible objectives.
+
+Dynamic shared state: Agents must respond when another agent changes the system they are working on.
+
+Correlated errors: Similar models and evidence can produce agreement without meaningful independent verification.
+
+Resource contention: Agents may overload shared APIs, databases, queues, or inference infrastructure.
+
+Communication overhead: Increasing the number of agents can increase messages, delays, and token costs.
+
+Failure propagation: Incorrect intermediate results may contaminate downstream decisions.
+
+Recovery and cancellation: Long-running agents need mechanisms for terminating obsolete work and recovering safely.
+
+Evaluation: Determining whether additional agents genuinely improved the final result requires appropriate single-agent and deterministic-workflow baselines.
+
+8. Interview perspective
+Interview question:
+
+How would you design a multi-agent system to optimize GPU inference infrastructure while preventing agents from making conflicting changes or overwhelming shared resources?
+Strong answer direction
+Start with the overall business objective and define latency, reliability, cost, security, and capacity constraints.
+
+Then establish clear agent responsibilities and a coordinator responsible for task dependencies and conflict detection.
+
+Use versioned shared state and prevent multiple agents from applying incompatible modifications concurrently.
+
+Introduce tool-level authorization, rate limits, idempotency keys, and resource budgets.
+
+Validate proposed changes independently against consistent workload traces.
+
+Require human approval for sensitive infrastructure changes, and use canary deployments with rollback support.
+
+Finally, compare the multi-agent system with a single-agent and a deterministic baseline using the same task set and comparable resource budgets.
+
+What the interviewer is testing: Distributed systems, orchestration, state consistency, agent evaluation, concurrency, reliability engineering, and business trade-offs.
+
+9. Subscriber learning challenge
+Scenario: Three AI agents manage a shared GPU inference platform.
+
+The cost agent wants to shut down underutilized GPUs. The reliability agent wants to retain spare capacity. The performance agent recommends adding resources to reduce latency.
+
+What is the best next action?
+
+Allow all three agents to execute their recommendations independently.
+
+Accept whichever recommendation was generated first.
+
+Reconcile the proposals against shared objectives and constraints, then validate the combined plan.
+
+Add ten more agents and use majority voting.
+
+
+Hands-on learning exercise
+Build a small agent coordination simulator in Python.
+
+Create three functions representing a cost agent, a performance agent, and a reliability agent. Give each function the same workload metrics but different optimization objectives.
+
+Have each agent propose a GPU configuration.
+
+Then implement a coordinator that checks whether the proposed changes satisfy a shared latency target, minimum spare-capacity requirement, and cost budget.
+
+Compare the results against a simple deterministic policy.
+
+The objective is not to demonstrate that multi-agent systems always win. It is to identify the situations in which specialization creates measurable benefits.
+
+10. Primary research references
+- Anthropic — Patterns and Problems in Emerging Multiagent Systems (August 2026)
+- Anthropic — How We Built Our Multi-Agent Research System (June 2025)
+- Anthropic — Redesigning Source Control at Anthropic (October 2026)
+Key takeaway
+More intelligent agents do not automatically produce a more intelligent system.
+
+A reliable multi-agent architecture depends on compatible objectives, clear responsibilities, consistent shared information, controlled resource access, independent evaluation, and effective recovery.
+
+The most important engineering question is not how many agents can we deploy?
+
+It is:
+
+What measurable improvement does collaboration deliver over a simpler system, and what new failures does the collaboration introduce?
+
+Prompt & Pulse AI — Learn AI. Build AI. Stay Ahead.
+
+Next in the series: Research Problem 11 — Formal Software Verification: Can AI help mathematically prove that software behaves correctly under a precise specification?

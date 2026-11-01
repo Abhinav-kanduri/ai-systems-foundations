@@ -1,0 +1,16 @@
+digraph G {
+graph [bgcolor="#0c111c", rankdir=LR, pad="0.25", nodesep="0.4", ranksep="0.65", fontname="DejaVu Sans"];
+node [shape=box,style="rounded,filled",color="#34d1c2",fontcolor="white",fontname="DejaVu Sans",fontsize=13,margin="0.20,0.15"];
+edge [color="#f8b547",penwidth=2,arrowsize=0.7];
+n0 [label="Task specification",fillcolor="#1f3454"];
+n1 [label="Claude proposes circuit",fillcolor="#123c44"];
+n2 [label="Evaluator verifies",fillcolor="#2c4159"];
+n3 [label="Score resources",fillcolor="#134e4a"];
+n4 [label="Feedback to Claude",fillcolor="#514021"];
+n5 [label="New candidate",fillcolor="#1f3454"];
+n0 -> n1;
+n1 -> n2;
+n2 -> n3;
+n3 -> n4;
+n4 -> n5;
+}

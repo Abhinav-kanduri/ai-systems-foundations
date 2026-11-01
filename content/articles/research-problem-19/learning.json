@@ -1,0 +1,17 @@
+{
+  "intuition": "Predicting that a DNA change affects a molecular process helps decide what to investigate. It does not by itself show disease causation.",
+  "learningGoal": "Explore genome interpretation and variant prioritization while distinguishing predicted molecular effects from evidence of causation.",
+  "exerciseNote": "CPU-only with pandas: run the synthetic prioritization example and change the fictional weights. This is not clinical analysis or AlphaGenome scoring.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: AlphaGenome predicts that a single-letter DNA variant strongly affects RNA splicing in a particular cell type. Which conclusion is scientifically justified?",
+    "explanation": "A predicted molecular effect is a hypothesis for investigation in the relevant context. Causation, generalization across cell types, and clinical action need additional evidence.",
+    "choices": [
+      "The variant definitely causes a genetic disease.",
+      "The prediction suggests a potentially important molecular effect worth investigating experimentally.",
+      "The variant must have the same effect in every cell type.",
+      "The predicted effect proves that clinical treatment is necessary."
+    ],
+    "answer": 1
+  }
+}

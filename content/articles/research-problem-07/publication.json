@@ -1,0 +1,53 @@
+{
+  "id": "research-problem-07",
+  "slug": "research-problem-07",
+  "title": "Research Problem 07: Long-Term Memory in AI Agents",
+  "summary": "Explore agent memory, retrieval, changing facts, provenance, and correction through a practical long-term memory scenario.",
+  "primaryCategory": "generative-ai",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 7,
+  "problemNumber": 7,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/research-07-cover.png",
+  "coverAlt": "Research Problem 07 — Prompt & Pulse AI",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Retrieval and embeddings",
+    "Basic data storage"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-06",
+    "research-problem-08"
+  ],
+  "packageFiles": [
+    "README.md",
+    "SOURCE_ARTICLE.md",
+    "assets/memory-architecture.png",
+    "assets/decision-timeline.png",
+    "assets/research-07-cover.png",
+    "assets/prompt-pulse-logo.png",
+    "assets/memory-architecture.svg",
+    "diagrams/architecture-preview.dot",
+    "diagrams/memory-types.mmd",
+    "diagrams/decision-timeline.mmd",
+    "diagrams/README.md",
+    "diagrams/memory-architecture.mmd",
+    "diagrams/memory-update-sequence.mmd"
+  ],
+  "originalSources": [
+    "SOURCE_ARTICLE.md"
+  ]
+}
