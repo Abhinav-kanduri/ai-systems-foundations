@@ -1,0 +1,41 @@
+.research-series-intro { border:1px solid var(--border); border-radius:12px; padding:clamp(22px,4vw,44px); background:var(--surface); }
+.research-series-intro>.micro-label { color:var(--accent); }
+.series-student-label { font-size:clamp(24px,3vw,40px); line-height:1.3; letter-spacing:-.04em; max-width:740px; font-weight:700; margin:22px 0; }
+.research-series-intro>p:not(.series-student-label) { line-height:1.8; color:var(--text-soft); max-width:750px; }
+.research-parts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; margin:32px 0; }
+.research-parts>div { border-top:1px solid var(--border); padding-top:20px; }
+.research-parts h3 { font-size:18px; margin:10px 0; }.research-parts p { color:var(--text-soft); font-size:13px; line-height:1.9; }
+.student-route-guide summary { cursor:pointer; min-height:44px; }.student-route-guide li { margin:15px 0; }.student-route-guide a { color:var(--accent); }
+.article-series-badge .series-navigation { margin:0 0 24px; }.article-series-badge .series-navigation>div { display:none; }
+.article-layout>div { min-width:0; }
+.article-cover { margin:0 0 36px; border:1px solid var(--border); border-radius:10px; overflow:hidden; background:var(--surface); }
+.article-cover img { display:block; width:100%; height:auto; max-height:470px; object-fit:contain; aspect-ratio:2/1; }
+.article-cover figcaption { color:var(--text-soft); font-size:11px; padding:12px 18px; }
+.student-intro { border:1px solid var(--border-strong); border-left:3px solid var(--accent); padding:clamp(18px,3vw,30px); background:var(--surface); border-radius:7px; margin:28px 0 44px; }
+.publication-prose .student-intro h2 { font-size:24px; margin-top:14px; }.student-intuition { color:var(--text); font-size:18px; }
+.student-intro dt { font-size:12px; font-weight:800; color:var(--accent); margin-top:20px; }.student-intro dd { margin:4px 0 0; font-size:14px; }
+.publication-prose .source-context { font-size:12px; line-height:1.8; border-top:1px solid var(--border); padding-top:18px; margin-bottom:0; }
+.publication-prose figure { margin:30px 0; }.research-diagram { padding:18px; border:1px solid var(--border-strong); border-radius:9px; background:var(--surface); min-width:0; }
+.research-diagram figcaption { color:var(--text-soft); font:11px/1.7 'DM Mono',monospace; margin-bottom:16px; }
+.diagram-output { overflow:auto; min-height:100px; max-height:700px; background:#fff; color:#17202c; padding:16px; border-radius:5px; }
+.diagram-output svg { display:block; margin:auto; max-width:100%; height:auto; }.diagram-output p { font-size:13px; }
+.diagram-actions { margin:16px 0 8px; display:flex; gap:10px; flex-wrap:wrap; }
+.publication-site .research-diagram button, .quiz-actions button { min-height:44px; padding:10px 15px; border:1px solid var(--border-strong); border-radius:6px; color:var(--text); background:var(--bg); font-size:12px; }
+.publication-prose details>summary { cursor:pointer; min-height:44px; padding:10px 0; font-size:13px; color:var(--text); }
+.diagram-source pre { margin:10px 0 0; }.equation-source { font-size:12px; }
+.publication-prose math annotation { display:none; }.publication-prose math { max-width:100%; }
+.code-copy { display:flex; justify-content:flex-end; margin:0 0 -1px; }.code-copy button { min-height:44px; padding:8px 15px; color:var(--text); background:var(--surface); border:1px solid var(--border-strong); border-radius:6px 6px 0 0; font-size:12px; }
+.publication-prose .code-copy+pre,.publication-prose .code-copy+.codehilite pre { margin-top:0; }
+.knowledge-check { padding:clamp(18px,3vw,30px); margin:48px 0; border:1px solid var(--border-strong); background:var(--surface); border-radius:9px; }
+.knowledge-check .micro-label { color:var(--accent); }.publication-prose .knowledge-check h2 { margin-top:12px; }
+.research-quiz fieldset { border:0; padding:0; margin:0; min-width:0; }.research-quiz legend { padding:0; margin-bottom:20px; font-size:16px; line-height:1.9; color:var(--text); }
+.quiz-choice { display:flex; align-items:flex-start; gap:12px; padding:14px; border:1px solid var(--border); border-radius:6px; margin:10px 0; font-size:14px; cursor:pointer; }
+.quiz-choice input { margin-top:7px; accent-color:var(--accent); flex-shrink:0; }.quiz-choice:has(input:checked) { border-color:var(--accent); background:color-mix(in srgb,var(--accent) 6%,transparent); }
+.quiz-actions { display:flex; gap:12px; margin-top:20px; }.quiz-feedback { font-size:14px; color:var(--text); }.quiz-feedback:empty { display:none; }
+.original-transcript { border-top:1px solid var(--border); padding-top:15px; margin-top:24px; }.original-transcript pre { white-space:pre-wrap; overflow-wrap:anywhere; max-height:650px; }
+.additional-diagram { border-top:1px solid var(--border); padding-top:12px; }
+.diagram-dialog { width:min(96vw,1500px); max-height:94vh; padding:20px; background:var(--bg); color:var(--text); border:1px solid var(--border-strong); border-radius:9px; }
+.diagram-dialog::backdrop { background:rgba(0,0,0,.8); }.diagram-dialog header { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:15px; }
+.diagram-dialog button { min-height:44px; padding:10px 15px; background:var(--surface); color:var(--text); border:1px solid var(--border-strong); border-radius:5px; }.diagram-dialog .diagram-output { max-height:75vh; }
+.diagram-dialog .diagram-output svg { max-width:none!important; min-width:900px; }
+@media(max-width:600px) { .research-parts { grid-template-columns:1fr; gap:12px; }.research-series-intro .micro-label { font-size:9px; }.publication-prose .student-intro h2 { font-size:22px; }.research-diagram { padding:12px; }.diagram-output { padding:8px; }.article-cover img { max-height:300px; }.collection-reading-order { padding:18px; }.collection-reading-order li { flex-wrap:wrap; gap:10px; }.collection-reading-order li a { flex-basis:80%; }.publication-prose math[display=inline] { font-size:.9em; } }

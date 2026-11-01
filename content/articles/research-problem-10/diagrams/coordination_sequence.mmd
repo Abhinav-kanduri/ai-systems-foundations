@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    actor Human
+    participant Coord as Coordinator
+    participant Store as Versioned state
+    participant Agents as Specialist agents
+    participant Verify as Independent verifier
+    participant Deploy as Controlled deploy
+    Human->>Coord: Objective and constraints
+    Coord->>Store: Snapshot evidence revision
+    Coord->>Agents: Delegate scoped tasks and revision
+    Agents->>Store: Read same revision
+    Agents-->>Coord: Proposals with evidence and risk
+    Coord->>Coord: Detect incompatible actions
+    alt Conflict or stale version
+       Coord->>Agents: Replan or refresh evidence
+    else Coherent proposal
+       Coord->>Verify: Compare with baseline and constraints
+       Verify-->>Coord: Pass or reject with evidence
+       Coord->>Human: Request approval if eligible
+       Human-->>Coord: Approve or reject
+       Coord->>Deploy: Canary approved revision
+       Deploy-->>Coord: SLO telemetry and outcome
+    end

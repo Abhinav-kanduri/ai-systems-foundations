@@ -1,4 +1,4 @@
-name: Validate and optionally deploy Technical Publications
+name: Validate and deploy Technical Publications
 
 on:
   push:
@@ -62,15 +62,19 @@ jobs:
       - name: Build public site and isolated browser fixtures
         run: |
           python scripts/publications.py build
+          python scripts/audit_research.py
           python tests/site/make_browser_fixture.py
       - name: Browser and FDE regression tests
-        run: node --test tests/site/browser.test.cjs
+        run: node --test tests/site/browser.test.cjs tests/site/research.browser.test.cjs
       - name: Upload verified public artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: build/site
   deploy:
-    if: github.event_name == 'workflow_dispatch' && inputs.deploy
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' ||
+      (github.event_name == 'workflow_dispatch' && inputs.deploy))
     needs: verify
     permissions:
       pages: write

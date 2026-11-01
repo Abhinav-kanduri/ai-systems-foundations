@@ -1,0 +1,18 @@
+digraph G {
+	bgcolor="#0b1220" nodesep=0.35 pad=0.35 rankdir=LR ranksep=0.58 splines=polyline
+	node [color="#37c7c2" fillcolor="#182b3d" fontcolor="#ffffff" fontname="DejaVu Sans" fontsize=12 margin="0.18,0.12" shape=box style="rounded,filled"]
+	edge [arrowsize=0.65 color="#f3b548" penwidth=1.6]
+	a [label=Discovery]
+	b [label="Target validation"]
+	c [label=Hits]
+	d [label=Leads]
+	e [label=Preclinical]
+	f [label=Clinical]
+	g [label=Regulatory]
+	a -> b
+	b -> c
+	c -> d
+	d -> e
+	e -> f
+	f -> g
+}

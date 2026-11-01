@@ -1,0 +1,15 @@
+{
+  "id": "systems-to-physical-ai",
+  "slug": "systems-to-physical-ai",
+  "title": "From coordinated systems to physical AI",
+  "description": "Connect multi-agent coordination, GPU and quantum optimization, algorithm search, world models, and robotics. Check the hardware and dependency notes before running a lab.",
+  "status": "published",
+  "publicationIds": [
+    "research-problem-10",
+    "research-problem-13",
+    "research-problem-14",
+    "research-problem-17",
+    "research-problem-18",
+    "research-problem-20"
+  ]
+}

@@ -1,0 +1,34 @@
+flowchart TD
+ A[Scientific model / GPU workload] --> B[Establish correctness baseline]
+ B --> C[Profile runtime, memory and hardware]
+ C --> D{Primary bottleneck?}
+ D -->|Memory bound| E[Reduce traffic and improve reuse]
+ D -->|Compute bound| F[Improve arithmetic efficiency]
+ D -->|Launch / scheduling| G[Reduce overhead]
+ E --> H[AI optimization agent]
+ F --> H
+ G --> H
+ H --> I[Generate candidate kernel]
+ I --> J[Compile in controlled sandbox]
+ J --> K[Run correctness and numerical tests]
+ K --> L{Accuracy requirements satisfied?}
+ L -->|No| M[Reject candidate or revise]
+ M --> H
+ L -->|Yes| N[Benchmark representative workloads]
+ N --> O[Evaluate runtime, memory and cost]
+ O --> P{Improvement reproducible?}
+ P -->|No| M
+ P -->|Yes| Q[Independent engineering review]
+ Q --> R[Canary deployment]
+ R --> S[Monitor quality and performance]
+ S --> T{Stable?}
+ T -->|No| U[Rollback and investigate]
+ T -->|Yes| V[Accept optimized version]
+ classDef base fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+ classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500
+ classDef risk fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+ classDef action fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+ class A,B,C,J,K,N,O,Q,R,S,V base
+ class D,L,P,T decision
+ class M,U risk
+ class E,F,G,H,I action

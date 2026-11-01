@@ -28,3 +28,6 @@ Thumbs.db
 # Website tooling and generated artifacts
 .venv-site/
 /build/
+
+# Local open-source research workspace
+/Research-opensource/

@@ -1,0 +1,31 @@
+flowchart TD
+    A[Optimization problem] --> B[Objectives and hard constraints]
+    B --> C[Baseline and correctness tests]
+    C --> D[(Candidate program database)]
+    D --> E[Select promising and diverse parents]
+    E --> F[Gemini-based proposal or mutation agent]
+    F --> G[Static and security checks]
+    G --> H[Sandbox compile and execute]
+    H --> I{Correctness tests pass?}
+    I -- No --> J[Reject; log diagnostic feedback]
+    I -- Yes --> K[Measure runtime, memory and quality]
+    K --> L[Compute fitness and constraint feasibility]
+    L --> M{Measurable valid improvement?}
+    M -- No --> D
+    M -- Yes --> N[Store candidate and provenance]
+    N --> D
+    N --> O[Independent benchmark on unseen workloads]
+    O --> P{Release criteria satisfied?}
+    P -- No --> D
+    P -- Yes --> Q[Human review and controlled deployment]
+    Q --> R[Observe production metrics and rollback readiness]
+    R -->|Regression| D
+    J --> D
+    classDef base fill:#dbf0ff,stroke:#3381bf,color:#102d45
+    classDef search fill:#d6f6ed,stroke:#138a7e,color:#103b32
+    classDef gate fill:#fff1cc,stroke:#d09a32,color:#493400
+    classDef risk fill:#ffe1e1,stroke:#d23b45,color:#551313
+    class A,B,C base
+    class D,E,F,K,L,N,O,Q,R search
+    class I,M,P gate
+    class G,H,J risk

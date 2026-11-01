@@ -1,0 +1,20 @@
+flowchart TB
+    A["Clean prompt"] --> B["Clean model run"]
+    C["Corrupted / contrast prompt"] --> D["Corrupted model run"]
+    B --> E["Record clean activation at selected layer / token"]
+    D --> F["Record corrupted baseline output"]
+    E --> G["Patch clean activation into corrupted run"]
+    D --> G
+    G --> H["Measure change in target logit / behavior"]
+    F --> H
+    H --> I{"Does patch restore predicted behavior?"}
+    I -->|Yes| J["Evidence of causal contribution in this setting"]
+    I -->|No| K["Revise mechanism, location, metric, or controls"]
+    J --> L["Replicate; test necessity, sufficiency, specificity"]
+    K --> L
+    classDef data fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+    classDef test fill:#e6f2f1,stroke:#0d9488,color:#134e4a;
+    classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500;
+    class A,B,C,D,E,F data;
+    class G,H,J,K,L test;
+    class I decision;

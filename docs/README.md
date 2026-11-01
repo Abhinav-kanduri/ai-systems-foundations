@@ -15,6 +15,7 @@ python -m venv .venv-site
 ```
 
 - [Technical Publications](http://localhost:8000/publications/)
+- [Research to Reality: 20 AI research problems](http://localhost:8000/publications/series/research-to-reality/)
 - [Original FDE reader](http://localhost:8000/docs/#end-to-end-fde-learning-map)
 - [RSS](http://localhost:8000/publications/feed.xml)
 - [Sitemap](http://localhost:8000/sitemap.xml)
@@ -48,7 +49,7 @@ For browser regression tests, install the optional test tools and Chromium:
 .\.venv-site\Scripts\python.exe -m playwright install chromium
 .\.venv-site\Scripts\python.exe tests/site/make_browser_fixture.py
 $env:PLAYWRIGHT_MODULE = (Resolve-Path .venv-site/Lib/site-packages/playwright/driver/package).Path
-node --test tests/site/browser.test.cjs
+node --test tests/site/browser.test.cjs tests/site/research.browser.test.cjs
 ```
 
 Tests use isolated browser contexts and fixture publications outside production
@@ -56,12 +57,38 @@ content. They verify source discovery, search/filter URLs, draft and future-date
 protection, article rendering, series, progress isolation, and responsive layouts
 at 1440, 768, 390, and 320 pixels. Screenshots go to `build/qa/`.
 
+The research suite also visits all 20 articles, renders every inline and
+supporting Mermaid diagram, checks interactive answers and reset behavior,
+exercises code copying, and follows the series under a GitHub Pages subpath.
+For a complete source and public-file preservation audit, run a build followed
+by `.\.venv-site\Scripts\python.exe scripts/audit_research.py`.
+See [the research implementation report](research-publications/FINAL-IMPLEMENTATION-REPORT.md)
+for source coverage, validation evidence, and optional lab requirements.
+
 ## Deployment
 
 The [GitHub workflow](../.github/workflows/deploy-fde-field-guide.yml) validates
 pushes and pull requests. It builds and tests the public artifact before upload.
-Only a manual workflow dispatch with `deploy: true` runs the deployment job.
-No production deployment was performed as part of local implementation.
+Successful site changes pushed to `main` deploy automatically. Pull requests
+only validate. A manual workflow dispatch on `main` with `deploy: true` can
+redeploy; leaving it unchecked runs validation only.
+
+In [repository Settings → Pages](https://github.com/Abhinav-kanduri/ai-systems-foundations/settings/pages),
+set **Build and deployment → Source** to **GitHub Actions**. Use this workflow
+as the only Pages publisher. The generic Jekyll workflow builds the repository
+root and publishes the README instead of the generated website.
+
+After merging to `main`, wait for both `verify` and `deploy` in
+[Actions](https://github.com/Abhinav-kanduri/ai-systems-foundations/actions/workflows/deploy-fde-field-guide.yml)
+to succeed, then check:
+
+- [FDE Field Guide](https://abhinav-kanduri.github.io/ai-systems-foundations/)
+- [Technical Publications](https://abhinav-kanduri.github.io/ai-systems-foundations/publications/)
+- [RSS](https://abhinav-kanduri.github.io/ai-systems-foundations/publications/feed.xml)
+- [Sitemap](https://abhinav-kanduri.github.io/ai-systems-foundations/sitemap.xml)
+
+Verify chapter navigation, library search, and the link back to the guide. If
+the README still appears, check that no other workflow deploys a Jekyll build.
 
 Verify the intended production `siteUrl` in `content/site.json` before deployment.
 It is the configured canonical target, not evidence of an existing live release.
@@ -73,12 +100,13 @@ There is no unattended publishing scheduler.
 
 ## Source files
 
-The author banner and external resource links are configured in
-`content/site.json` under `authorBanner` and `resources`. The build copies the
-configured banner from `assets/` into the public artifact. The library homepage
-displays the banner. When resource links are configured, they appear throughout
-the library and at the end of the original FDE reader. An empty `resources` list
-hides the section.
+The author banner is configured in `content/site.json` under `authorBanner`.
+The build copies it from `assets/` into the public artifact and displays it on
+the library homepage and at the end of the original FDE reader.
+The homepage introduction and shared educational note are configured under
+`heroSubtitle` and `editorialNote` in the same file.
+The note includes the community website and newsletter links. The full welcome
+message is stored in `content/about.md` and rendered at `/publications/about/`.
 
 - `index.html`, `assets/app.js`, `assets/styles.css`: existing curriculum reader.
 - `assets/publications.css`: library and article styling using the same tokens.

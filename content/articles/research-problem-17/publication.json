@@ -1,0 +1,55 @@
+{
+  "id": "research-problem-17",
+  "slug": "research-problem-17",
+  "title": "Research Problem 17 — AlphaEvolve and Algorithm Discovery",
+  "summary": "Explore AlphaEvolve-style algorithm search: generate candidates, evaluate correctness and fitness, and retain measurable improvements.",
+  "primaryCategory": "research",
+  "secondaryCategories": [
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 17,
+  "problemNumber": 17,
+  "researchOrganization": "Google DeepMind",
+  "coverImage": "assets/alphaevolve-architecture.png",
+  "coverAlt": "AlphaEvolve-inspired end-to-end discovery architecture",
+  "tags": [
+    "Google DeepMind",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Python fundamentals",
+    "Algorithms and benchmark design"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-16",
+    "research-problem-18"
+  ],
+  "packageFiles": [
+    "SOURCE_ORIGINAL.txt",
+    ".gitignore",
+    "README.md",
+    "LICENSE-NOTE.md",
+    "examples/mini_evolution.py",
+    "assets/reported-results.png",
+    "assets/candidate-selection.png",
+    "assets/gpu-scheduling-case.png",
+    "assets/prompt-pulse-logo.png",
+    "assets/alphaevolve-architecture.png",
+    "diagrams/candidate-selection.dot",
+    "diagrams/alphaevolve-architecture.mmd",
+    "diagrams/gpu-scheduling-case.mmd",
+    "diagrams/gpu-scheduling-case.dot",
+    "diagrams/alphaevolve-architecture.dot",
+    "diagrams/candidate-selection.mmd"
+  ],
+  "originalSources": [
+    "SOURCE_ORIGINAL.txt"
+  ]
+}

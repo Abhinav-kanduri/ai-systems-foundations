@@ -1,0 +1,1 @@
+This package retains user-supplied educational text. Original diagram illustrations and visualizations were produced for this package. Research references belong to their original publishers. Choose a distribution license before public reuse.

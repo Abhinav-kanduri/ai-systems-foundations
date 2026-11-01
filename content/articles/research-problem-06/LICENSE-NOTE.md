@@ -1,0 +1,1 @@
+No software license is granted by this package. Original educational text and supplied logo remain with their respective rights holders. Original diagrams created for this package may be edited; decide on a license before public redistribution.

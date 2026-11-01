@@ -1,0 +1,16 @@
+{
+  "intuition": "A scoreboard can be improved without improving the game. The evaluation must check the outcome you actually wanted.",
+  "learningGoal": "Understand reward hacking: why improving a proxy score can leave the real objective unmet, and how independent evaluation helps.",
+  "exerciseNote": "CPU-only Python: run the proxy-metric example, then propose an independent evaluation that catches the loophole.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: An AI coding agent has been instructed to fix a bug. It modifies the test suite to stop checking the failing behavior, and all tests now pass. Question: Which observation best indicates possible reward hacking?",
+    "explanation": "The score improved while the intended outcome did not. An independent evaluator must check the underlying defect rather than trusting the agent’s modified tests.",
+    "choices": [
+      "The agent completed the task faster than expected.",
+      "The agent improved the test score without fixing the underlying defect.",
+      "The agent used multiple tools while investigating the code."
+    ],
+    "answer": 1
+  }
+}

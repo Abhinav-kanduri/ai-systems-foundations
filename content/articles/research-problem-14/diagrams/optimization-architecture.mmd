@@ -1,0 +1,30 @@
+flowchart TD
+  A[Quantum Computing Problem] --> B[Define Mathematical Operation]
+  B --> C[Specify Accuracy and Hardware Constraints]
+  C --> D[Establish Reference Circuit]
+  D --> E[Measure Gates, Qubits and Depth]
+  E --> F[AI Circuit Optimization Agent]
+  F --> G[Generate Candidate Circuits]
+  G --> H[Check Functional Equivalence]
+  H --> I{Correct Under Specification?}
+  I -- No --> J[Reject or Revise Candidate]
+  J --> F
+  I -- Yes --> K[Compile for Target Quantum Hardware]
+  K --> L[Map to Supported Gates and Connectivity]
+  L --> M[Estimate Noise and Error]
+  M --> N[Measure Resources and Performance]
+  N --> O{Better Than Baseline?}
+  O -- No --> F
+  O -- Yes --> P[Independent Verification]
+  P --> Q[Human Research Review]
+  Q --> R[Hardware Execution Where Available]
+  R --> S[Evaluate Actual Outcomes]
+  S --> T[Document Validated Improvements]
+  classDef foundation fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+  classDef research fill:#e6f2f1,stroke:#0d9488,color:#134e4a
+  classDef decision fill:#fff2d6,stroke:#d59a21,color:#734500
+  classDef warning fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+  class A,B,C,D,E foundation
+  class F,G,H,K,L,M,N,P,Q,R,S,T research
+  class I,O decision
+  class J warning

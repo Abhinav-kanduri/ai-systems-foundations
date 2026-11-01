@@ -11,6 +11,12 @@
     "link": {"type": "object", "additionalProperties": false, "required": ["label", "url"], "properties": {"label": {"type": "string", "minLength": 1}, "url": {"type": "string", "format": "uri", "pattern": "^https?://"}}}
   },
   "properties": {
+    "problemNumber": {"type": "integer", "minimum": 1, "maximum": 20},
+    "researchOrganization": {"type": "string", "minLength": 1},
+    "coverImage": {"type": "string", "pattern": "^assets/"},
+    "coverAlt": {"type": "string", "minLength": 1},
+    "packageFiles": {"$ref": "#/$defs/strings"},
+    "originalSources": {"$ref": "#/$defs/strings"},
     "id": {"$ref": "#/$defs/slug"},
     "slug": {"$ref": "#/$defs/slug"},
     "title": {"type": "string", "minLength": 1},

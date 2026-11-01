@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant User
+  participant Agent
+  participant Retrieval as Retrieval Service
+  participant Policy as Validity and Access Gate
+  participant Store as Versioned Memory Store
+  User->>Agent: Where should the next release deploy?
+  Agent->>Retrieval: Query production cloud and policies
+  Retrieval->>Store: Fetch candidate memory records
+  Store-->>Retrieval: AWS old, Azure current, approval required
+  Retrieval->>Policy: Validate provenance, access, time, supersession
+  Policy-->>Agent: Verified Azure + approval policy
+  Agent-->>User: Azure, subject to approval
+  Agent->>Policy: Propose new memory only if warranted
+  Policy->>Store: Write approved version with audit record

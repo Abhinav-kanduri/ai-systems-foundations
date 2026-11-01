@@ -25,7 +25,8 @@
       if (filters.reading === "long" && p.readingTime <= 30) return false;
       return true;
     }).map(p => {
-      const groups = [[p.title, 12], [p.subtitle, 6], [p.summary, 5], [(p.tags || []).join(" "), 7], [(p.technologies || []).join(" "), 6], [memberships(p).map(c => categories.get(c) || c).join(" "), 5], [p.searchText, 1]];
+      const collectionTitle = (collections.series || []).filter(c => c.publicationIds.includes(p.id)).map(c => c.title).join(' ');
+      const groups = [[p.title, 12], [p.subtitle, 6], [p.summary, 5], [p.researchOrganization, 7], [collectionTitle, 6], [(p.tags || []).join(" "), 7], [(p.technologies || []).join(" "), 6], [memberships(p).map(c => categories.get(c) || c).join(" "), 5], [p.searchText, 1]];
       let score = 0;
       for (const term of terms) {
         const rank = groups.reduce((total, [text, weight]) => total + (normalize(text).includes(term) ? weight : 0), 0);

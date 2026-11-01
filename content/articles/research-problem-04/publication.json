@@ -1,0 +1,62 @@
+{
+  "id": "research-problem-04",
+  "slug": "research-problem-04",
+  "title": "Research Problem 04 — Software Engineering Across Programming Languages",
+  "summary": "Study cross-language software modernization through behavioral equivalence, differential testing, and independent correctness evidence.",
+  "primaryCategory": "fundamentals",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 4,
+  "problemNumber": 4,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/modernization-workflow.png",
+  "coverAlt": "Legacy software modernization architecture",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Python fundamentals",
+    "Unit tests and software interfaces"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-03",
+    "research-problem-05"
+  ],
+  "packageFiles": [
+    "README.md",
+    ".gitignore",
+    "REPOSITORY_GUIDE.md",
+    "tests/test_interest_migration.py",
+    "examples/interest_migration.py",
+    "assets/correctness-evidence.svg",
+    "assets/prompt-and-pulse-logo.png",
+    "assets/agent-architecture.png",
+    "assets/correctness-evidence.png",
+    "assets/agent-architecture.svg",
+    "assets/modernization-workflow.png",
+    "assets/modernization-workflow.svg",
+    "diagrams/modernization-workflow.dot",
+    "diagrams/correctness-evidence.mmd",
+    "diagrams/modernization-workflow.mmd",
+    "diagrams/agent-architecture.dot",
+    "diagrams/agent-architecture.mmd",
+    "diagrams/correctness-evidence.dot"
+  ],
+  "originalSources": [],
+  "researchReferences": [
+    {
+      "label": "Background: Python decimal arithmetic and rounding",
+      "url": "https://docs.python.org/3/library/decimal.html"
+    }
+  ]
+}

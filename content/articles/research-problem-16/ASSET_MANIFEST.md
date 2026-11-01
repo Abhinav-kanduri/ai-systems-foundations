@@ -1,0 +1,23 @@
+# Files
+
+- `LICENSE-NOTE.md`
+- `ORIGINAL_SOURCE.md`
+- `README.md`
+- `assets/fraud-decision-sequence.png`
+- `assets/fraud-decision-sequence.svg`
+- `assets/hypothetical-approval-ui.png`
+- `assets/oversight-architecture.png`
+- `assets/oversight-architecture.svg`
+- `assets/prompt-pulse-logo.png`
+- `assets/recommendation-first-vs-evidence-first.png`
+- `assets/recommendation-first-vs-evidence-first.svg`
+- `assets/research-experiment.png`
+- `assets/research-experiment.svg`
+- `diagrams/fraud-decision-sequence.dot`
+- `diagrams/fraud-decision-sequence.mmd`
+- `diagrams/oversight-architecture.dot`
+- `diagrams/oversight-architecture.mmd`
+- `diagrams/recommendation-first-vs-evidence-first.dot`
+- `diagrams/recommendation-first-vs-evidence-first.mmd`
+- `diagrams/research-experiment.dot`
+- `diagrams/research-experiment.mmd`

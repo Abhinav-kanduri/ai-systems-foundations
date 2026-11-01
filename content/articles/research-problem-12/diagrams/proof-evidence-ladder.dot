@@ -1,0 +1,14 @@
+digraph G {
+graph [rankdir=TB,bgcolor="white",pad=0.4,nodesep=0.38,ranksep=0.50];
+node [shape=box,style="rounded,filled",fillcolor="#e8f5f4",color="#0f766e",fontname="DejaVu Sans",fontsize=11,margin="0.20,0.14"];
+edge [color="#64748b",arrowsize=0.65];
+A [label="Observation: examples"];
+B [label="Conjecture: exact statement"];
+C [label="Mathematical proof: all cases"];
+D [label="Formal verification: kernel check"];
+E [label="Statement alignment and independent review"];
+A -> B;
+B -> C;
+C -> D;
+D -> E;
+}

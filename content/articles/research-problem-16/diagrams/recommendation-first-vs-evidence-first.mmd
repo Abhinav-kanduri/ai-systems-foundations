@@ -1,0 +1,17 @@
+flowchart LR
+  subgraph A[Interface A - recommendation first]
+    A1[Show AI recommendation] --> A2[Review evidence]
+    A2 --> A3[Human decision]
+  end
+  subgraph B[Interface B - evidence first]
+    B1[Show primary evidence] --> B2[Record independent initial view]
+    B2 --> B3[Reveal AI recommendation]
+    B3 --> B4[Human final decision]
+  end
+  A3 --> C[Compare outcomes across randomized cases]
+  B4 --> C
+  C --> D[Accuracy, review time, evidence use, changes of mind]
+  classDef ai fill:#fef3c7,stroke:#d97706,color:#78350f
+  classDef human fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+  class A1,B3 ai
+  class A3,B2,B4 human

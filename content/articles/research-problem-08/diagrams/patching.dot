@@ -1,0 +1,4 @@
+digraph G { graph [bgcolor="#081421", pad="0.35", nodesep="0.55", ranksep="0.65", fontname="DejaVu Sans", label="PROMPT & PULSE AI  |  RESEARCH 08", labelloc=t, fontsize=20, fontcolor="#4dd8c8"]; node [shape=box, style="rounded,filled", color="#37b9ad", fillcolor="#14283b", fontcolor="#e9f5ff", fontname="DejaVu Sans", fontsize=12, margin="0.24,0.18"]; edge [color="#75b7c2", penwidth=1.8, arrowsize=0.7, fontcolor="#f5bb49", fontname="DejaVu Sans"]; rankdir=TB; A[label="Clean prompt"]; B[label="Contrast prompt"]; C[label="Clean activations"]; D[label="Contrast baseline"]; E[label="Insert clean activation
+into contrast run",color="#e9ab4f"]; F[label="Compare target output
+with baseline"]; G[shape=diamond,label="Behavior restored?",fillcolor="#503b20",color="#e9ab4f"]; H[label="Evidence of causal role
+in tested context"]; I[label="Revise hypothesis"]; A->C->E; B->D->E; D->F; E->F->G; G->H[label="Yes"]; G->I[label="No"]; }

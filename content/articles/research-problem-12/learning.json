@@ -1,0 +1,17 @@
+{
+  "intuition": "A pattern suggests a question; a proof establishes a precisely stated answer under stated assumptions.",
+  "learningGoal": "Follow mathematical discovery from patterns and conjectures to formalization, proof checking, and reproducible evidence.",
+  "exerciseNote": "Use the supplied small theorem in a supported Lean environment. A Lean toolchain is required; Python cannot check Lean proofs.",
+  "quiz": {
+    "kind": "choice",
+    "question": "An AI research agent discovers a mathematical formula that produces correct results for one million tested inputs. It then generates a convincing natural-language proof. What is the strongest next step before announcing a mathematical breakthrough?",
+    "explanation": "Testing and plausibility are not substitutes for a precise claim and valid proof. Formal checking can strengthen evidence for the formalized statement; independent review still matters.",
+    "choices": [
+      "Publish immediately because one million examples are sufficient.",
+      "Ask another AI model whether the proof sounds convincing.",
+      "Precisely formulate the claim, verify the proof, and seek independent review.",
+      "Measure how quickly the AI generated the proof."
+    ],
+    "answer": 2
+  }
+}

@@ -1,0 +1,29 @@
+flowchart TD
+    A[Scientific question and objectives] --> B[Literature and biological evidence]
+    B --> C[Target discovery and validation agents]
+    C --> D[Candidate molecule proposals]
+    D --> E[Activity, stability, ADMET and manufacturability models]
+    E --> F[Uncertainty and provenance assessment]
+    F --> G[Multi-objective constrained prioritization]
+    G --> H[Independent scientific verification]
+    H --> I{Evidence supports experiment?}
+    I -- No --> C
+    I -- Yes --> J[Scientist approval and experiment plan]
+    J --> K[Controlled lab experiments]
+    K --> L[Results, controls and reproducibility checks]
+    L --> M{Results promising?}
+    M -- No --> N[Revise hypothesis or stop candidate]
+    N --> C
+    M -- Yes --> O[Lead optimization]
+    O --> P[Preclinical assessment]
+    P --> Q{Safety and efficacy evidence sufficient?}
+    Q -- No --> R[Further research or stop program]
+    R --> C
+    Q -- Yes --> S[Clinical planning, trials and regulatory review]
+    L -. experimental feedback .-> E
+    classDef science fill:#dff7f3,stroke:#0d9488,color:#134e4a;
+    classDef review fill:#fff0cb,stroke:#d99d24,color:#7c4a00;
+    classDef stop fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+    class B,C,D,E,F,G,K,L,O,P science;
+    class H,I,J,M,Q,S review;
+    class N,R stop;

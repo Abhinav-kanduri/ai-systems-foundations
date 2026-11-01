@@ -1,6 +1,23 @@
 {
   "title": "Technical Publications",
-  "description": "Engineering concepts, research discoveries, implementation guides, and lessons from building production systems.",
+  "description": "Articles and newsletters that make engineering and AI easier to access and understand, drawing on publicly available resources and open-source projects.",
+  "heroSubtitle": "For students and curious engineers: explore AI through clear explanations, public research, practical experiments, and questions worth investigating.",
+  "editorialNote": {
+    "title": "Learn the concepts. Explore the research. Build your understanding.",
+    "body": "An independent learning library for students, curious minds, and engineers at every stage. We make complex AI and engineering topics approachable through clear explanations, research-backed insights, visual learning, and practical experiments.",
+    "invitation": "Start wherever you are, follow your curiosity, and learn at your own pace.",
+    "attribution": "We credit original research and open-source contributors. Referenced organizations do not endorse this library. Please review original sources and applicable licenses before reuse.",
+    "links": [
+      {
+        "label": "Explore Prompt & Pulse AI",
+        "url": "https://prompt-pulse-chi.vercel.app/"
+      },
+      {
+        "label": "Read the Prompt & Pulse AI newsletter",
+        "url": "https://www.linkedin.com/newsletters/prompt-pulse-ai-7519501581743222784"
+      }
+    ]
+  },
   "siteUrl": "https://abhinav-kanduri.github.io/ai-systems-foundations/",
   "language": "en",
   "defaultAuthor": "Abhinav Kanduri",
@@ -12,6 +29,5 @@
     "alt": "Abhinav Kanduri — Engineering Scalable Generative AI Systems and Modern LLM Architectures",
     "width": 2172,
     "height": 724
-  },
-  "resources": []
+  }
 }

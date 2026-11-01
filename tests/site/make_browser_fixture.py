@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'scripts'))
 from build_publications import build
+from fixture_content import copy_fixture_content
 
 fixture=ROOT/'build/browser-source'
 if fixture.exists():
@@ -15,7 +16,10 @@ if fixture.exists():
     shutil.rmtree(fixture)
 fixture.mkdir(parents=True)
 for folder in ('content','docs','assets'):
-    shutil.copytree(ROOT/folder,fixture/folder)
+    if folder == 'content':
+        copy_fixture_content(fixture/folder)
+    else:
+        shutil.copytree(ROOT/folder,fixture/folder)
 
 def article(identity,title,category,status='published',published='2026-10-30',related=None):
     folder=fixture/'content/articles'/identity;folder.mkdir(parents=True)

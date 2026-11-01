@@ -1,0 +1,17 @@
+{
+  "intuition": "A person clicking Approve is not enough to show independent review. What evidence did they examine, and what judgment did they contribute?",
+  "learningGoal": "Investigate automation bias and human oversight with evidence-first review, independent judgment, and an interface experiment.",
+  "exerciseNote": "Design recommendation-first and evidence-first interfaces using fictional cases. Compare predefined outcomes; do not claim a classroom exercise reproduces a published study.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: A security engineer reviews a production deployment. An AI agent reports: \"The deployment is safe. I recommend approval.\" The engineer immediately clicks Approve without examining the security evidence. Which statement best describes the problem?",
+    "explanation": "The concern is unexamined reliance, even if the recommendation happens to be correct. Effective oversight requires evidence, relevant expertise, and the ability to challenge the proposal.",
+    "choices": [
+      "The system has strong independent human oversight because a person clicked Approve.",
+      "The approval may be vulnerable to automation bias because the reviewer relied on the recommendation without independently assessing evidence.",
+      "The AI recommendation is necessarily incorrect.",
+      "Human review is never useful when AI is involved."
+    ],
+    "answer": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "intuition": "A proof answers the question written in the specification. It cannot automatically answer every question you forgot to ask.",
+  "learningGoal": "Distinguish tests from proofs and study specifications, invariants, proof assistants, and a small transfer-contract lab.",
+  "exerciseNote": "CPU-only Python: test the transfer invariant. The separate Lean learning material needs a Lean installation.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: An AI agent generates a formal proof showing that a banking transfer function preserves the combined balance of two accounts. The proof checker accepts the theorem. Can the engineering team conclude that the banking application is completely secure and correct?",
+    "explanation": "Conservation of balance is one specified property. Authorization, negative amounts, concurrency, and deployment assumptions need their own specifications and evidence.",
+    "choices": [
+      "Yes. A machine-checked proof guarantees that no software bugs exist.",
+      "Yes. Formal verification automatically includes authorization and concurrency safety.",
+      "No. The proof establishes only its specified property under its assumptions.",
+      "No. Mathematical proofs cannot establish useful software properties."
+    ],
+    "answer": 2
+  }
+}

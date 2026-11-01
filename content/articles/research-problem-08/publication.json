@@ -1,0 +1,55 @@
+{
+  "id": "research-problem-08",
+  "slug": "research-problem-08",
+  "title": "Research Problem 08: Mechanistic Interpretability",
+  "summary": "Connect transformer internals, superposition, and activation patching to the challenge of explaining model behavior.",
+  "primaryCategory": "ai-ml",
+  "secondaryCategories": [
+    "research"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 8,
+  "problemNumber": 8,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/workflow.png",
+  "coverAlt": "Research workflow (locally stored render)",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Neural network basics",
+    "Transformer attention and linear algebra"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-07",
+    "research-problem-09"
+  ],
+  "packageFiles": [
+    ".gitignore",
+    "LICENSE-NOTE.md",
+    "README.md",
+    "assets/patching.png",
+    "assets/patching.svg",
+    "assets/prompt-pulse-logo.png",
+    "assets/superposition-concept.png",
+    "assets/transformer.png",
+    "assets/transformer.svg",
+    "assets/workflow.png",
+    "assets/workflow.svg",
+    "diagrams/01-research-workflow.mmd",
+    "diagrams/02-transformer-internals.mmd",
+    "diagrams/03-activation-patching.mmd",
+    "diagrams/patching.dot",
+    "diagrams/transformer.dot",
+    "diagrams/workflow.dot",
+    "examples/experiment-template.md"
+  ],
+  "originalSources": []
+}

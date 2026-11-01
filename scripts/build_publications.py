@@ -13,9 +13,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from pygments.formatters import HtmlFormatter
 
-from publication_content import load_library, public_record
+from publication_content import load_library, public_record, render_markdown
 from publication_model import PublicationError, parse_date
-from publication_views import article_page, author_banner, index_page, resources_section
+from publication_views import about_page, article_page, author_banner, editorial_note, index_page
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -44,6 +44,8 @@ def render_artifact(root, output, now=None, preview_id=None):
     for path in (root / "docs/assets").iterdir():
         if path.is_file():
             shutil.copy2(path, assets / path.name)
+    if (root / 'docs/assets/vendor').exists():
+        shutil.copytree(root / 'docs/assets/vendor', assets / 'vendor')
     banner=library['site'].get('authorBanner')
     if banner:
         relative=Path(banner['src'])
@@ -56,7 +58,7 @@ def render_artifact(root, output, now=None, preview_id=None):
     (assets / 'code.css').write_text(HtmlFormatter(style='github-dark').get_style_defs('.codehilite'),encoding='utf-8')
     fde_page = (root / 'docs/index.html').read_text(encoding='utf-8')
     fde_page=fde_page.replace('</head>','<link rel="stylesheet" href="assets/resources.css">\n</head>')
-    footer='<div class="fde-resources">'+author_banner(library,'',lazy=True)+resources_section(library)+'</div>'
+    footer='<div class="fde-author-banner">'+author_banner(library,'',lazy=True)+editorial_note(library)+'</div>'
     fde_page=fde_page.replace('<footer class="site-footer">',footer+'\n<footer class="site-footer">')
     fde_metadata = '<link rel="canonical" href="' + library['site']['siteUrl'] + '"><meta property="og:title" content="FDE Field Guide"><meta property="og:image" content="' + library['site']['siteUrl'] + 'assets/publications-social.png">'
     (output / 'index.html').write_text(fde_page.replace('</head>',fde_metadata + '\n</head>'),encoding='utf-8')
@@ -64,6 +66,10 @@ def render_artifact(root, output, now=None, preview_id=None):
     content = output / "content"
     content.mkdir(exist_ok=True)
     shutil.copy2(root / "content/guides/end-to-end-fde-learning-map/README.md", content / "fde-learning-map.md")
+    about_source = root / 'content/about.md'
+    if about_source.exists():
+        rendered, _ = render_markdown(about_source.read_text(encoding='utf-8'))
+        write_page(output, 'publications/about/', about_page(library, rendered))
     for kind in ("overview", "latest", "topics", "series", "paths"):
         route = "publications/" if kind == "overview" else f"publications/{kind}/"
         write_page(output, route, index_page(library, route, kind))
@@ -102,6 +108,15 @@ def render_artifact(root, output, now=None, preview_id=None):
 def copy_publication_assets(root, output, route, publication):
     allowed = {'.png','.jpg','.jpeg','.webp','.avif','.gif','.svg','.pdf','.txt','.csv','.ipynb','.py','.json'}
     folder = (root / publication['source']).parent
+    if publication.get('packageFiles'):
+        paths = []
+        for name in publication['packageFiles']:
+            path = (folder / name).resolve()
+            if not path.is_relative_to(folder.resolve()) or not path.is_file():
+                raise PublicationError(f'Invalid research package file: {name}')
+            paths.append(path)
+        copy_research_files(folder, output / route, paths)
+        return
     for name in ('assets','examples'):
         source = folder / name
         if not source.exists():
@@ -126,6 +141,30 @@ def copy_publication_assets(root, output, route, publication):
                 target.write_bytes(ET.tostring(tree))
             else:
                 shutil.copy2(path,target)
+
+
+def copy_research_files(folder, destination, paths):
+    """Publish the inventoried package, keeping executable HTML as plain text."""
+    from research_learning import safe_svg
+    directories = {destination}
+    for path in paths:
+        relative = path.relative_to(folder.resolve())
+        target = destination / relative
+        if path.suffix.lower() in {'.html', '.htm', '.js'}:
+            target = target.with_name(target.name + '.txt')
+        target.parent.mkdir(parents=True, exist_ok=True)
+        directories.add(target.parent)
+        if path.suffix.lower() == '.svg':
+            target.write_bytes(safe_svg(path.read_bytes()))
+        else:
+            shutil.copy2(path, target)
+    # Explicit, generated file indexes support original links such as diagrams/.
+    for directory in sorted(directories, key=lambda p: len(p.parts), reverse=True):
+        if directory == destination:
+            continue
+        import html
+        links = ''.join('<li><a href="' + html.escape(p.name + ('/' if p.is_dir() else ''), quote=True) + '">' + html.escape(p.name) + '</a></li>' for p in sorted(directory.iterdir()) if p.name != 'index.html')
+        (directory / 'index.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Source package files</title><h1>Source package files</h1><p><a href="../">Back</a></p><ul>' + links + '</ul></html>', encoding='utf-8')
 
 
 def generate_feeds(output,library):

@@ -1,0 +1,57 @@
+{
+  "id": "research-problem-12",
+  "slug": "research-problem-12",
+  "title": "Research Problem 12 — Mathematical Discovery and Formalization",
+  "summary": "Follow mathematical discovery from patterns and conjectures to formalization, proof checking, and reproducible evidence.",
+  "primaryCategory": "research",
+  "secondaryCategories": [
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 12,
+  "problemNumber": 12,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/pattern-to-proof.png",
+  "coverAlt": "From pattern to proof",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Mathematical proof basics",
+    "Willingness to explore Lean"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-11",
+    "research-problem-13"
+  ],
+  "packageFiles": [
+    ".gitignore",
+    "SOURCE_TEXT.txt",
+    "README.md",
+    "diagrams/multi-agent-formalization.dot",
+    "diagrams/research-workflow.dot",
+    "diagrams/research-workflow.mmd",
+    "diagrams/multi-agent-formalization.mmd",
+    "diagrams/proof-evidence-ladder.dot",
+    "diagrams/proof-evidence-ladder.mmd",
+    "assets/pattern-to-proof.png",
+    "assets/prompt-pulse-logo.png",
+    "assets/proof-evidence-ladder.svg",
+    "assets/research-workflow.svg",
+    "assets/multi-agent-formalization.svg",
+    "assets/multi-agent-formalization.png",
+    "assets/research-workflow.png",
+    "assets/proof-evidence-ladder.png",
+    "examples/ResearchProblem12.lean"
+  ],
+  "originalSources": [
+    "SOURCE_TEXT.txt"
+  ]
+}

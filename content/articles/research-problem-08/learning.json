@@ -1,0 +1,17 @@
+{
+  "intuition": "Seeing a warning light whenever an engine fails does not show that the warning light caused the failure.",
+  "learningGoal": "Connect transformer internals, superposition, and activation patching to the challenge of explaining model behavior.",
+  "exerciseNote": "The supplied interpretability experiment is a design template. Model downloads, tools, memory requirements, and hardware depend on the model you choose.",
+  "quiz": {
+    "kind": "choice",
+    "question": "A researcher identifies a neural feature that becomes strongly activated whenever an LLM generates an incorrect answer. Can the researcher conclude that this feature causes hallucinations?",
+    "explanation": "Correlation may reflect a cause, consequence, or confounder. Controlled interventions with baselines and replication can test a causal hypothesis without proving a universal mechanism.",
+    "choices": [
+      "Yes. Correlation proves the feature causes hallucinations.",
+      "No. Controlled interventions and additional tests are required to investigate causality.",
+      "Yes, provided the feature activates in more than 100 examples.",
+      "No, because internal neural activations cannot be studied experimentally."
+    ],
+    "answer": 1
+  }
+}

@@ -1,0 +1,10 @@
+flowchart LR
+  I[Current User Task] --> W[Working Memory]
+  EV[Meetings / Events / Actions] --> EP[(Episodic Memory)]
+  EP --> CO[Consolidation with Provenance]
+  CO --> SE[(Semantic Memory)]
+  W --> RET[Retrieval and Verification]
+  EP --> RET
+  SE --> RET
+  RET --> CTX[Verified Context for the Agent]
+  CTX --> I

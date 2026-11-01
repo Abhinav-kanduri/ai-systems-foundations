@@ -13,13 +13,14 @@ sys.path.insert(0,str(ROOT/'scripts'))
 import publications as commands
 from publication_content import load_library,split_frontmatter
 from publication_model import PublicationError
+from fixture_content import copy_fixture_content
 
 
 class AuthoringTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)
-        shutil.copytree(ROOT/'content',self.root/'content')
+        copy_fixture_content(self.root/'content')
         self.patch=patch.object(commands,'ROOT',self.root);self.patch.start();self.addCleanup(self.patch.stop)
         self.stdout=contextlib.redirect_stdout(io.StringIO());self.stdout.__enter__();self.addCleanup(lambda:self.stdout.__exit__(None,None,None))
 

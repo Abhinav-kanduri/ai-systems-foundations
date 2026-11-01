@@ -1,0 +1,3 @@
+digraph G {rankdir=LR;graph[bgcolor="#0b1220",pad="0.3",nodesep="0.3",ranksep="0.55"];node[shape=box,style="rounded,filled",fillcolor="#172438",color="#35cfc0",fontcolor="white",fontname="DejaVu Sans",fontsize=11];edge[color="#8aadc7",arrowsize=.6];lib[label="Open-source library + fuzz harness"];bin[label="RISC-V compiled binary"];sem[label="RISC-V + Linux semantics
+No-crash specification"];claude[label="Claude generates proof"];rocq[label="Rocq checks proof"];check[label="Accepted?",shape=diamond,fillcolor="#654d20"];fix[label="Bug investigation / patch",fillcolor="#612b35"];yes[label="Property proven
+within assumptions",fillcolor="#174841"];lib->bin->sem->claude->rocq->check;check->fix[label="No",fontcolor="white"];fix->bin;check->yes[label="Yes",fontcolor="white"]; }

@@ -1,0 +1,10 @@
+flowchart TD
+  A[Candidate predictions] --> B{Hard safety and feasibility constraints satisfied?}
+  B -- No --> X[Exclude or request further evidence]
+  B -- Yes --> C[Evaluate activity, stability, uncertainty and evidence]
+  C --> D{What is experiment goal?}
+  D -- Exploit evidence --> E[Prioritize well-supported candidates]
+  D -- Learn / explore --> F[Prioritize informative uncertain candidates]
+  E --> G[Scientist review]
+  F --> G
+  G --> H[Controlled measurement / update data]

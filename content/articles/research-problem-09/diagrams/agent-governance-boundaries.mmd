@@ -1,0 +1,14 @@
+flowchart TD
+  A[User goal] --> B[Hard constraint gate]
+  B -->|Fails| X[Reject candidate]
+  B -->|Passes| C[Preference and uncertainty model]
+  C --> D{Needs clarification?}
+  D -->|Yes| E[Ask user] --> C
+  D -->|No| F[Rank feasible candidates]
+  F --> G[Explain tradeoffs and information use]
+  G --> H{Authorized for external action?}
+  H -->|No| I[Recommendation only]
+  H -->|Yes| J[Human approval checkpoint]
+  J -->|Approved| K[Controlled execution]
+  J -->|Declined| I
+  K --> L[Audit and outcome verification]

@@ -1,0 +1,17 @@
+{
+  "intuition": "A promising computer-generated design is a candidate for an experiment, not a finished medicine.",
+  "learningGoal": "Learn how AI can assist drug-development research while separating computational predictions from experimental and clinical evidence.",
+  "exerciseNote": "Use only synthetic candidates for the ranking exercise. pandas and Streamlit are optional tools for building the suggested dashboard.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: An AI model predicts that a candidate molecule binds very strongly to a disease-associated target. The prediction is supported by computational modeling but has not yet been confirmed in laboratory experiments. What is the most scientifically appropriate next conclusion?",
+    "explanation": "A prediction supports prioritizing a hypothesis for validation. It does not establish experimental binding, safety, efficacy, or clinical suitability.",
+    "choices": [
+      "The molecule is already proven to be a safe and effective medicine.",
+      "The molecule is a promising hypothesis that requires appropriate experimental validation.",
+      "The molecule should immediately enter widespread clinical use.",
+      "The agent should ignore all uncertainty because the predicted binding score is high."
+    ],
+    "answer": 1
+  }
+}

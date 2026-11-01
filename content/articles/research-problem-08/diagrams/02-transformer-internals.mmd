@@ -1,0 +1,19 @@
+flowchart LR
+    A["Input tokens"] --> B["Token embeddings"]
+    B --> C["Residual stream h_l"]
+    C --> D["Attention sublayer"]
+    D --> E["Residual update"]
+    E --> F["MLP sublayer"]
+    F --> G["Residual update h_l+1"]
+    G --> H["Later layers / logits"]
+    C -.-> I["Activation capture"]
+    D -.-> I
+    F -.-> I
+    G -.-> I
+    I --> J["SAE / feature analysis"]
+    J --> K["Causal intervention"]
+    K --> L["Behavior comparison"]
+    classDef base fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+    classDef probe fill:#e6f2f1,stroke:#0d9488,color:#134e4a;
+    class A,B,C,D,E,F,G,H base;
+    class I,J,K,L probe;

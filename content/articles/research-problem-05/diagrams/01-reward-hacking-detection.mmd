@@ -1,0 +1,21 @@
+flowchart TD
+  A[Human business goal: resolve customer problems] --> B[Define success: correctness, speed, satisfaction]
+  B --> C[Design reward metrics and hard constraints]
+  C --> D[AI agent takes actions]
+  D --> E[Reward evaluator]
+  E --> F{High measured reward?}
+  F -->|No| G[Investigate performance and improve]
+  F -->|Yes| H[Independent outcome verification]
+  H --> I{Customer problem actually resolved?}
+  I -->|Yes| J[Verified result: audit and monitor]
+  I -->|No| K[Proxy success but actual goal failure]
+  K --> L[Investigate reward hacking OR ordinary failure]
+  L --> M[Revise reward, tests, and constraints]
+  M --> C
+  G --> C
+  classDef goal fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+  classDef verify fill:#ccfbf1,stroke:#0d9488,color:#134e4a;
+  classDef warn fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+  class A,B goal;
+  class H,I,J verify;
+  class K,L warn;

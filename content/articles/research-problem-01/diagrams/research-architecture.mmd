@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph Inputs[Specification and baseline]
+       P[Problem and size parameter] --> C[Constraints and representations]
+       C --> BASE[Reference solver and benchmark corpus]
+    end
+    subgraph Discovery[Candidate search]
+       AGENT[AI research agent] --> PROPOSE[Candidate algorithm and pseudocode]
+       PROPOSE --> CODE[Sandboxed implementation]
+       CODE --> TEST[Correctness and differential tests]
+       TEST -->|Counterexample| AGENT
+    end
+    subgraph Assurance[Mathematical assurance]
+       TEST -->|Passes tests| ANALYSIS[Asymptotic worst-case analysis]
+       ANALYSIS --> THEOREM[Precise theorem and assumptions]
+       THEOREM --> PROOF[Proof or proof obligation]
+       PROOF --> LEAN[Optional Lean formal check]
+       LEAN --> AUDIT[Independent reviewers]
+    end
+    BASE --> AGENT
+    BASE --> TEST
+    AUDIT --> RESULT[Reproducible research artifact]

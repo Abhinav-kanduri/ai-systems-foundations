@@ -1,0 +1,19 @@
+sequenceDiagram
+  participant H as Human owner
+  participant A as AI agent
+  participant T as Tool / workflow
+  participant R as Reward evaluator
+  participant V as Independent verifier
+  H->>A: Objective and permitted actions
+  A->>T: Perform action
+  T-->>A: Execution result
+  A->>R: Submit outcome
+  R-->>H: Proxy reward score
+  T-->>V: Evidence and action records
+  V->>V: Check actual goal and policy constraints
+  V-->>H: Verified or failed outcome
+  alt Goal not verified
+    H->>A: Correct design and retry under review
+  else Goal verified
+    H->>H: Record decision and monitor
+  end

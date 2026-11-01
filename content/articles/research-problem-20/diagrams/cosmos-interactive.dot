@@ -1,0 +1,2 @@
+digraph G {graph [rankdir=LR,bgcolor="white",pad="0.3",nodesep="0.35"]; node [shape=box,style="rounded,filled",fillcolor="#E5F3F1",color="#12857E",fontcolor="#114B50",fontname="DejaVu Sans"]; edge[color="#647E89"]; A[label="Current observation"];B[label="Robot or
+camera action"];C[label="Cosmos world model"];D[label="Predicted next observation"];E[label="Update context"];F[label="Continue?",shape=diamond,fillcolor="#FFF1D9"];G[label="Evaluate outcome"]; A->C;B->C;C->D->E->F;F->B[label="yes"];F->G[label="no"]; }

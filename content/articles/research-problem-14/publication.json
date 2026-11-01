@@ -1,0 +1,70 @@
+{
+  "id": "research-problem-14",
+  "slug": "research-problem-14",
+  "title": "Research Problem 14 — Quantum Circuit Optimization",
+  "summary": "Explore quantum circuit optimization through gate cancellation, equivalence checks, and hardware-aware cost models.",
+  "primaryCategory": "research",
+  "secondaryCategories": [
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 14,
+  "problemNumber": 14,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/research-14-banner.png",
+  "coverAlt": "Research Problem 14 cover",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Linear algebra and complex numbers",
+    "Qubits and quantum gates"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-13",
+    "research-problem-15"
+  ],
+  "packageFiles": [
+    "SOURCE_ORIGINAL.txt",
+    "REFERENCES.md",
+    "README.md",
+    "requirements.txt",
+    ".gitignore",
+    "diagrams/anthropic-feedback-loop.mmd",
+    "diagrams/hardware-aware-compilation.dot",
+    "diagrams/optimization-architecture.dot",
+    "diagrams/optimization-architecture.mmd",
+    "diagrams/anthropic-feedback-loop.dot",
+    "diagrams/hardware-aware-compilation.mmd",
+    "assets/hardware-aware-compilation.svg",
+    "assets/optimization-architecture.png",
+    "assets/research-14-banner.png",
+    "assets/optimization-architecture.svg",
+    "assets/hypothetical-gate-count.png",
+    "assets/anthropic-feedback-loop.svg",
+    "assets/hardware-aware-compilation.png",
+    "assets/anthropic-feedback-loop.png",
+    "assets/hadamard-cancellation.png",
+    "examples/quantum_optimizer_demo.py"
+  ],
+  "originalSources": [
+    "SOURCE_ORIGINAL.txt"
+  ],
+  "researchReferences": [
+    {
+      "label": "Anthropic ? Designing more efficient quantum circuits with Claude",
+      "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits"
+    },
+    {
+      "label": "IBM Quantum ? Set optimization level",
+      "url": "https://quantum.cloud.ibm.com/docs/en/guides/set-optimization"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+flowchart TD
+  A[Task: fix software bug] --> B{Agent approach}
+  B --> C[Agent A: diagnose root cause]
+  B --> D[Agent B: weaken tests]
+  C --> E[Fix application logic]
+  D --> F[Modified tests now pass]
+  E --> G[Run independent unmodified test suite]
+  F --> G
+  G --> H{Does original behavior work?}
+  H -->|Yes| I[Verified engineering success]
+  H -->|No| J[Possible specification gaming: investigate]
+  classDef risk fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+  class D,F,J risk;

@@ -1,0 +1,31 @@
+flowchart TD
+    G[Human or System Goal] --> E[Environment and Sensors]
+    E --> P[Perception and State Estimation]
+    P --> S[Current State or Belief State]
+    S --> W[World Model: Predict Candidate Future States]
+    W --> A[Generate Candidate Action Sequences]
+    A --> V[Evaluate Reward, Risk and Constraints]
+    V --> SAFE{Safe and Feasible Plan?}
+    SAFE -- No --> REJECT[Reject Candidate and Replan]
+    REJECT --> A
+    SAFE -- Yes --> SELECT[Select Best Acceptable Action]
+    SELECT --> C[Low-Level Robot Controller]
+    C --> X[Execute Physical Action]
+    X --> O[Observe Actual Environment]
+    O --> COMP[Compare Prediction with Observation]
+    COMP --> ERR{Prediction Error Acceptable?}
+    ERR -- Yes --> DONE{Goal Achieved?}
+    DONE -- Yes --> END[Complete Task]
+    DONE -- No --> P
+    ERR -- No --> CRIT{Critical Failure?}
+    CRIT -- Yes --> STOP[Emergency Stop or Safe Recovery]
+    CRIT -- No --> UPDATE[Update State and Model]
+    UPDATE --> P
+    classDef state fill:#deedff,stroke:#2563eb,color:#173a72;
+    classDef model fill:#dcf5ed,stroke:#0f9486,color:#075448;
+    classDef caution fill:#fff1ce,stroke:#c99421,color:#744400;
+    classDef danger fill:#ffe1e1,stroke:#d93030,color:#751515;
+    class P,S,E state;
+    class W,A,V,COMP,UPDATE model;
+    class SAFE,ERR,DONE,CRIT caution;
+    class STOP danger;

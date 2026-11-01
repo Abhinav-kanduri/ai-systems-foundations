@@ -1,0 +1,17 @@
+{
+  "intuition": "An evolutionary search improves candidates by repeatedly applying an evaluator. The evaluator determines what improvement means.",
+  "learningGoal": "Explore AlphaEvolve-style algorithm search: generate candidates, evaluate correctness and fitness, and retain measurable improvements.",
+  "exerciseNote": "CPU-only Python: run the miniature numerical optimizer. It illustrates mutation and selection, not the full AlphaEvolve system.",
+  "quiz": {
+    "kind": "choice",
+    "question": "An AI optimization agent generates two implementations of a scheduling algorithm. Candidate A: 20% faster than the baseline, but violates the required latency SLO for some workloads. Candidate B: 12% faster than the baseline and satisfies all required constraints in the evaluation. Which candidate is preferable for further validation?",
+    "explanation": "Candidate B satisfies the evaluated constraints. It still needs further validation; passing this evaluation does not establish performance on every workload.",
+    "choices": [
+      "Candidate A, because it is the fastest.",
+      "Candidate B, because it improves performance while satisfying the evaluated constraints.",
+      "Whichever candidate was generated most recently.",
+      "Both should immediately be deployed without further testing."
+    ],
+    "answer": 1
+  }
+}

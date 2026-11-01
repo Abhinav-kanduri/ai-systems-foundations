@@ -1,0 +1,34 @@
+flowchart TD
+ A[Scientific research question] --> B[Reference DNA and candidate variants]
+ B --> C[Validate genome build, alleles, quality and consent]
+ C --> D[Select biological cell or tissue context]
+ D --> E[Sequence-to-function model: AlphaGenome]
+ E --> F[Reference sequence prediction]
+ E --> G[Alternate sequence prediction]
+ F --> H[Compute predicted variant effect]
+ G --> H
+ H --> I[Assess gene expression, splicing and chromatin signals]
+ I --> J[Prioritize candidate variants]
+ J --> K[Review literature and external evidence]
+ K --> L[Quantify uncertainty and model limitations]
+ L --> M{Enough evidence to prioritize?}
+ M -->|No| N[Revise candidate set or gather evidence]
+ N --> B
+ M -->|Yes| O[Human scientific review]
+ O --> P[Design suitable laboratory experiments]
+ P --> Q[Perform experimental validation]
+ Q --> R{Hypothesis supported?}
+ R -->|No| S[Revise biological hypothesis]
+ S --> P
+ R -->|Yes| T[Document research finding]
+ C -.-> U[(Provenance and audit trail)]
+ E -.-> U
+ J -.-> U
+ Q -.-> U
+ T -.-> U
+ classDef research fill:#dff6f2,stroke:#078779,color:#134e4a;
+ classDef decision fill:#fff1cf,stroke:#d59a21,color:#734500;
+ classDef caution fill:#fee2e2,stroke:#dc2626,color:#7f1d1d;
+ class E,H,I,J,K,L,O,P,Q,T research;
+ class M,R decision;
+ class N,S caution;

@@ -1,0 +1,316 @@
+Research Problem 12: Mathematical Discovery and Formalization — Can AI Discover and Prove New Mathematics?
+PROMPT & PULSE AI | RESEARCH TO REALITY | ANTHROPIC RESEARCH DIRECTION | SERIES 12/20
+1. Problem statement
+Can artificial intelligence independently discover mathematical patterns, generate useful conjectures, construct rigorous proofs, and translate complex mathematical reasoning into machine-checkable formal statements?
+
+Imagine a mathematician investigating a problem that has remained unsolved for decades.
+
+They have studied hundreds of papers, explored thousands of examples, and attempted several proof strategies.
+
+An AI research agent examines the problem and proposes an unexpected mathematical relationship.
+
+It appears correct for every example tested.
+
+The agent then produces a convincing explanation describing why the relationship should always hold.
+
+But a critical question remains:
+
+Does finding a pattern across thousands of examples prove that the pattern holds universally?
+
+No.
+
+Consider the expression:
+\[
+n^2+n+41
+\]
+
+For many small nonnegative integer values of \(n\), this expression produces prime numbers.
+
+For example:
+- \(n=0\): 41, prime.
+- \(n=1\): 43, prime.
+- \(n=2\): 47, prime.
+A researcher might conjecture that it always produces primes.
+
+But when \(n=40\):
+\[
+40^2+40+41=1681=41^2
+\]
+
+The expression is composite.
+
+This example demonstrates a fundamental distinction:
+
+Discovering a mathematical pattern is different from proving a mathematical theorem.
+
+Modern AI research investigates whether language models can contribute to both activities—and whether formal proof systems can make the resulting mathematics independently auditable.
+
+2. Why is this problem difficult?
+Mathematical discovery involves several different intellectual processes.
+
+A researcher first needs to identify a potentially interesting statement.
+
+Next, they must determine whether that statement is correct.
+
+If it appears correct, they need to construct a proof that covers every case within the theorem's assumptions.
+
+A computer may verify millions of examples without establishing a universal theorem.
+Four levels of mathematical evidence
+Level	What it demonstrates	Example
+Observation	A pattern appears in selected examples	An expression generates primes for many inputs
+Conjecture	A precise statement is proposed as potentially true	The expression always generates primes
+Mathematical proof	A logical argument establishes the statement under stated assumptions	A derivation covering all permitted inputs
+Formal verification	A proof checker validates a formal proof of the exact encoded statement	Lean accepts a theorem and proof term
+
+A major difficulty is moving reliably from one level to the next.
+
+AI systems can generate persuasive mathematical explanations, but an explanation may contain hidden assumptions, invalid deductions, or incorrect generalizations.
+
+Formalization creates another challenge.
+
+A natural-language theorem must be translated into an exact mathematical statement. If the formal statement differs from the original claim, a machine-checked proof may validate the wrong theorem.
+
+The research problem therefore has two complementary parts: discovering mathematical knowledge and establishing trustworthy evidence for it.
+
+3. Technical concepts behind the problem
+Technical concept	Explanation
+Mathematical conjecture	A precise statement believed to be true but not yet proved.
+Conjecture generation	Proposing mathematical relationships based on reasoning, examples, or patterns.
+Symbolic computation	Manipulating mathematical expressions using exact algebraic rules.
+Proof search	Exploring sequences of valid logical deductions that could establish a theorem.
+Theorem proving	Constructing a rigorous argument that establishes a mathematical statement.
+Formalization	Expressing mathematical objects, assumptions, and theorems in a formal language.
+Proof assistant	Software such as Lean or Rocq that supports machine-checked proofs.
+Dependent type theory	A mathematical foundation in which types can depend on values and express propositions.
+Curry–Howard correspondence	A connection between propositions and types, and between proofs and programs.
+Proof term	A formal object representing evidence that a proposition holds.
+Proof kernel	The trusted component that checks whether proof terms satisfy formal rules.
+Counterexample search	Looking for an instance that disproves a universal conjecture.
+Proof obligations	Smaller claims that must be established to complete a larger proof.
+Formal-to-informal alignment	Checking that the formal theorem accurately represents the intended mathematical claim.
+
+Understanding the difference between proof discovery and proof verification
+Suppose an AI proposes:
+
+"For every natural number \(n\), the sum of the first \(n\) odd positive integers equals \(n^2\)."
+
+The mathematical statement is:
+\[
+\sum_{k=1}^{n}(2k-1)=n^2
+\]
+
+The agent can test this identity for many values.
+
+But a mathematical proof can establish it for all natural numbers.
+
+Using induction:
+
+Base case: For \(n=1\), the sum is 1, which equals \(1^2\).
+
+Inductive step: Assume the identity holds for \(n\). Adding the next odd number gives:
+\[
+n^2+(2n+1)=(n+1)^2
+\]
+
+Therefore, the identity holds for \(n+1\), completing the induction.
+
+This demonstrates the difference between testing examples and constructing a general proof.
+What does Lean contribute?
+Lean is an interactive theorem prover based on dependent type theory.
+
+A mathematical proposition can be represented as a type, while a proof provides a term inhabiting that type.
+
+Lean's kernel checks that the proof is valid under the formal rules and accepted assumptions. 
+lean-lang.org
+
+
+The important distinction is that Lean validates the formal argument; it does not automatically establish that the researcher encoded the intended real-world or mathematical question correctly.
+
+4. End-to-end Mermaid architecture diagram
+This architecture follows the journey from a research question to a candidate theorem, proof construction, formal checking, and independent mathematical review.
+#chatgpt-mermaid-_r_sp_ :is(.node,.pele-node).warning :is(rect,circle,ellipse,polygon,path):where(:not(.label *)) {fill:#442d21;stroke:#613721}#chatgpt-mermaid-_r_sp_ :is(.node,.pele-node).warning [fill="none"]:where(:not(.label *)) {fill:none}#chatgpt-mermaid-_r_sp_ :is(.node,.pele-node).warning [stroke="none"]:where(:not(.label *)) {stroke:none}#chatgpt-mermaid-_r_sp_ :is(.node,.pele-node).warning :where(text,.label,.nodeLabel) {fill:#ffffff;color:#ffffff}#chatgpt-mermaid-_r_sp_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_sp_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_sp_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_sp_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-_r_sp_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_sp_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_sp_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_sp_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_sp_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_sp_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_sp_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_sp_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_sp_ p{margin:0;}#chatgpt-mermaid-_r_sp_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_sp_ .label text,#chatgpt-mermaid-_r_sp_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .node rect,#chatgpt-mermaid-_r_sp_ .node circle,#chatgpt-mermaid-_r_sp_ .node ellipse,#chatgpt-mermaid-_r_sp_ .node polygon,#chatgpt-mermaid-_r_sp_ .node path{fill:rgb(19, 33, 54);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .rough-node .label text,#chatgpt-mermaid-_r_sp_ .node .label text,#chatgpt-mermaid-_r_sp_ .image-shape .label,#chatgpt-mermaid-_r_sp_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_sp_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .rough-node .label,#chatgpt-mermaid-_r_sp_ .node .label,#chatgpt-mermaid-_r_sp_ .image-shape .label,#chatgpt-mermaid-_r_sp_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_sp_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_sp_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_sp_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-_r_sp_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-_r_sp_ .edgeLabel{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_sp_ .edgeLabel p{background-color:rgb(14, 14, 14);}#chatgpt-mermaid-_r_sp_ .edgeLabel rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_sp_ .labelBkg{background-color:rgba(14, 14, 14, 0.5);}#chatgpt-mermaid-_r_sp_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_sp_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_sp_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_sp_ .icon-shape,#chatgpt-mermaid-_r_sp_ .image-shape{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_sp_ .icon-shape p,#chatgpt-mermaid-_r_sp_ .image-shape p{background-color:rgb(14, 14, 14);padding:2px;}#chatgpt-mermaid-_r_sp_ .icon-shape .label rect,#chatgpt-mermaid-_r_sp_ .image-shape .label rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_sp_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_sp_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_sp_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_sp_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_sp_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_sp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_sp_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_sp_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_sp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_sp_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_sp_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_sp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_sp_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_sp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_sp_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_sp_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_sp_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_sp_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_sp_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .node rect,#chatgpt-mermaid-_r_sp_ .node circle,#chatgpt-mermaid-_r_sp_ .node ellipse,#chatgpt-mermaid-_r_sp_ .node polygon,#chatgpt-mermaid-_r_sp_ .node path{fill:rgb(24, 24, 24);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_sp_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_sp_ .mermaid-decision .label-container{fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_sp_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_sp_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_sp_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}#chatgpt-mermaid-_r_sp_ .foundation rect{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .foundation polygon{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .foundation ellipse{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .foundation circle{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .foundation path{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .foundation tspan{fill:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_sp_ .research rect{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .research polygon{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .research ellipse{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .research circle{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .research path{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .research tspan{fill:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_sp_ .decision rect{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .decision polygon{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .decision ellipse{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .decision circle{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .decision path{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .decision tspan{fill:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_sp_ .warning rect{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_sp_ .warning polygon{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_sp_ .warning ellipse{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_sp_ .warning circle{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_sp_ .warning path{fill:rgb(254, 226, 226)!important;stroke:rgb(220, 38, 38)!important;color:rgb(127, 29, 29)!important;}#chatgpt-mermaid-_r_sp_ .warning tspan{fill:rgb(127, 29, 29)!important;}Mathematical ResearchProblemLiterature and DefinitionReviewIdentify Known Results andAssumptionsAI-Assisted MathematicalExplorationGenerate CandidateConjecturesSymbolic and NumericalExperimentsCounterexample SearchCounterexample Found?Reject or Refine ConjectureFormulate Precise TheoremDecompose into LemmasAI-Assisted Proof SearchConstruct Candidate ProofFormalize in LeanLean Kernel VerificationFormal Proof Accepted?Analyze Proof GapsReview Theorem andAssumptionsMatches Intended Claim?Revise Formal StatementIndependent MathematicalReviewReproducible Verified ResultPublish Research ArtifactsYesNoNoYesNoYes
+
+
+
+
+
+How the diagram works
+The process begins with a mathematical research question.
+
+An AI agent reviews existing knowledge and explores candidate relationships.
+
+Those relationships undergo symbolic experiments, numerical tests, and counterexample searches.
+
+If a conjecture survives preliminary investigation, the system translates it into a precise theorem and attempts to construct a proof.
+
+A proof assistant checks the formal proof.
+
+Finally, independent reviewers examine whether the exact theorem, assumptions, and proof artifacts support the original research claim.
+
+A successfully checked proof is a major milestone—but independent scientific scrutiny remains essential.
+
+5. Real research example: Anthropic's formalization of Fermat's Last Theorem
+ANTHROPIC RESEARCH | SEPTEMBER 4, 2026
+
+
+
+
+
+
+
+
+
+Anthropic reported that Claude, working with a multi-agent research system, produced a complete machine-checked formalization of Fermat's Last Theorem in Lean. 
+anthropic.com
+
+What is Fermat's Last Theorem?
+The theorem states that no positive integers \(a,b,c\) satisfy:
+\[
+a^n+b^n=c^n
+\]
+
+for any integer \(n>2\).
+
+The case \(n=2\) allows familiar solutions, such as:
+\[
+3^2+4^2=5^2
+\]
+
+But Fermat's Last Theorem establishes that corresponding positive-integer solutions do not exist for exponents greater than two.
+
+Andrew Wiles, with work involving Richard Taylor, established the first accepted proof in the 1990s.
+
+Anthropic's project was primarily about formalizing an established theorem, rather than discovering Fermat's Last Theorem for the first time.
+What did Anthropic report?
+11
+Days of AI-assisted formalization
+
+
+13M
+Lines of Lean code generated
+
+
+29,500
+Intermediate theorems used in the final proof
+
+
+
+Anthropic describes how multiple Claude agents collaborated using a theorem dependency graph maintained through Prove2Me. The system helped divide the proof into smaller tasks, manage dependencies, and reuse previously established results. The final formal proof was checked using Lean, and Anthropic reports that its theorem statement was compared with the corresponding Mathlib statement. 
+anthropic.com
+
+
+This is a powerful connection between mathematical formalization, multi-agent coordination, dependency graphs, proof checking, and long-running AI workflows.
+How the research process connects to an agent architecture
+#chatgpt-mermaid-_r_th_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_th_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_th_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_th_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-_r_th_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_th_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_th_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_th_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_th_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_th_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_th_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_th_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_th_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_th_ p{margin:0;}#chatgpt-mermaid-_r_th_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_th_ .label text,#chatgpt-mermaid-_r_th_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .node rect,#chatgpt-mermaid-_r_th_ .node circle,#chatgpt-mermaid-_r_th_ .node ellipse,#chatgpt-mermaid-_r_th_ .node polygon,#chatgpt-mermaid-_r_th_ .node path{fill:rgb(19, 33, 54);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-_r_th_ .rough-node .label text,#chatgpt-mermaid-_r_th_ .node .label text,#chatgpt-mermaid-_r_th_ .image-shape .label,#chatgpt-mermaid-_r_th_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_th_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_th_ .rough-node .label,#chatgpt-mermaid-_r_th_ .node .label,#chatgpt-mermaid-_r_th_ .image-shape .label,#chatgpt-mermaid-_r_th_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_th_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_th_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_th_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-_r_th_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-_r_th_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-_r_th_ .edgeLabel{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_th_ .edgeLabel p{background-color:rgb(14, 14, 14);}#chatgpt-mermaid-_r_th_ .edgeLabel rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_th_ .labelBkg{background-color:rgba(14, 14, 14, 0.5);}#chatgpt-mermaid-_r_th_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-_r_th_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_th_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_th_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_th_ .icon-shape,#chatgpt-mermaid-_r_th_ .image-shape{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_th_ .icon-shape p,#chatgpt-mermaid-_r_th_ .image-shape p{background-color:rgb(14, 14, 14);padding:2px;}#chatgpt-mermaid-_r_th_ .icon-shape .label rect,#chatgpt-mermaid-_r_th_ .image-shape .label rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_th_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_th_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_th_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-_r_th_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_th_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_th_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_th_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_th_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_th_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_th_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_th_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_th_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-_r_th_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_th_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_th_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_th_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_th_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_th_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_th_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_th_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_th_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_th_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_th_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_th_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-width:1px;}#chatgpt-mermaid-_r_th_ .node rect,#chatgpt-mermaid-_r_th_ .node circle,#chatgpt-mermaid-_r_th_ .node ellipse,#chatgpt-mermaid-_r_th_ .node polygon,#chatgpt-mermaid-_r_th_ .node path{fill:rgb(24, 24, 24);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_th_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_th_ .mermaid-decision .label-container{fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_th_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_th_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_th_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Established MathematicalTheoremDefine Formal Target in LeanConstruct TheoremDependency GraphCoordinator AgentAlgebra AgentNumber Theory AgentGeometry AgentProof and Lemma StoreLean Proof CheckingProof Accepted?Debug or ReassignSubproblemCombine Verified LemmasFinal Theorem CheckStatement Comparator andReviewPublished FormalizationNoYes
+
+
+
+
+
+A theorem dependency graph is important because complicated proofs are rarely one uninterrupted chain of reasoning.
+
+They contain many smaller results that depend on other results.
+
+Once an intermediate theorem is verified, other agents can safely reuse that theorem within the formal system, subject to its assumptions.
+
+The research significance: Multi-agent AI can help construct extremely large formal proofs, while a separate checker determines whether the resulting proof satisfies the encoded theorem.
+
+6. Research goal
+This research direction has two complementary goals.
+
+Mathematical discovery: Help AI systems identify new conjectures, algorithms, relationships, and theorems that mathematicians can investigate.
+
+Mathematical formalization: Make it easier to translate mathematical reasoning into machine-checkable proofs, reducing the effort required to audit complex arguments.
+
+The long-term ambition is a research workflow where AI can assist with exploration and proof construction while formal systems provide rigorous logical checks.
+
+This could support mathematics, algorithm design, cryptography, scientific computing, and formal software verification.
+7. What remains difficult?
+Conjecture correctness: A pattern that survives many tests may still have a counterexample.
+
+Proof construction: Finding a complete proof can require mathematical concepts far beyond those initially apparent.
+
+Formalization accuracy: The encoded theorem may unintentionally omit assumptions or weaken the intended claim.
+
+Proof dependencies: Large formal proofs require thousands of intermediate results and careful dependency management.
+
+Computational cost: Proof search and formal compilation can consume substantial resources.
+
+Trusted foundations: Machine-checking depends on the soundness of the proof kernel, accepted axioms, and imported definitions.
+
+Independent review: A technically accepted artifact should still be inspected for reproducibility, statement alignment, and scientific significance.
+
+An additional distinction matters: formalizing an already-known theorem demonstrates a different capability from proving an entirely new mathematical result.
+
+Anthropic has also reported work on a related problem involving bounds for zeros of the Riemann zeta function, which illustrates the separate challenge of AI-assisted mathematical discovery. 
+anthropic.com
+
+
+8. Interview perspective
+Interview question:
+
+How would you design an AI-assisted mathematical research platform that generates conjectures, searches for proofs, formally verifies the results, and supports independent scientific review?
+Strong answer direction
+Start with the research question and existing mathematical definitions.
+
+Use literature retrieval and symbolic tools to identify relevant previous results.
+
+Introduce a conjecture-generation component and a counterexample-search process.
+
+For promising conjectures, create a formal theorem statement and decompose the proof into intermediate lemmas.
+
+A coordinator can distribute independent proof tasks among specialized agents, while a shared dependency graph tracks which results have been established.
+
+Use a proof assistant such as Lean to check the resulting proof terms.
+
+Finally, compare the formal theorem with the original mathematical claim and publish reproducible proof artifacts.
+
+What the interviewer is testing: Agent architecture, symbolic reasoning, formal methods, graph-based orchestration, proof verification, reproducibility, and scientific evaluation.
+
+9. Subscriber learning challenge
+An AI research agent discovers a mathematical formula that produces correct results for one million tested inputs.
+
+It then generates a convincing natural-language proof.
+
+What is the strongest next step before announcing a mathematical breakthrough?
+
+Publish immediately because one million examples are sufficient.
+
+Ask another AI model whether the proof sounds convincing.
+
+Precisely formulate the claim, verify the proof, and seek independent review.
+
+Measure how quickly the AI generated the proof.
+
+
+Practical exercise: Write your first Lean theorem
+This example demonstrates a simple universal identity over natural numbers.
+
+theorem add_zero_example (n : Nat) : n + 0 = n := by
+  simp
+
+
+
+Although this theorem is simple, it introduces an essential idea: Lean checks that the proof establishes the declared proposition.
+
+For further practice, try proving an identity involving addition, multiplication, or mathematical induction.
+
+10. Primary research references
+- Anthropic — Formalizing Fermat's Last Theorem (September 2026)
+- Anthropic — Learning More About Claude's Mathematical Capabilities (August 2026)
+- Lean — Official Learning Resources
+- Lean — Language and Proof System Reference
+Key takeaway
+The future of AI-assisted mathematics is not simply about generating convincing mathematical arguments. It is about discovering useful results and producing evidence that those results withstand rigorous verification.
+
+Mathematical discovery asks whether a new statement is true.
+
+Proof construction attempts to establish why it is true.
+
+Formal verification checks whether a precise proof satisfies the encoded theorem.
+
+Together, these capabilities could make AI a more useful collaborator in scientific and mathematical research.
+
+Prompt & Pulse AI — Learn AI. Build AI. Stay Ahead.
+
+Next in the series: Research Problem 13 — GPU Kernel and Scientific-Model Optimization: Can AI make complex scientific computations faster without sacrificing numerical correctness?

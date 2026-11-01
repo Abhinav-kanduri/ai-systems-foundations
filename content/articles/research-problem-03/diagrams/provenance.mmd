@@ -1,0 +1,12 @@
+flowchart LR
+    A[Scientific claim / proposed hypothesis] --> B[Claim-to-evidence links]
+    B --> C1[Paper A: DOI, section, quotation]
+    B --> C2[Dataset B: version, cohort, variables]
+    B --> C3[Analysis C: code, parameters, outputs]
+    C1 --> D[Provenance and independence audit]
+    C2 --> D
+    C3 --> D
+    D --> E{Independent support?}
+    E -->|No| F[Flag shared sources or weak evidence]
+    E -->|Yes| G[Escalate for expert and experimental review]
+    F --> H[Revise or reject claim]

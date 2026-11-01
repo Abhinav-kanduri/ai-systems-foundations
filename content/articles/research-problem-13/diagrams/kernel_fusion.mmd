@@ -1,0 +1,9 @@
+flowchart LR
+ subgraph Separate[Three separate GPU kernels]
+ A[Read input] --> B[Multiply] --> C[Write intermediate 1]
+ C --> D[Read intermediate 1] --> E[Add bias] --> F[Write intermediate 2]
+ F --> G[Read intermediate 2] --> H[Activation] --> I[Write output]
+ end
+ subgraph Fused[One fused GPU kernel]
+ J[Read input] --> K[Multiply + Add + Activation] --> L[Write output]
+ end

@@ -1,0 +1,52 @@
+{
+  "id": "research-problem-20",
+  "slug": "research-problem-20",
+  "title": "Research Problem 20: NVIDIA Physical AI",
+  "summary": "Connect physical-world simulation, vision-language-action policies, and sim-to-real evaluation in NVIDIA physical AI research.",
+  "primaryCategory": "robotics",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 20,
+  "problemNumber": 20,
+  "researchOrganization": "NVIDIA",
+  "coverImage": "assets/cover.svg",
+  "coverAlt": "Prompt & Pulse AI Physical AI cover",
+  "tags": [
+    "NVIDIA",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Machine learning basics",
+    "Robotics perception and control"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-19"
+  ],
+  "packageFiles": [
+    "README.md",
+    "assets/cosmos-interactive.png",
+    "assets/cosmos-interactive.svg",
+    "assets/cosmos-vs-groot.svg",
+    "assets/physical-ai-platform.svg",
+    "assets/gr00t-sim-to-real.png",
+    "assets/physical-ai-platform.png",
+    "assets/cover.svg",
+    "assets/gr00t-sim-to-real.svg",
+    "diagrams/physical-ai-platform.mmd",
+    "diagrams/physical-ai-platform.dot",
+    "diagrams/cosmos-interactive.mmd",
+    "diagrams/gr00t-sim-to-real.mmd",
+    "diagrams/cosmos-interactive.dot",
+    "diagrams/gr00t-sim-to-real.dot"
+  ],
+  "originalSources": []
+}

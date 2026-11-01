@@ -1,0 +1,17 @@
+{
+  "intuition": "The cheapest option is only best if price captures what the person cares about. First understand the intended use.",
+  "learningGoal": "Examine how agents elicit preferences, represent uncertainty, and help people choose without treating a proxy as their true intent.",
+  "exerciseNote": "Compare recommendations before and after supplying study time, budget, goals, and practical-project preferences.",
+  "quiz": {
+    "kind": "choice",
+    "question": "You ask an AI agent to purchase a laptop for under $1,000. The agent finds a laptop costing $700, but it does not know whether you need the device for gaming, coding, or video teaching. What should the agent do next?",
+    "explanation": "The request lacks decision-relevant preferences. Clarification can resolve that uncertainty; more agents alone cannot supply missing requirements.",
+    "choices": [
+      "Immediately purchase the cheapest laptop.",
+      "Assume performance is the most important preference.",
+      "Clarify the intended use and important requirements before recommending or purchasing.",
+      "Delegate the purchase to five other agents without gathering more information."
+    ],
+    "answer": 2
+  }
+}

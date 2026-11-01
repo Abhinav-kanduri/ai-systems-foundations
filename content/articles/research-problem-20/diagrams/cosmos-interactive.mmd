@@ -1,0 +1,7 @@
+flowchart TD
+    A["Current Simulated Observation"] --> C["Cosmos World Model"]
+    B["Robot or Camera Action"] --> C
+    C --> D["Predict Next Observation"] --> E["Update Context"]
+    E --> F{"Continue?"}
+    F -->|Yes| G["New Action"] --> C
+    F -->|No| H["Evaluate Outcome"]

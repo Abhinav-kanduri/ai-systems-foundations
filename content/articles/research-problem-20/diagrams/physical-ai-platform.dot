@@ -1,0 +1,13 @@
+digraph G { graph [rankdir=TB,bgcolor="white",pad="0.35",nodesep="0.32",ranksep="0.45",splines=ortho]; node [shape=box,style="rounded,filled",fillcolor="#E5F3F1",color="#12857E",fontcolor="#114B50",fontname="DejaVu Sans",fontsize=11,margin="0.15,0.09"]; edge [color="#6C8790",arrowsize=0.65]; A[label="Task goals and
+safety constraints",fillcolor="#DCEAFE",color="#3977C3"]; B[label="Real-world
+demonstrations"]; C[label="Cosmos world models
+synthetic scenarios"]; D[label="Isaac Sim / Isaac Lab
+training dataset"]; E[label="Fine-tune GR00T
+action policy"]; F[label="Offline and simulation
+evaluation"]; G[label="Safety gates pass?",shape=diamond,fillcolor="#FFF1D9",color="#C99631"]; H[label="Human review and
+edge optimization"]; I[label="On-robot sensor
+observations"]; J[label="GR00T action
+prediction"]; K[label="Independent safety
+and feasibility checks"]; L[label="Permitted?",shape=diamond,fillcolor="#FFF1D9",color="#C99631"]; M[label="Low-level controller
+and physical action"]; N[label="Observe outcomes
+and gather feedback"]; X[label="Stop / recover / replan",fillcolor="#FCE8E7",color="#C45050"]; A->B; A->C; B->D; C->D; D->E->F->G; G->H[label="yes"]; G->D[label="no"]; H->I->J->K->L; L->M[label="yes"]; L->X[label="no"]; M->N->I; N->D[style=dashed]; X->N; }

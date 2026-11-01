@@ -1,0 +1,17 @@
+{
+  "id": "scientific-ai",
+  "slug": "scientific-ai",
+  "title": "Scientific AI: From hypotheses to checked evidence",
+  "description": "Study scientific collaboration, mathematical proof, interpretability, preferences, drug research, and genome interpretation. Follow original references and distinguish predictions from established evidence.",
+  "status": "published",
+  "publicationIds": [
+    "research-problem-02",
+    "research-problem-03",
+    "research-problem-08",
+    "research-problem-09",
+    "research-problem-11",
+    "research-problem-12",
+    "research-problem-15",
+    "research-problem-19"
+  ]
+}

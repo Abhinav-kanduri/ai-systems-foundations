@@ -1,0 +1,17 @@
+{
+  "intuition": "A shorter route can still be slower if it needs unavailable roads. Quantum circuit quality depends on the hardware as well as the gate count.",
+  "learningGoal": "Explore quantum circuit optimization through gate cancellation, equivalence checks, and hardware-aware cost models.",
+  "exerciseNote": "CPU-only simulation with Qiskit: compare gate cancellation and ideal operator equivalence. Install the supplied requirements first.",
+  "quiz": {
+    "kind": "choice",
+    "question": "An AI optimization agent produces two implementations of the same quantum computation. Circuit A: 100 gates, 20 qubits. Circuit B: 70 gates, 25 qubits. Both pass the relevant idealized correctness checks. Can we conclude that Circuit B will perform better on real quantum hardware?",
+    "explanation": "Ideal equivalence does not establish hardware performance. Depth, routing, gate types, noise, and qubit availability can outweigh a reduction in gate count.",
+    "choices": [
+      "Yes, because fewer gates always means lower error.",
+      "Yes, because the qubit count does not matter.",
+      "No. We must also examine circuit depth, connectivity, gate types, hardware noise, and the required resource trade-offs.",
+      "No, because quantum circuits cannot be optimized."
+    ],
+    "answer": 2
+  }
+}

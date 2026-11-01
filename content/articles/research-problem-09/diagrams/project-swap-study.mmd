@@ -1,0 +1,12 @@
+flowchart LR
+  A[201 participating employees] --> B[Short intake conversations]
+  B --> C[Claude predicts preferences]
+  C --> D[Agent receives predicted ranking]
+  D --> E[Agents negotiate book swaps]
+  E --> F[Human receives book]
+  F --> G[Follow-up satisfaction survey]
+  B --> H[Participant ranks sample books]
+  H --> I[Compare predicted versus human rankings]
+  I --> J[Measure representation error]
+  E --> K[Compare actual swaps with theoretical optimum]
+  K --> L[Measure negotiation and allocation gaps]

@@ -1,0 +1,21 @@
+flowchart LR
+ S[Source repository] --> I[Inventory and parser agent]
+ I --> AST[(AST + dependency graph)]
+ AST --> R[Business-rule extraction agent]
+ R --> SPEC[(Versioned requirements + invariants)]
+ SPEC --> T[Translation agent]
+ T --> C[Candidate implementation]
+ C --> CI[Sandboxed build + test runner]
+ S --> BASE[Legacy reference execution]
+ BASE --> GOLD[(Golden test corpus)]
+ GOLD --> DIFF[Differential evaluation]
+ CI --> DIFF
+ DIFF --> GATE{Evidence sufficient?}
+ GATE -->|No| FEED[Counterexample + engineer feedback]
+ FEED --> T
+ GATE -->|Yes| HUMAN[Human approval]
+ HUMAN --> SHADOW[Shadow / canary deploy]
+ SHADOW --> MON[Observability, audit log, rollback]
+ MON --> FINAL{Operational acceptance?}
+ FINAL -->|No| FEED
+ FINAL -->|Yes| PROD[Controlled cutover]

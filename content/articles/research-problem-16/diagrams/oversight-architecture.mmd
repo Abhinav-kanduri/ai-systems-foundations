@@ -1,0 +1,34 @@
+flowchart TD
+  A[Business decision request] --> B[Collect primary evidence]
+  B --> C[Define policy and risk criteria]
+  C --> D[AI analysis agent]
+  D --> E[Generate recommendation and record uncertainty]
+  C --> F[Independent risk assessment]
+  E --> F
+  F --> G{High risk or uncertain?}
+  G -->|No| H[Low-risk automation only if explicitly authorized]
+  G -->|Yes| I[Human review required]
+  I --> J[Show primary evidence and relevant policy]
+  J --> K[Record independent human assessment]
+  K --> L[Reveal AI recommendation and explanation]
+  L --> M[Compare assessments]
+  M --> N{Disagreement or missing evidence?}
+  N -->|Yes| O[Investigate or escalate]
+  O --> J
+  N -->|No| P[Human decision with recorded rationale]
+  P --> Q{Action authorized?}
+  Q -->|Yes| R[Execute approved action]
+  Q -->|No| S[Reject or escalate]
+  H --> T[Monitor outcomes and audit decisions]
+  R --> T
+  S --> T
+  T --> U[Evaluate calibration and overreliance]
+  U --> V[Improve review design]
+  classDef evidence fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+  classDef human fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+  classDef gate fill:#fef3c7,stroke:#d97706,color:#78350f
+  classDef caution fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+  class B,C,J evidence
+  class I,K,L,M,P human
+  class G,N,Q gate
+  class O,S caution

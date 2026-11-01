@@ -26,15 +26,17 @@ def author_banner(library, route, lazy=False):
     return f'<figure class="author-banner"><img src="{esc(source)}" alt="{esc(banner["alt"])}" width="{int(banner["width"])}" height="{int(banner["height"])}" loading="{"lazy" if lazy else "eager"}" decoding="async"></figure>'
 
 
-def resources_section(library):
-    links=[]
-    for resource in library['site'].get('resources',[]):
-        if urlsplit(resource['url']).scheme not in {'http','https'}:
-            continue
-        links.append(f'<a class="resource-link" href="{esc(resource["url"])}" target="_blank" rel="noopener noreferrer"><strong>{esc(resource["label"])}</strong><span aria-hidden="true">↗</span><small>{esc(resource.get("description"))}</small><span class="resource-new-tab">Opens in a new tab</span></a>')
-    if not links:
+def editorial_note(library, route=''):
+    note=library['site'].get('editorialNote')
+    if not note:
         return ''
-    return '<section class="resource-section" id="available-resources" aria-labelledby="available-resources-title"><p class="resource-eyebrow">CONNECT & EXPLORE</p><h2 id="available-resources-title">Available resources</h2><p class="resource-intro">Explore programs, browse more articles, or get in touch.</p><nav class="resource-links" aria-label="Available resources">'+''.join(links)+'</nav></section>'
+    links = []
+    for link in note.get('links', []):
+        if urlsplit(link['url']).scheme in {'https', 'http'}:
+            links.append(f'<a href="{esc(link["url"])}" target="_blank" rel="noopener noreferrer">{esc(link["label"])} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>')
+    invitation = f'<p class="editorial-invitation">{esc(note["invitation"])}</p>' if note.get('invitation') else ''
+    about = f'<a href="{root_link(route,"publications/about/")}">About this learning library <span aria-hidden="true">→</span></a>'
+    return f'<section class="editorial-note" id="about-publications" aria-labelledby="editorial-note-title"><h2 id="editorial-note-title">{esc(note["title"])}</h2><p>{esc(note["body"])}</p>{invitation}<nav class="editorial-links" aria-label="Explore our learning community">{about}{"".join(links)}</nav><p class="editorial-attribution"><em>{esc(note.get("attribution"))}</em></p></section>'
 
 
 def publication_link(route, publication):
@@ -77,7 +79,7 @@ def shell(library, route, title, description, body, active='overview', article=N
     site = library['site']
     href = lambda target='': root_link(route, target)
     canonical = article.get('canonicalUrl') if article else site['siteUrl'] + route
-    nav = [('overview', 'Overview', 'publications/'), ('latest', 'Latest publications', 'publications/latest/'), ('topics', 'Explore topics', 'publications/topics/'), ('series', 'Publication series', 'publications/series/'), ('paths', 'Learning paths', 'publications/paths/')]
+    nav = [('overview', 'Overview', 'publications/'), ('latest', 'Latest publications', 'publications/latest/'), ('topics', 'Explore topics', 'publications/topics/'), ('series', 'Publication series', 'publications/series/'), ('paths', 'Learning paths', 'publications/paths/'), ('about', 'About the library', 'publications/about/')]
     navigation = ''.join(f'<a href="{href(target)}" {"aria-current=page" if key == active else ""}><span class="nav-index">{index:02}</span>{label}</a>' for index, (key, label, target) in enumerate(nav))
     featured = ''.join(f'<a href="{href("publications/series/" + c["slug"] + "/")}"><span class="collection-dot" aria-hidden="true"></span>{esc(c["title"])}</a>' for c in library['collections']['series'])
     featured_nav = f'<h2 class="micro-label">FEATURED COLLECTIONS</h2>{featured}' if featured else ''
@@ -90,6 +92,7 @@ def shell(library, route, title, description, body, active='overview', article=N
             if article.get(source):
                 structured[target]=article[source]
     structured_json=json.dumps(structured,ensure_ascii=False).replace('<','\\u003c')
+    reader_script = f'<script src="{href("assets/research-reader.js")}" defer></script>' if article and article.get('problemNumber') else ''
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#080d19">
 <title>{esc(title_full)}</title><meta name="description" content="{esc(description)}"><link rel="canonical" href="{esc(canonical)}">
@@ -97,12 +100,21 @@ def shell(library, route, title, description, body, active='overview', article=N
 <link rel="alternate" type="application/rss+xml" title="Technical Publications" href="{href('publications/feed.xml')}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{href('assets/styles.css')}"><link rel="stylesheet" href="{href('assets/publications.css')}"><link rel="stylesheet" href="{href('assets/resources.css')}"><link rel="stylesheet" href="{href('assets/code.css')}"><script src="{href('assets/publication-search.js')}" defer></script><script src="{href('assets/publications.js')}" defer></script>
+<link rel="stylesheet" href="{href('assets/research.css')}">{reader_script}
 </head><body class="publication-site" data-site-root="{href()}" data-manifest="{href('publications/index.json')}">
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="library-topbar"><a class="library-brand" href="{href('publications/')}"><span class="library-brand-mark" aria-hidden="true">↗</span><span>ENGINEERING<span class="brand-subtitle">TECHNICAL PUBLICATIONS</span></span></a><span class="library-header-note"><span class="status-dot"></span> Ideas built for the real world</span><div class="library-top-actions"><a href="{href('#end-to-end-fde-learning-map')}" class="guide-link">FDE Field Guide <span aria-hidden="true">↗</span></a><button class="icon-button" id="library-theme" type="button" aria-label="Switch color theme">◐</button><button class="icon-button library-menu" id="library-menu" type="button" aria-label="Open library navigation" aria-expanded="false" aria-controls="library-sidebar">☰</button></div></header>
 <aside class="library-sidebar" id="library-sidebar" aria-label="Technical Publications navigation"><div class="sidebar-intro"><span class="micro-label">THE KNOWLEDGE LIBRARY</span><p>Explore ideas.<br>Build understanding.</p></div><nav aria-label="Publications">{navigation}</nav><div class="featured-nav">{featured_nav}</div><div class="library-sidebar-bottom"><span class="micro-label">WRITTEN BY</span><strong>{esc(site.get('defaultAuthor'))}</strong><a href="{esc(site['repositoryUrl'])}" target="_blank" rel="noreferrer">Explore the repository <span aria-hidden="true">↗</span></a></div></aside>
 <button class="library-scrim" id="library-scrim" aria-label="Close navigation" hidden></button>
-<main class="library-main" id="main-content" tabindex="-1">{body}{resources_section(library)}<footer class="library-footer"><span>Technical Publications</span><span>Engineering knowledge, from concept to production.</span><a href="{href('publications/feed.xml')}">RSS feed ↗</a></footer></main></body></html>'''
+<main class="library-main" id="main-content" tabindex="-1">{body}{editorial_note(library,route)}<footer class="library-footer"><span>Technical Publications</span><span>Engineering knowledge, from concept to production.</span><a href="{href('publications/feed.xml')}">RSS feed ↗</a></footer></main></body></html>'''
+
+
+def about_page(library, rendered):
+    title = 'Technical knowledge, made accessible to everyone.'
+    intro = '<header class="library-page-heading"><span class="micro-label">ABOUT THE LIBRARY · OUR LEARNING PHILOSOPHY</span><h1>' + esc(title) + '</h1></header>'
+    content = __import__('re').sub(r'<h1\b[^>]*>.*?</h1>', '', rendered, count=1, flags=__import__('re').S)
+    body = intro + '<article class="publication-prose learning-philosophy">' + content + '</article>'
+    return shell(library, 'publications/about/', title, 'An independent learning space for curious minds, students, aspiring engineers, and professionals.', body, active='about')
 
 
 def controls(library, selected_topic='', selected_series=''):
@@ -133,7 +145,7 @@ def index_page(library, route='publications/', kind='overview', category=None, c
     title, description = 'Technical Publications', library['site']['description']
     if kind == 'overview':
         count = len(publications)
-        header = f'''<section class="library-hero"><div class="eyebrow"><span></span> TECHNICAL PUBLICATIONS & RESEARCH</div><div class="library-hero-grid"><div><h1>Explore.<br>Engineer.<br><em>Discover.</em></h1><p>A growing library of engineering knowledge, production systems, and frontier AI research.</p><a class="primary-action" href="#all-publications">Explore the library <span aria-hidden="true">↗</span></a></div><div class="hero-index"><span class="micro-label">A CONTINUOUSLY GROWING REFERENCE</span><div class="hero-index-number">{count:02}<span>publication{'s' if count != 1 else ''}</span></div><div class="hero-index-line"><span>Concept → implementation</span><span aria-hidden="true">↗</span></div><div class="hero-index-line"><span>Discovery → production</span><span aria-hidden="true">↗</span></div><p>Written to be revisited.<br>Built to connect the dots.</p></div></div></section>'''
+        header = f'''<section class="library-hero"><div class="eyebrow"><span></span> TECHNICAL PUBLICATIONS & RESEARCH</div><div class="library-hero-grid"><div><h1>Explore.<br>Engineer.<br><em>Discover.</em></h1><p>{esc(library["site"].get("heroSubtitle",library["site"]["description"]))}</p><a class="primary-action" href="#all-publications">Explore the library <span aria-hidden="true">↗</span></a></div><div class="hero-index"><span class="micro-label">A CONTINUOUSLY GROWING REFERENCE</span><div class="hero-index-number">{count:02}<span>publication{'s' if count != 1 else ''}</span></div><div class="hero-index-line"><span>Concept → implementation</span><span aria-hidden="true">↗</span></div><div class="hero-index-line"><span>Discovery → production</span><span aria-hidden="true">↗</span></div><p>Written to be revisited.<br>Built to connect the dots.</p></div></div></section>'''
         header = author_banner(library,route) + header
         featured = next((p for p in publications if p['id'] == library['site'].get('featuredPublicationId')), publications[0] if publications else None)
         if featured:
@@ -164,6 +176,8 @@ def index_page(library, route='publications/', kind='overview', category=None, c
         member_progress = [{'id': p['id'], 'reader': p['reader'], 'chapterSlugs': p.get('chapterSlugs',[])} for p in selected]
         ordered = ''.join(f'<li><span class="micro-label">{index+1:02}</span> <a href="{esc(publication_link(route,p))}">{esc(p["title"])}</a><span class="section-note">{p["readingTime"]} min read</span></li>' for index,p in enumerate(selected))
         header += f'<section class="collection-reading-order"><h2>Recommended reading order</h2><p class="collection-progress" data-collection-members="{esc(json.dumps(member_progress))}">Reading progress is available in this browser.</p><ol>{ordered}</ol></section>'
+        if collection['id'] == 'research-to-reality':
+            header = header.replace('</header>', '</header>' + research_series_intro(library, route), 1)
     return shell(library,route,title,description,header+sections+listing,active=kind if kind!='overview' else 'overview')
 
 
@@ -184,6 +198,9 @@ def article_page(library, publication, route, preview=False):
     meta.append(f"{p['readingTime']} min read")
     if p.get('difficulty'):
         meta.append(esc(p['difficulty'].title()))
+    if p.get('researchOrganization'):
+        meta.append('Research focus: ' + esc(p['researchOrganization']))
+        meta.append(f'Problem {p["problemNumber"]:02} / 20')
     tags = ''.join(f'<span class="article-tag">{esc(tag)}</span>' for tag in p.get('tags',[]))
     preview_notice = '<div class="article-notice" role="status">PRIVATE PREVIEW — unpublished content. This page is excluded from the production artifact.</div>' if preview else ''
     archive_notice = '<div class="article-notice" role="status">Archived publication. This permanent URL is retained for reference.</div>' if p['status']=='archived' else ''
@@ -195,13 +212,29 @@ def article_page(library, publication, route, preview=False):
     toc = ''.join(f'<a data-toc="{esc(t["id"])}" href="#{esc(t["id"])}" class="toc-level-{t["level"]}">{esc(t["title"])}</a>' for t in toc_items)
     prerequisites = '<aside class="prerequisite-box"><strong>Before you start</strong><ul>' + ''.join(f'<li>{esc(item)}</li>' for item in p.get('prerequisites',[])) + '</ul></aside>' if p.get('prerequisites') else ''
     content_html = __import__('re').sub(r'<h1\b[^>]*>.*?</h1>', '', p['html'], count=1, flags=__import__('re').S)
+    student_intro, research_footer = '', ''
+    if p.get('problemNumber'):
+        from research_learning import knowledge_check, learning_panel
+        cover = f'<figure class="article-cover"><img src="{esc(p["coverImage"])}" alt="{esc(p["coverAlt"])}" loading="eager" decoding="async"><figcaption>Figure from the supplied educational source package.</figcaption></figure>'
+        heading += '<div class="article-series-badge">' + series_navigation(library,p,route) + '</div>' + cover
+        student_intro = learning_panel(p)
+        research_footer = knowledge_check(p)
+        if p.get('diagramSupplementHtml'):
+            research_footer += '<section class="diagram-supplements"><h2>Explore the supporting diagrams</h2>' + p['diagramSupplementHtml'] + '</section>'
+        research_footer += '<section class="source-preservation"><h2>Sources and further study</h2><p>The illustrated article and supporting files are preserved from the supplied package. The learning introduction and knowledge checks are separate student additions. Site publication dates describe this library edition, not the original research release.</p><p><a href="README.md">Download the complete illustrated article source</a></p>' + p.get('originalSourceHtml','') + '</section>'
+        package_groups = {name.split('/')[0] for name in p.get('packageFiles', []) if '/' in name}
+        file_links = ''.join(f'<li><a href="{name}/">Browse {label}</a></li>' for name,label in [('assets','source figures'),('diagrams','editable diagram files'),('examples','example code'),('src','simulation code'),('tests','lab tests')] if name in package_groups)
+        research_footer += '<nav class="package-downloads" aria-label="Learning source files"><ul>' + file_links + '</ul></nav>'
+        # The original top heading moves to the shared article header.
+        first_heading = next((t['id'] for t in p['tableOfContents'] if t['level'] == 1), '')
+        heading = heading.replace('<h1>', '<h1 id="' + esc(first_heading) + '">', 1)
     abstract = f'<p class="article-abstract">{esc(p["abstract"])}</p>' if p.get('abstract') else ''
     links = p.get('repositoryLinks',[]) + p.get('researchReferences',[])
     references = '<section class="article-resources"><h2 id="resources">Resources and references</h2><ul>' + ''.join(f'<li><a href="{esc(link["url"])}" rel="noreferrer">{esc(link["label"])} ↗</a></li>' for link in links) + '</ul></section>' if links else ''
     related = [available[i] for i in p.get('relatedPublicationIds',[]) if i in available]
     related_html = f'<section class="library-section"><h2>Related publications</h2><div class="publication-grid">{cards(related,library,route)}</div></section>' if related else ''
     revisions = '<details class="revision-history"><summary>Revision history</summary><ul>' + ''.join(f'<li>{esc(date_label(item["date"]))}: {esc(item["summary"])} {esc(item.get("version"))}</li>' for item in p.get('revisions',[])) + '</ul></details>' if p.get('revisions') else ''
-    body = f'''{heading}<div class="reading-progress" id="reading-progress" role="progressbar" aria-label="Reading position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><div class="article-layout"><div><details class="mobile-article-toc"><summary>On this page</summary><nav aria-label="Article contents">{toc}</nav></details><article class="publication-prose" id="publication-body" data-publication-id="{esc(p['id'])}">{abstract}{prerequisites}{content_html}{references}</article>{revisions}<div class="article-completion"><span>Finished reading?</span><button id="complete-publication" data-publication-id="{esc(p['id'])}" type="button" aria-pressed="false" class="secondary-action">Mark as read</button></div><div id="article-series">{series_navigation(library,p,route)}</div>{related_html}</div><aside class="article-toc"><span class="micro-label">ON THIS PAGE</span><nav aria-label="Article contents">{toc}</nav></aside></div>'''
+    body = f'''{heading}<div class="reading-progress" id="reading-progress" role="progressbar" aria-label="Reading position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><div class="article-layout"><div><details class="mobile-article-toc"><summary>On this page</summary><nav aria-label="Article contents">{toc}</nav></details><article class="publication-prose" id="publication-body" data-publication-id="{esc(p['id'])}">{abstract}{prerequisites}{student_intro}{content_html}{references}{research_footer}</article>{revisions}<div class="article-completion"><span>Finished reading?</span><button id="complete-publication" data-publication-id="{esc(p['id'])}" type="button" aria-pressed="false" class="secondary-action">Mark as read</button></div><div id="article-series">{series_navigation(library,p,route)}</div>{related_html}</div><aside class="article-toc"><span class="micro-label">ON THIS PAGE</span><nav aria-label="Article contents">{toc}<a href="#student-start">Student starting point</a></nav></aside></div>'''
     return shell(library,route,p['title'],p['summary'],body,article=p)
 
 
@@ -220,3 +253,9 @@ def series_navigation(library, publication, route):
         p = by_id[members[index+1]]
         links.append(f'<a href="{esc(publication_link(route,p))}"><small>Next in series</small>{esc(p["title"])}</a>')
     return f'<section class="series-navigation"><a class="micro-label" href="{root_link(route,"publications/series/" + collection["slug"] + "/")}">{esc(collection["title"])} · Part {index+1} of {len(members)}</a><div>{"".join(links)}</div></section>'
+
+
+def research_series_intro(library, route):
+    groups = [('01–07', 'OpenAI research directions', 'Algorithms, mathematical physics, scientific agents, software, alignment, monitoring, and memory.'), ('08–16', 'Anthropic research', 'Interpretability, preferences, coordination, verification, optimization, and human judgment.'), ('17–19', 'Google DeepMind', 'Algorithm discovery, world models, and genome interpretation.'), ('20', 'NVIDIA physical AI', 'Simulation, robot policies, and the reality gap.')]
+    parts = ''.join(f'<div><span class="micro-label">PROBLEMS {number}</span><h3>{title}</h3><p>{description}</p></div>' for number,title,description in groups)
+    return f'''<section class="research-series-intro"><span class="micro-label">PUBLIC RESEARCH · OPEN CURIOSITY</span><p class="series-student-label">For students who want to understand—and try.</p><p>Start with an intuition. Learn the concepts. Trace the architecture. Question the evidence. Try a small experiment.</p><div class="research-parts">{parts}</div><details class="student-route-guide"><summary>New to these topics? Choose a starting path</summary><p>The subjects are advanced; you can begin with the student introductions and revisit the mathematics after building the prerequisites.</p><ul><li><a href="{root_link(route,'publications/paths/research-foundations/')}">Evidence, algorithms, and reliable AI</a></li><li><a href="{root_link(route,'publications/paths/scientific-ai/')}">Scientific AI: From hypotheses to checked evidence</a></li><li><a href="{root_link(route,'publications/paths/systems-to-physical-ai/')}">From coordinated systems to physical AI</a></li></ul></details></section>'''

@@ -1,0 +1,56 @@
+{
+  "id": "research-problem-10",
+  "slug": "research-problem-10",
+  "title": "Research Problem 10 · Multi-Agent Coordination",
+  "summary": "Learn multi-agent coordination through shared resources, conflicting actions, synchronization, and measurable system outcomes.",
+  "primaryCategory": "distributed-systems",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 10,
+  "problemNumber": 10,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/hero.png",
+  "coverAlt": "Research Problem 10 hero",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Concurrent programming basics",
+    "Queues and transactions"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-09",
+    "research-problem-11"
+  ],
+  "packageFiles": [
+    ".gitignore",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "SOURCE_ORIGINAL.txt",
+    "assets/FIGURES.md",
+    "assets/architecture.png",
+    "assets/conflict.png",
+    "assets/hero.png",
+    "assets/job_queue_experiment.png",
+    "assets/parallelism_tradeoff.png",
+    "diagrams/conflicting_agents.mmd",
+    "diagrams/coordination_sequence.mmd",
+    "diagrams/production_architecture.mmd",
+    "src/coordination_simulator.py",
+    "tests/test_simulator.py"
+  ],
+  "originalSources": [
+    "SOURCE_ORIGINAL.txt"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "research-problem-06",
+  "slug": "research-problem-06",
+  "title": "Research Problem 06: Agent Monitoring and Intervention",
+  "summary": "Design agent monitoring and intervention around observable behavior, precision and recall, and controls before tool execution.",
+  "primaryCategory": "reliability",
+  "secondaryCategories": [
+    "research",
+    "ai-ml"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 6,
+  "problemNumber": 6,
+  "researchOrganization": "OpenAI",
+  "coverImage": "assets/control-boundaries.png",
+  "coverAlt": "Preventive authorization, monitoring, and intervention boundaries",
+  "tags": [
+    "OpenAI",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "AI agent and tool-call basics",
+    "Precision and recall"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-05",
+    "research-problem-07"
+  ],
+  "packageFiles": [
+    "LICENSE-NOTE.md",
+    "PUBLISHING.md",
+    "README.md",
+    "assets/architecture.png",
+    "assets/architecture.svg",
+    "assets/confusion-matrix.png",
+    "assets/confusion-matrix.svg",
+    "assets/control-boundaries.png",
+    "assets/control-boundaries.svg",
+    "assets/prompt-pulse-logo.png",
+    "diagrams/architecture.mmd",
+    "diagrams/confusion-matrix.mmd",
+    "diagrams/control-boundaries.mmd",
+    "source/original-research-problem-06.md"
+  ],
+  "originalSources": [
+    "source/original-research-problem-06.md"
+  ]
+}

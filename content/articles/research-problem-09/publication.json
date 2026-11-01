@@ -1,0 +1,56 @@
+{
+  "id": "research-problem-09",
+  "slug": "research-problem-09",
+  "title": "Research Problem 09 — Understanding Human Preferences",
+  "summary": "Examine how agents elicit preferences, represent uncertainty, and help people choose without treating a proxy as their true intent.",
+  "primaryCategory": "ai-ml",
+  "secondaryCategories": [
+    "research"
+  ],
+  "publicationType": "research-analysis",
+  "difficulty": "advanced",
+  "status": "published",
+  "publishedAt": "2026-10-31",
+  "seriesId": "research-to-reality",
+  "seriesOrder": 9,
+  "problemNumber": 9,
+  "researchOrganization": "Anthropic",
+  "coverImage": "assets/laptop-preference-ranking.png",
+  "coverAlt": "Illustrative ranking graph",
+  "tags": [
+    "Anthropic",
+    "Research to Reality",
+    "Student learning",
+    "Public research"
+  ],
+  "prerequisites": [
+    "Basic decision-making concepts",
+    "Ranking and evaluation"
+  ],
+  "relatedPublicationIds": [
+    "research-problem-08",
+    "research-problem-10"
+  ],
+  "packageFiles": [
+    "README.md",
+    "docs/original-source-verbatim.txt",
+    "assets/project-swap-study.png",
+    "assets/preference-agent-architecture.svg",
+    "assets/prompt-pulse-logo.png",
+    "assets/agent-governance-boundaries.svg",
+    "assets/agent-governance-boundaries.png",
+    "assets/preference-agent-architecture.png",
+    "assets/laptop-preference-ranking.png",
+    "assets/project-swap-study.svg",
+    "diagrams/preference-agent-architecture.mmd",
+    "diagrams/project-swap-study.dot",
+    "diagrams/agent-governance-boundaries.mmd",
+    "diagrams/preference-agent-architecture.dot",
+    "diagrams/project-swap-study.mmd",
+    "diagrams/agent-governance-boundaries.dot",
+    "demo/preference-playground.html"
+  ],
+  "originalSources": [
+    "docs/original-source-verbatim.txt"
+  ]
+}

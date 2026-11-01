@@ -1,0 +1,17 @@
+{
+  "intuition": "A robot must respond to the object in its hand, not only to the object it practiced with in simulation.",
+  "learningGoal": "Connect physical-world simulation, vision-language-action policies, and sim-to-real evaluation in NVIDIA physical AI research.",
+  "exerciseNote": "The inline reality-gap experiment uses Python’s standard library on a CPU. Full Cosmos or GR00T work has separate model, GPU, licensing, and hardware requirements.",
+  "quiz": {
+    "kind": "choice",
+    "question": "Scenario: A humanoid robot learned to pick up warehouse boxes in simulation. In a real-world test, it grasps an unfamiliar slippery box, and the grasp begins to fail. What should it do?",
+    "explanation": "Real feedback can reveal a sim-to-real mismatch. Correction or a safe stop within physical limits is preferable to blindly continuing the simulated plan.",
+    "choices": [
+      "Continue the original movement regardless of feedback.",
+      "Increase gripping force without checking fragility or hardware limits.",
+      "Detect instability, respect safety limits, and adjust or stop using feedback.",
+      "Assume simulation success guarantees physical success."
+    ],
+    "answer": 2
+  }
+}

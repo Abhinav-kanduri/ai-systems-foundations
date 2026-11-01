@@ -1,0 +1,334 @@
+Research Problem 09: Understanding Human Preferences — Can AI Agents Truly Represent What We Want?
+PROMPT & PULSE AI | RESEARCH TO REALITY | ANTHROPIC RESEARCH DIRECTION | SERIES 09/20
+1. Problem statement
+Can artificial intelligence accurately understand human preferences, priorities, and constraints before making recommendations, negotiating with other agents, or taking decisions on someone's behalf?
+
+Imagine asking an AI agent:
+
+"Find the best laptop for me under $1,000."
+
+The agent searches hundreds of options, compares prices, negotiates a discount, and purchases a laptop for $750.
+
+It reports:
+
+"Success! I saved you $250."
+
+But when you start using it, you discover that the webcam is poor, the battery doesn't last long enough, and the laptop struggles with the software you need.
+
+The agent satisfied the budget constraint.
+
+Yet it failed to select the laptop that best served your needs.
+
+The fundamental challenge is that an agent cannot reliably optimize for someone's preferences unless it has an adequate understanding of those preferences.
+
+This leads to an important research question:
+
+Should an AI agent become better at making decisions, or should it first become better at understanding whose preferences those decisions are supposed to satisfy?
+
+2. Why is this problem difficult?
+Humans rarely communicate every preference explicitly.
+
+Consider the instruction:
+
+"Book the best flight to New York."
+
+What does best mean?
+
+One person might prioritize the lowest price. Another might prefer a nonstop flight, flexible cancellation, a convenient arrival time, or a particular airline.
+
+Even the same person's priorities can change depending on the situation.
+
+For a vacation, cost may be most important. For an urgent business meeting, arrival time and reliability may matter more.
+
+This introduces three different types of requirements.
+Requirement	Meaning	Flight example
+Hard constraint	A condition that must be satisfied	Arrive before 9 AM
+Soft preference	A desirable property that can be traded off	Prefer a nonstop flight
+Unknown requirement	Important information the agent has not established	Is a refundable ticket necessary?
+
+An agent that silently converts an unknown requirement into an assumption can optimize the wrong objective.
+
+The challenge becomes even more complex when agents negotiate on behalf of people.
+
+A negotiation agent could secure an excellent price for something the user does not actually value.
+
+Being good at negotiation does not compensate for having an inaccurate understanding of the user's preferences.
+3. Technical concepts behind the problem
+Concept	Explanation
+Preference learning	Inferring what a person values from choices, ratings, feedback, or conversation.
+Preference elicitation	Asking targeted questions to discover a person's priorities.
+Utility function	A mathematical representation of how desirable an outcome is.
+Pairwise preference ranking	Determining whether someone prefers option A over option B.
+Inverse reinforcement learning	Inferring an underlying reward or objective from observed behavior, subject to modeling assumptions.
+Constraint satisfaction	Finding solutions that satisfy required conditions.
+Multi-objective optimization	Balancing several potentially competing objectives.
+Preference uncertainty	Representing what the agent does not yet know about a person's values.
+Active learning	Selecting informative questions or examples to reduce uncertainty.
+Mechanism design	Designing interaction rules and incentives for participants with different objectives.
+Negotiation agents	Agents that exchange proposals to pursue objectives on behalf of participants.
+Human-in-the-loop approval	Requiring human confirmation for consequential decisions or actions.
+
+Understanding utility functions
+Suppose we represent a laptop's desirability using four characteristics:
+- Performance
+- Webcam quality
+- Battery life
+- Portability
+A simplified weighted utility model might be:
+\[
+U(x)=w_1P(x)+w_2C(x)+w_3B(x)+w_4M(x)
+\]
+
+Where \(U(x)\) is the utility of laptop \(x\), the four functions represent attribute scores, and the weights describe their relative importance.
+
+Consider this illustrative preference model:
+\[
+U(x)=0.40P(x)+0.30C(x)+0.20B(x)+0.10M(x)
+\]
+
+The user prioritizes performance and webcam quality more heavily than portability.
+
+An agent that incorrectly assumes price is the only relevant factor may recommend a laptop that has low utility for that user.
+
+These weights are illustrative; real preferences may be nonlinear, context-dependent, uncertain, or impossible to represent adequately with a simple weighted sum.
+
+4. Interactive example: How changing preferences changes the decision
+Adjust what matters to you
+Performance
+
+40%
+
+
+
+
+Webcam quality
+
+30%
+
+
+
+
+Battery life
+
+20%
+
+
+
+
+Portability
+
+10%
+
+
+
+
+
+Ranked options under your current preferences
+1
+
+Laptop B
+
+Illustrative price: $940
+
+
+
+8.30/10
+
+2
+
+Laptop C
+
+Illustrative price: $880
+
+
+
+7.60/10
+
+3
+
+Laptop A
+
+Illustrative price: $750
+
+
+
+5.20/10
+
+All prices and ratings are fictional teaching examples. Adjusting the preferences changes the ranking without changing the available laptops. All three meet the $1,000 budget constraint.Reset preferences
+What this demonstrates: An agent does not necessarily need a more powerful model to make a better recommendation. Sometimes it needs a more accurate representation of the user's priorities.
+
+5. End-to-end Mermaid architecture diagram
+This workflow demonstrates how a preference-aware agent could move from a vague request to an approved decision.
+#chatgpt-mermaid-_r_1e1_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_1e1_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1e1_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1e1_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-_r_1e1_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_1e1_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_1e1_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_1e1_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_1e1_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_1e1_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_1e1_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_1e1_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_1e1_ p{margin:0;}#chatgpt-mermaid-_r_1e1_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_1e1_ .label text,#chatgpt-mermaid-_r_1e1_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .node rect,#chatgpt-mermaid-_r_1e1_ .node circle,#chatgpt-mermaid-_r_1e1_ .node ellipse,#chatgpt-mermaid-_r_1e1_ .node polygon,#chatgpt-mermaid-_r_1e1_ .node path{fill:rgb(19, 33, 54);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .rough-node .label text,#chatgpt-mermaid-_r_1e1_ .node .label text,#chatgpt-mermaid-_r_1e1_ .image-shape .label,#chatgpt-mermaid-_r_1e1_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_1e1_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .rough-node .label,#chatgpt-mermaid-_r_1e1_ .node .label,#chatgpt-mermaid-_r_1e1_ .image-shape .label,#chatgpt-mermaid-_r_1e1_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_1e1_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_1e1_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_1e1_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-_r_1e1_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-_r_1e1_ .edgeLabel{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_1e1_ .edgeLabel p{background-color:rgb(14, 14, 14);}#chatgpt-mermaid-_r_1e1_ .edgeLabel rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_1e1_ .labelBkg{background-color:rgba(14, 14, 14, 0.5);}#chatgpt-mermaid-_r_1e1_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_1e1_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-_r_1e1_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_1e1_ .icon-shape,#chatgpt-mermaid-_r_1e1_ .image-shape{background-color:rgb(14, 14, 14);text-align:center;}#chatgpt-mermaid-_r_1e1_ .icon-shape p,#chatgpt-mermaid-_r_1e1_ .image-shape p{background-color:rgb(14, 14, 14);padding:2px;}#chatgpt-mermaid-_r_1e1_ .icon-shape .label rect,#chatgpt-mermaid-_r_1e1_ .image-shape .label rect{opacity:0.5;background-color:rgb(14, 14, 14);fill:rgb(14, 14, 14);}#chatgpt-mermaid-_r_1e1_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_1e1_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_1e1_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_1e1_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_1e1_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_1e1_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_1e1_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_1e1_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1e1_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_1e1_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1e1_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_1e1_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(232, 232, 232);}#chatgpt-mermaid-_r_1e1_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_1e1_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_1e1_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .node rect,#chatgpt-mermaid-_r_1e1_ .node circle,#chatgpt-mermaid-_r_1e1_ .node ellipse,#chatgpt-mermaid-_r_1e1_ .node polygon,#chatgpt-mermaid-_r_1e1_ .node path{fill:rgb(24, 24, 24);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_1e1_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_1e1_ .mermaid-decision .label-container{fill:rgb(19, 19, 19);stroke:rgb(47, 47, 47);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_1e1_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_1e1_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-_r_1e1_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}#chatgpt-mermaid-_r_1e1_ .research rect{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .research polygon{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .research ellipse{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .research circle{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .research path{fill:rgb(230, 242, 241)!important;stroke:rgb(13, 148, 136)!important;color:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .research tspan{fill:rgb(19, 78, 74)!important;}#chatgpt-mermaid-_r_1e1_ .decision rect{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .decision polygon{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .decision ellipse{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .decision circle{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .decision path{fill:rgb(255, 242, 214)!important;stroke:rgb(213, 154, 33)!important;color:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .decision tspan{fill:rgb(115, 69, 0)!important;}#chatgpt-mermaid-_r_1e1_ .approval rect{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_1e1_ .approval polygon{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_1e1_ .approval ellipse{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_1e1_ .approval circle{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_1e1_ .approval path{fill:rgb(219, 234, 254)!important;stroke:rgb(37, 99, 235)!important;color:rgb(30, 58, 138)!important;}#chatgpt-mermaid-_r_1e1_ .approval tspan{fill:rgb(30, 58, 138)!important;}Human RequestIdentify IntentExtract Hard ConstraintsInfer Soft PreferencesIdentify Missing InformationPreference Uncertainty High?Ask Clarifying QuestionsBuild Preference ModelRetrieve Candidate OptionsApply Hard ConstraintsEstimate Utility and RankExplain Trade-offsCollect User FeedbackUser Confirms Preferences?Revise Preference ModelPropose Best-Fit DecisionConsequential Action?Request Explicit ApprovalExecute Authorized ActionVerify Actual OutcomeUpdate Preferences withConsentReport OutcomeYesNoNoYesYesNo
+
+
+
+
+
+How the architecture works
+The agent first identifies the user's explicit requirements and possible implicit preferences.
+
+If important information is missing, it asks clarifying questions.
+
+It then filters out options that violate hard constraints and ranks the remaining choices using the best available preference model.
+
+Before making a consequential decision, such as purchasing something or committing to a negotiation, it obtains the required approval.
+
+After execution, it checks whether the actual outcome satisfied the user's requirements.
+
+The critical step is validating preference understanding before optimizing and acting.
+
+6. Real research example: Anthropic's Project Swap
+ANTHROPIC RESEARCH | SEPTEMBER 24, 2026
+
+
+
+
+
+
+
+
+
+Anthropic investigated this problem through Project Swap: What happens when agents trade for us?
+
+The experiment involved 201 Anthropic employees who brought books to exchange.
+
+Each participant spoke with Claude about their reading preferences. Claude then constructed a ranking of books that the participant might enjoy.
+
+AI agents entered a simulated trading environment where they negotiated exchanges on their participants' behalf.
+
+The researchers wanted to understand two distinct capabilities:
+
+Preference representation: Did the AI correctly understand what the person wanted?
+
+Negotiation performance: Given those preferences, could the AI negotiate a beneficial exchange?
+What did the researchers find?
+61%
+Pairwise preference agreement
+
+
+85%
+Share of measured outcome gap attributed to preference representation
+
+
+7.2/10
+Average satisfaction among follow-up respondents
+
+
+
+Source: Anthropic Project Swap. These measurements refer to different aspects of the experiment and should not be interpreted as interchangeable success rates. 
+anthropic.com
+
+
+Claude's predicted preference ordering matched participants' ordering on 61% of evaluated book pairs, compared with 50% expected from random ordering.
+
+In the researchers' analysis, inaccuracies in preference representation accounted for approximately 85% of the gap between achieved outcomes and the estimated optimum.
+
+This is particularly interesting because the agents' ability to negotiate was not the dominant limitation.
+
+Much of the missed opportunity came from imperfectly understanding what participants wanted in the first place.
+
+There are important limitations: participants were Anthropic employees, preferences were measured using a limited ranking exercise, and exchanging books is far simpler than making high-stakes financial or medical decisions.
+The deeper lesson
+An agent can be highly capable at executing a strategy while being poorly informed about which outcome its user would prefer.
+
+Better execution does not automatically correct a misunderstood objective.
+
+7. Research goal
+The goal is to develop AI agents that can more faithfully represent human preferences and use that understanding when making decisions.
+
+This includes improving preference elicitation, modeling uncertainty, distinguishing hard constraints from soft preferences, and determining when the agent should ask for clarification.
+
+Another research goal is to design methods for checking whether the agent understands a particular person before allowing autonomous decisions.
+
+For example, an agent might show a user several hypothetical choices and ask whether its predicted selections align with the user's expectations.
+
+This is conceptually similar to testing a recommendation model before delegating purchasing authority.
+
+The objective is not merely better recommendations. It is more trustworthy delegation.
+
+8. What remains difficult?
+Incomplete preferences: People may not know exactly what they want until they see available options.
+
+Changing priorities: Preferences depend on circumstances, time, and context.
+
+Conflicting objectives: A user may value low cost, high performance, convenience, and reliability simultaneously.
+
+Preference misrepresentation: Short conversations may provide insufficient information to construct accurate rankings.
+
+Privacy: Agents should not reveal sensitive personal preferences unnecessarily during negotiations.
+
+Strategic behavior: Agents may encounter counterparties pursuing conflicting interests.
+
+Authorization: An agent that understands a user's preferences still needs permission before taking consequential actions.
+
+Measuring satisfaction: An apparently successful negotiation may produce an outcome the person later dislikes.
+
+These challenges explain why preference learning connects directly to AI alignment, multi-agent coordination, mechanism design, and human oversight.
+
+9. Interview perspective
+Interview question:
+
+How would you design an AI purchasing or negotiation agent that accurately represents user preferences while respecting hard constraints, uncertainty, privacy, and approval requirements?
+Strong answer direction
+Begin by separating user requirements into hard constraints, soft preferences, and unresolved questions.
+
+Create a structured preference representation that allows the system to rank acceptable options while preserving required conditions.
+
+Use targeted clarification questions when uncertainty could materially change the decision.
+
+Validate the preference model through examples or pairwise comparisons.
+
+For negotiation, limit what private preference information is shared with other agents.
+
+Require explicit authorization for consequential purchases or commitments.
+
+Finally, evaluate both preference prediction accuracy and the real outcome delivered to the user.
+
+What the interviewer is testing: Preference modeling, constrained optimization, personalization, agent design, uncertainty handling, and safe delegation.
+
+10. Subscriber learning challenge
+You ask an AI agent to purchase a laptop for under $1,000.
+
+The agent finds a laptop costing $700, but it does not know whether you need the device for gaming, coding, or video teaching.
+
+What should the agent do next?
+
+Immediately purchase the cheapest laptop.
+
+Assume performance is the most important preference.
+
+Clarify the intended use and important requirements before recommending or purchasing.
+
+Delegate the purchase to five other agents without gathering more information.
+
+
+Practical exercise for students
+Ask an AI assistant to recommend three professional certification programs.
+
+Initially provide only a broad instruction such as, "Recommend the best AI certification for me."
+
+Then provide additional constraints: available study time, preferred career path, budget, existing technical skills, and whether practical projects matter more than exam credentials.
+
+Compare the recommendations before and after clarifying your preferences.
+
+The learning objective is to observe how better requirement information can change the quality of recommendations without necessarily changing the underlying model.
+
+11. Primary research references
+- Anthropic — Project Swap: What Happens When Agents Trade for Us? (September 2026)
+- Anthropic — Research Publications
+- Research literature — Preference Elicitation with Language Models
+Key takeaway
+A powerful AI agent does not necessarily make a good representative of its user.
+
+Before optimizing a recommendation, negotiating an agreement, or executing a delegated task, an agent needs an accurate enough understanding of the user's objectives, constraints, and preferences.
+
+Anthropic's Project Swap demonstrates why this distinction matters: effective negotiation cannot fully compensate for inaccurate preference representation.
+
+The broader engineering principle is simple:
+
+Understand the person first. Optimize the decision second. Execute only within appropriate boundaries.
+
+Prompt & Pulse AI — Learn AI. Build AI. Stay Ahead.
+
+Next in the series: Research Problem 10 — Multi-Agent Coordination: Why can groups of capable AI agents fail to cooperate, and how can we design agent teams that genuinely outperform simpler systems?

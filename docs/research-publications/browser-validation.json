@@ -1,0 +1,203 @@
+{
+  "articles": [
+    {
+      "id": "research-problem-01",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 12,
+      "images": 7,
+      "knowledgeCheck": "reflection",
+      "passed": true
+    },
+    {
+      "id": "research-problem-02",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 6,
+      "images": 8,
+      "knowledgeCheck": "reflection",
+      "passed": true
+    },
+    {
+      "id": "research-problem-03",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 0,
+      "images": 5,
+      "knowledgeCheck": "reflection",
+      "passed": true
+    },
+    {
+      "id": "research-problem-04",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 6,
+      "images": 6,
+      "knowledgeCheck": "reflection",
+      "passed": true
+    },
+    {
+      "id": "research-problem-05",
+      "diagrams": 4,
+      "rendererCorrections": 0,
+      "math": 7,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-06",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 0,
+      "images": 5,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-07",
+      "diagrams": 4,
+      "rendererCorrections": 2,
+      "math": 0,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-08",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 4,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-09",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 2,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-10",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 1,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-11",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 11,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-12",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 21,
+      "images": 6,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-13",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 6,
+      "images": 5,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-14",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 11,
+      "images": 7,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-15",
+      "diagrams": 4,
+      "rendererCorrections": 0,
+      "math": 7,
+      "images": 9,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-16",
+      "diagrams": 4,
+      "rendererCorrections": 0,
+      "math": 7,
+      "images": 7,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-17",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 11,
+      "images": 7,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-18",
+      "diagrams": 3,
+      "rendererCorrections": 0,
+      "math": 8,
+      "images": 7,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-19",
+      "diagrams": 3,
+      "rendererCorrections": 1,
+      "math": 6,
+      "images": 5,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    },
+    {
+      "id": "research-problem-20",
+      "diagrams": 7,
+      "rendererCorrections": 0,
+      "math": 1,
+      "images": 9,
+      "knowledgeCheck": "interactive",
+      "passed": true
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1440,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "passed": true
+    },
+    {
+      "width": 320,
+      "passed": true
+    }
+  ],
+  "series": true
+}

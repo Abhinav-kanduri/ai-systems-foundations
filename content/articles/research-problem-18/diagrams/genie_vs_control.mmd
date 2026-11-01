@@ -1,0 +1,11 @@
+flowchart LR
+  subgraph SIM[Generative World Simulation]
+    I[Prompt and Actions] --> GS[Interactive Scene Generator]
+    GS --> IMG[Rendered Frames and Audio]
+  end
+  subgraph VALID[Robot Control Validation]
+    DATA[Real Sensor and Dynamics Data] --> DYN[Calibrated Dynamics Model]
+    DYN --> TEST[Quantitative Physical Testing]
+    TEST --> CTRL[Constrained Planner and Safety Layer]
+  end
+  IMG -.->|Potential scenario input; not a safety guarantee| TEST

@@ -1,0 +1,9 @@
+digraph G {rankdir=LR;graph[bgcolor="#0b1220",pad="0.3"];node[shape=box,style="rounded,filled",fillcolor="#172438",color="#35cfc0",fontcolor="white",fontname="DejaVu Sans",fontsize=12,margin=".2,.15"];edge[color="#8aadc7"];before[label="BEFORE
+A: $1,000
+B: $500
+Total: $1,500"];valid[label="Authorization +
+amount preconditions",shape=diamond,fillcolor="#654d20"];move[label="Atomic transfer
+$200 from A to B"];after[label="AFTER
+A: $800
+B: $700
+Total: $1,500",fillcolor="#174841"];reject[label="Reject invalid request",fillcolor="#612b35"];before->valid;valid->move[label="Pass",fontcolor="white"];valid->reject[label="Fail",fontcolor="white"];move->after; }

@@ -44,13 +44,14 @@ test('production library, source-driven counts, routes, metadata and FDE entry',
   assert.ok(await page.locator('script[type="application/ld+json"]').count());
   await page.screenshot({path:path.join(root,'build/qa/publications-desktop.png')});
   await page.locator('#publication-query').fill('Customer discovery');
+  await page.locator('select[name=type]').selectOption('field-guide');
   assert.equal(await page.locator('#publication-results .publication-card').count(),1);
   await page.locator('#publication-query').fill('impossible-no-match-1281');
   await page.locator('#publication-results .library-empty').waitFor();
   assert.ok(page.url().includes('q=impossible'));
   await page.locator('#clear-filters').click();
-  await page.locator('#publication-results .publication-card').waitFor();
-  await page.locator('#publication-results .text-action').click();
+  await page.locator('#publication-results .publication-card').first().waitFor();
+  await page.locator('#publication-results [data-publication-id="fde-field-guide"] .text-action').click();
   await page.locator('#chapter-nav a').first().waitFor();
   assert.equal(await page.locator('#progress-total').textContent(),'27');
   assert.equal(await page.locator('.fde-publications-link').count(),1);
@@ -128,7 +129,7 @@ test('publication navigation and completion preserve existing FDE progress byte-
 test('responsive desktop, tablet, mobile, keyboard navigation and project subpath',async()=>{
   for(const [width,height] of [[1440,1000],[768,1024],[390,844],[320,740]]) {
     const {page,context}=await pageFor(publicUrl+'/project/publications/',width,height);
-    await page.locator('#publication-results .publication-card').waitFor();
+    await page.locator('#publication-results .publication-card').first().waitFor();
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'overflow at '+width);
     if(width<=850) {
       await page.locator('#library-menu').click();
