@@ -45,6 +45,9 @@ ai-systems-foundations/
 ├── assets/images/               Repository-wide images
 ├── archive/placeholders/        Preserved empty placeholder files
 ├── .github/workflows/           Deployment automation
+├── scripts/                     Publication build, authoring, and local server
+├── tests/site/                  Metadata, publishing, search, and browser tests
+├── reports/publications/        Architecture, baseline, and implementation report
 ├── CONTRIBUTING.md              Organization and contribution conventions
 ├── LICENSE
 └── README.md
@@ -73,14 +76,20 @@ python -m streamlit run app.py
 The [RAG pipeline](projects/rag-pipeline/README.md) is a setup guide and design
 reference; its proposed application files are not yet implemented.
 
-To preview the FDE website from the repository root:
+To run the publications platform and FDE website from the repository root:
 
 ```powershell
-python -m http.server 8000
+python -m venv .venv-site
+.\.venv-site\Scripts\python.exe -m pip install -r requirements-site.txt
+.\.venv-site\Scripts\python.exe scripts/publications.py serve --port 8000
 ```
 
-Open <http://localhost:8000/docs/>. The website reads the learning map from
-`content/guides/end-to-end-fde-learning-map/README.md` during local development.
+Open <http://localhost:8000/publications/> for the library or
+<http://localhost:8000/docs/> for the original FDE reader. The local server
+rebuilds changed content and serves only the generated public artifact.
+
+See [publishing instructions](content/README.md) to add the next article and
+[website documentation](docs/README.md) for tests and deployment.
 
 ## Contributing
 

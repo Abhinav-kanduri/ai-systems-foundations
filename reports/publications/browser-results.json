@@ -1,0 +1,30 @@
+[
+  {
+    "scenario": "Production library and FDE entry",
+    "passed": true
+  },
+  {
+    "scenario": "Article discovery, full-text search and composed URL filters",
+    "passed": true
+  },
+  {
+    "scenario": "Draft/future protection and archive retention",
+    "passed": true
+  },
+  {
+    "scenario": "Article rendering and explicit completion/series/path navigation",
+    "passed": true
+  },
+  {
+    "scenario": "Existing FDE progress preservation",
+    "passed": true
+  },
+  {
+    "scenario": "Responsive 1440/768/390/320, keyboard and project subpath",
+    "passed": true
+  },
+  {
+    "scenario": "Mobile article, safe SVG and dark/light token contrast",
+    "passed": true
+  }
+]

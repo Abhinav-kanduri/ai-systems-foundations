@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Publication source metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "primaryCategory", "publicationType", "status"],
+  "$defs": {
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 120},
+    "strings": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "date": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}(?:T.+(?:Z|[+-]\\d{2}:\\d{2}))?$"},
+    "link": {"type": "object", "additionalProperties": false, "required": ["label", "url"], "properties": {"label": {"type": "string", "minLength": 1}, "url": {"type": "string", "format": "uri", "pattern": "^https?://"}}}
+  },
+  "properties": {
+    "id": {"$ref": "#/$defs/slug"},
+    "slug": {"$ref": "#/$defs/slug"},
+    "title": {"type": "string", "minLength": 1},
+    "subtitle": {"type": ["string", "null"]},
+    "summary": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "abstract": {"type": ["string", "null"]},
+    "author": {"type": ["string", "null"]},
+    "publishedAt": {"$ref": "#/$defs/date"},
+    "updatedAt": {"$ref": "#/$defs/date"},
+    "primaryCategory": {"$ref": "#/$defs/slug"},
+    "secondaryCategories": {"$ref": "#/$defs/strings"},
+    "tags": {"$ref": "#/$defs/strings"},
+    "technologies": {"$ref": "#/$defs/strings"},
+    "publicationType": {"$ref": "#/$defs/slug"},
+    "difficulty": {"enum": [null, "beginner", "intermediate", "advanced"]},
+    "readingTime": {"type": "integer", "minimum": 1},
+    "prerequisites": {"$ref": "#/$defs/strings"},
+    "seriesId": {"type": ["string", "null"]},
+    "seriesOrder": {"type": ["integer", "null"], "minimum": 1},
+    "relatedPublicationIds": {"$ref": "#/$defs/strings"},
+    "repositoryLinks": {"type": "array", "items": {"$ref": "#/$defs/link"}},
+    "researchReferences": {"type": "array", "items": {"$ref": "#/$defs/link"}},
+    "status": {"enum": ["draft", "review", "scheduled", "published", "archived"]},
+    "version": {"type": ["string", "null"]},
+    "canonicalUrl": {"type": ["string", "null"], "format": "uri", "pattern": "^https?://"},
+    "reader": {"enum": ["article", "fde"]},
+    "revisions": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["date", "summary"], "properties": {"date": {"$ref": "#/$defs/date"}, "version": {"type": "string"}, "summary": {"type": "string", "minLength": 1}}}}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"enum": ["published", "scheduled", "archived"]}}}, "then": {"required": ["publishedAt"], "properties": {"publishedAt": {"type": "string"}}}}
+  ]
+}

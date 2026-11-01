@@ -1,0 +1,9 @@
+{
+  "id": "forward-deployed-engineering",
+  "slug": "forward-deployed-engineering",
+  "title": "From discovery to production",
+  "description": "Start with the FDE Field Guide and follow its 12-stage learning sequence, from customer discovery through deployment, observability, and portfolio work.",
+  "status": "published",
+  "publicationIds": ["fde-field-guide"],
+  "prerequisites": []
+}

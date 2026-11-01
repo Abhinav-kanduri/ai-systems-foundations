@@ -1,0 +1,27 @@
+{
+  "categories": [
+    {"id": "fde", "slug": "forward-deployed-engineering", "title": "Forward Deployed Engineering", "description": "From customer discovery to measurable production outcomes."},
+    {"id": "ai-ml", "slug": "ai-and-machine-learning", "title": "AI and Machine Learning", "description": "Models, learning methods, and applied intelligence."},
+    {"id": "generative-ai", "slug": "generative-ai-and-agentic-systems", "title": "Generative AI and Agentic Systems", "description": "Language models, retrieval, and autonomous workflows."},
+    {"id": "gpu", "slug": "gpu-and-accelerator-architecture", "title": "GPU and Accelerator Architecture", "description": "Compute architecture and accelerated workloads."},
+    {"id": "ai-infrastructure", "slug": "ai-infrastructure-and-inference", "title": "AI Infrastructure and Inference", "description": "Serving, scaling, and optimizing AI systems."},
+    {"id": "cloud", "slug": "cloud-and-platform-engineering", "title": "Cloud and Platform Engineering", "description": "Infrastructure, delivery, and developer platforms."},
+    {"id": "distributed-systems", "slug": "distributed-systems", "title": "Distributed Systems", "description": "Architecture, coordination, and reliable services."},
+    {"id": "data", "slug": "data-engineering-and-databases", "title": "Data Engineering and Databases", "description": "Data pipelines, storage, and querying."},
+    {"id": "robotics", "slug": "reinforcement-learning-and-robotics", "title": "Reinforcement Learning and Robotics", "description": "Learning, control, and embodied systems."},
+    {"id": "research", "slug": "ai-research", "title": "AI Research", "description": "Research analysis and scientific discoveries."},
+    {"id": "reliability", "slug": "ai-security-and-observability", "title": "AI Security and Observability", "description": "Evaluation, safety, reliability, and system behavior."},
+    {"id": "fundamentals", "slug": "computer-science-fundamentals", "title": "Computer Science Fundamentals", "description": "The foundations beneath modern software systems."}
+  ],
+  "publicationTypes": [
+    {"id": "technical-article", "title": "Technical Article"},
+    {"id": "tutorial", "title": "Engineering Tutorial"},
+    {"id": "research-analysis", "title": "Research Analysis"},
+    {"id": "field-guide", "title": "Field Guide"},
+    {"id": "architecture-deep-dive", "title": "Architecture Deep Dive"},
+    {"id": "experiment-benchmark", "title": "Experiment and Benchmark"},
+    {"id": "case-study", "title": "Case Study"},
+    {"id": "engineering-notes", "title": "Engineering Notes"},
+    {"id": "research-series", "title": "Research Series"}
+  ]
+}

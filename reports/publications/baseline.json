@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-31T23:10:32.795Z",
+  "stack": "Buildless HTML/CSS/JavaScript; no package.json or website test runner",
+  "route": "/docs/#<chapter-slug>",
+  "chapterLinks": 30,
+  "trackableChapters": 27,
+  "checks": {
+    "http": true,
+    "chapterNavigation": true,
+    "progressPersists": true,
+    "search": true,
+    "emptySearch": true,
+    "mobileMenu": true
+  },
+  "desktopOverflow": false,
+  "mobileOverflow": false,
+  "preexistingFailures": [],
+  "fdeSha256": "c181f453d66445927516ef13e4648c58915c4d6f2c214b246ccbbdcd59d034e9",
+  "contentCounts": {
+    "chapters": 27,
+    "focusedTopics": 132,
+    "portfolioArtifacts": 25,
+    "learningStages": 12,
+    "numberedTopics": 129
+  },
+  "fdeNormalizedSha256": "b4eafcdbdcb50717219a60d2c6dadc90e0d57fceea75cdccdf3346f6598390e7"
+}
